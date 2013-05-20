@@ -114,6 +114,7 @@
 		0771070B174673E1008A27BC /* home screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0771070A174673E1008A27BC /* home screen.png */; };
 		07A8B7881749EC5400E3227C /* Sender.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A8B7871749EC5400E3227C /* Sender.m */; };
 		07A8B78B1749EC5400E3227C /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A8B78A1749EC5400E3227C /* Message.m */; };
+		07A8B791174A657500E3227C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 07A8B790174A657500E3227C /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -269,6 +270,7 @@
 		07A8B7871749EC5400E3227C /* Sender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sender.m; sourceTree = "<group>"; };
 		07A8B7891749EC5400E3227C /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		07A8B78A1749EC5400E3227C /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		07A8B790174A657500E3227C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +348,7 @@
 				077105BF1744EBAA008A27BC /* InfoPlist.strings */,
 				077105C21744EBAA008A27BC /* main.m */,
 				077105C41744EBAA008A27BC /* Kirapika-Prefix.pch */,
+				07A8B790174A657500E3227C /* .gitignore */,
 				077105C81744EBAA008A27BC /* Default.png */,
 				077105CA1744EBAA008A27BC /* Default@2x.png */,
 				077105CC1744EBAA008A27BC /* Default-568h@2x.png */,
@@ -757,6 +760,7 @@
 				07710708174672A6008A27BC /* toggle_button.png in Resources */,
 				07710709174672A6008A27BC /* toggle_button@2x.png in Resources */,
 				0771070B174673E1008A27BC /* home screen.png in Resources */,
+				07A8B791174A657500E3227C /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
