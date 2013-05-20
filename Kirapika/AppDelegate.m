@@ -7,15 +7,25 @@
 //
 
 #import "AppDelegate.h"
+#import "FilesManagement.h"
+#import "UserDefaultsKeys.h"
 
 @implementation AppDelegate
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if (url != nil && [url isFileURL]) {
+        if ([[url pathExtension] isEqualToString:PLIST_TYPE]) {
+            [[NSUserDefaults standardUserDefaults] setObject:[url path] forKey:IMPORT_PLIST_PATH];
+        } else if ([[url pathExtension] isEqualToString:DATABASE_TYPE]) {
+            [[NSUserDefaults standardUserDefaults] setObject:[url path] forKey:IMPORT_DATABASE_PATH];
+        }
+    }
+    return YES;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
     return YES;
 }
 

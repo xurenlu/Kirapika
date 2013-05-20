@@ -1,0 +1,15 @@
+//
+//  GestureNavigationViewController.h
+//  kirakira pikapika
+//
+//  Created by Justin Jia on 5/13/13.
+//  Copyright (c) 2013 Justin Jia. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "UIView+FindFirstResponder.h"
+#import "GestureNavigationBar.h"
+
+@interface GestureNavigationViewController : UINavigationController  <SwipeDownOnNavigationBarToDismissCurrentViewController>
+
+@end
