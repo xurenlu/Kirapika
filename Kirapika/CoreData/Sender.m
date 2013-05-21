@@ -2,7 +2,7 @@
 //  Sender.m
 //  Kirapika
 //
-//  Created by Justin Jia on 5/20/13.
+//  Created by Justin Jia on 5/21/13.
 //  Copyright (c) 2013 Justin Jia. All rights reserved.
 //
 
@@ -14,7 +14,7 @@
 
 @dynamic isLeftUser;
 @dynamic name;
-@dynamic photoUrl;
+@dynamic photoURL;
 @dynamic messages;
 
 @end

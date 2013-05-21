@@ -14,11 +14,11 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    if (url != nil && [url isFileURL]) {
-        if ([[url pathExtension] isEqualToString:PLIST_TYPE]) {
-            [[NSUserDefaults standardUserDefaults] setObject:[url path] forKey:IMPORT_PLIST_PATH];
+    if (url && url.isFileURL) {
+        if ([url.pathExtension isEqualToString:PLIST_TYPE]) {
+            [[NSUserDefaults standardUserDefaults] setObject:url.path forKey:IMPORT_PLIST_PATH];
         } else if ([[url pathExtension] isEqualToString:DATABASE_TYPE]) {
-            [[NSUserDefaults standardUserDefaults] setObject:[url path] forKey:IMPORT_DATABASE_PATH];
+            [[NSUserDefaults standardUserDefaults] setObject:url.path forKey:IMPORT_DATABASE_PATH];
         }
     }
     return YES;

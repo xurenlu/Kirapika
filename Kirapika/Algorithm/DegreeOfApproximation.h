@@ -10,7 +10,6 @@
 
 @interface DegreeOfApproximation : NSObject
 
-@property (nonatomic, strong) NSString *x;
-- (double)degreeOfApproximation:(NSString *)y;
++ (double)degreeOfApproximation:(NSString *)x :(NSString *)y;
 
 @end

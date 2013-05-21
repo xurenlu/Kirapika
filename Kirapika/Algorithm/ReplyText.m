@@ -7,12 +7,12 @@
 //
 
 #import "ReplyText.h"
+#import "NSString+Transcode.h"
 
 #define PROBABILITY_THRESHOLD 0.5
 
 @interface ReplyText()
 
-@property (nonatomic, strong) DegreeOfApproximation *degreeOfApproximation;
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) NSArray *leftSenderMessages;
 @property (nonatomic, strong) NSArray *rightSenderMessages;
@@ -24,7 +24,6 @@
 @implementation ReplyText
 - (void)loadWithManagedObjectContext:(NSManagedObjectContext *)context andLimit:(long)limit
 {
-    self.degreeOfApproximation = [DegreeOfApproximation new];
     self.context = context;
 
     self.leftSenderMessages = [[[[[context ofType:@"Message"]
@@ -47,9 +46,9 @@
     
     NSMutableArray *replys = [NSMutableArray new];
     NSArray *messages = (sender == ReplyTextLeftSender) ? self.leftSenderMessages : self.rightSenderMessages;
-
+    str = str.transcode;
+    
     int rowID = NO;
-    [self.degreeOfApproximation setX:str];
     for (Message *message in messages) {
         if (rowID) {
             NSArray *reply = [[[[self.context ofType:@"Message"]
@@ -59,13 +58,12 @@
             if (reply.count > 0) [replys addObject:reply];
             rowID = NO;
         }
-        double probability = [self.degreeOfApproximation degreeOfApproximation:message.contextTranscoding];
+        double probability = [DegreeOfApproximation degreeOfApproximation:str :message.contextTranscoding];
         if (probability >= PROBABILITY_THRESHOLD) rowID = message.rowID.intValue;
     }
         
-    if (replys.count == 0) {
+    if (!replys.count) {
         Message *message = (sender == ReplyTextLeftSender) ? self.rightSenderMessages.lastObject : self.leftSenderMessages.lastObject;
-        
         message.date = [NSDate date];
         message.context = str;
         message.rowID = nil;

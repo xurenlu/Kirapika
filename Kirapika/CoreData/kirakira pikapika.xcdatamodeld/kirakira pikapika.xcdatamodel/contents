@@ -10,11 +10,16 @@
     <entity name="Sender" representedClassName="Sender" syncable="YES">
         <attribute name="isLeftUser" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="photoUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photoURL" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="whoSent" inverseEntity="Message" syncable="YES"/>
+    </entity>
+    <entity name="Word" representedClassName="Word" syncable="YES">
+        <attribute name="org" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="trans" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Message" positionX="0" positionY="0" width="128" height="120"/>
         <element name="Sender" positionX="241" positionY="18" width="128" height="105"/>
+        <element name="Word" positionX="160" positionY="192" width="128" height="75"/>
     </elements>
 </model>

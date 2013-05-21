@@ -7,6 +7,7 @@
 //
 
 #import "NSString+Transcode.h"
+#import "NSString+Tokenize.h"
 
 @implementation NSString (Transcode)
 

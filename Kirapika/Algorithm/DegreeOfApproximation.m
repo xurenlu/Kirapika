@@ -7,20 +7,12 @@
 //
 
 #import "DegreeOfApproximation.h"
-#import "NSString+Tokenize.h"
-#import "NSString+Transcode.h"
-
-@interface DegreeOfApproximation()
-
-@property (nonatomic) int xCount;
-
-@end
 
 @implementation DegreeOfApproximation
 
-- (double)degreeOfApproximation:(NSString *)y
++ (double)degreeOfApproximation:(NSString *)x :(NSString *)y
 {
-    int sl = (int)self.xCount+1;
+    int sl = (int)x.length/6+1;
     int tl = (int)y.length/6+1;
     
     if (sl==1) return tl-1;
@@ -36,7 +28,7 @@
     for (int i=1; i<tl; i++) matrix[0][i]=i;
     
     for (int i=1; i<sl; i++) {
-        int sc = [[self.x substringWithRange:NSMakeRange(i*6-6, 6)] intValue];
+        int sc = [[x substringWithRange:NSMakeRange(i*6-6, 6)] intValue];
         for (int j=1; j<tl; j++) {
             int tc = [[y substringWithRange:NSMakeRange(j*6-6, 6)] intValue];
             int cost = (sc == tc)?0:1;
@@ -52,18 +44,6 @@
     free(matrix);
     
     return (1-re/fmax(sl-1, tl-1));
-}
-
-- (void)setX:(NSString *)x
-{
-    _x = x.transcode;
-    _xCount = _x.length/6;
-}
-
-- (void)dealloc
-{
-    _x = nil;
-    _xCount = 0;
 }
 
 @end

@@ -112,10 +112,12 @@
 		07710708174672A6008A27BC /* toggle_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106F4174672A6008A27BC /* toggle_button.png */; };
 		07710709174672A6008A27BC /* toggle_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106F5174672A6008A27BC /* toggle_button@2x.png */; };
 		0771070B174673E1008A27BC /* home screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0771070A174673E1008A27BC /* home screen.png */; };
-		07A8B7881749EC5400E3227C /* Sender.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A8B7871749EC5400E3227C /* Sender.m */; };
 		07A8B78B1749EC5400E3227C /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A8B78A1749EC5400E3227C /* Message.m */; };
 		07A8B791174A657500E3227C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 07A8B790174A657500E3227C /* .gitignore */; };
 		07CFC834174B528400417D68 /* NSString+Transcode.m in Sources */ = {isa = PBXBuildFile; fileRef = 07CFC833174B528400417D68 /* NSString+Transcode.m */; };
+		07CFC843174BA12800417D68 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = 07CFC842174BA12800417D68 /* Word.m */; };
+		07CFC846174BA4B400417D68 /* Word+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 07CFC845174BA4B400417D68 /* Word+Create.m */; };
+		07CFC849174BA61F00417D68 /* Sender.m in Sources */ = {isa = PBXBuildFile; fileRef = 07CFC848174BA61F00417D68 /* Sender.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -267,13 +269,17 @@
 		077106F4174672A6008A27BC /* toggle_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toggle_button.png; sourceTree = "<group>"; };
 		077106F5174672A6008A27BC /* toggle_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_button@2x.png"; sourceTree = "<group>"; };
 		0771070A174673E1008A27BC /* home screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home screen.png"; sourceTree = "<group>"; };
-		07A8B7861749EC5400E3227C /* Sender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sender.h; sourceTree = "<group>"; };
-		07A8B7871749EC5400E3227C /* Sender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sender.m; sourceTree = "<group>"; };
 		07A8B7891749EC5400E3227C /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		07A8B78A1749EC5400E3227C /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		07A8B790174A657500E3227C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		07CFC832174B528400417D68 /* NSString+Transcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Transcode.h"; sourceTree = "<group>"; };
 		07CFC833174B528400417D68 /* NSString+Transcode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Transcode.m"; sourceTree = "<group>"; };
+		07CFC841174BA12800417D68 /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
+		07CFC842174BA12800417D68 /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
+		07CFC844174BA4B400417D68 /* Word+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Word+Create.h"; sourceTree = "<group>"; };
+		07CFC845174BA4B400417D68 /* Word+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Word+Create.m"; sourceTree = "<group>"; };
+		07CFC847174BA61F00417D68 /* Sender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sender.h; sourceTree = "<group>"; };
+		07CFC848174BA61F00417D68 /* Sender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sender.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -430,15 +436,19 @@
 			isa = PBXGroup;
 			children = (
 				077105EF1744EC1B008A27BC /* CoreDataConstants.h */,
-				07A8B7861749EC5400E3227C /* Sender.h */,
-				07A8B7871749EC5400E3227C /* Sender.m */,
-				07A8B7891749EC5400E3227C /* Message.h */,
-				07A8B78A1749EC5400E3227C /* Message.m */,
 				077105F01744EC1B008A27BC /* kirakira pikapika.xcdatamodeld */,
-				077105F21744EC1B008A27BC /* Message+Create.h */,
-				077105F31744EC1B008A27BC /* Message+Create.m */,
 				077105F61744EC1B008A27BC /* NSManagedObjectContext+Queryable.h */,
 				077105F71744EC1B008A27BC /* NSManagedObjectContext+Queryable.m */,
+				07CFC847174BA61F00417D68 /* Sender.h */,
+				07CFC848174BA61F00417D68 /* Sender.m */,
+				07CFC841174BA12800417D68 /* Word.h */,
+				07CFC842174BA12800417D68 /* Word.m */,
+				07A8B7891749EC5400E3227C /* Message.h */,
+				07A8B78A1749EC5400E3227C /* Message.m */,
+				07CFC844174BA4B400417D68 /* Word+Create.h */,
+				07CFC845174BA4B400417D68 /* Word+Create.m */,
+				077105F21744EC1B008A27BC /* Message+Create.h */,
+				077105F31744EC1B008A27BC /* Message+Create.m */,
 				077105FA1744EC1B008A27BC /* Sender+Create.h */,
 				077105FB1744EC1B008A27BC /* Sender+Create.m */,
 			);
@@ -832,9 +842,11 @@
 				077106B71744EC1B008A27BC /* RecallViewController.m in Sources */,
 				077106B81744EC1B008A27BC /* SoloViewController.m in Sources */,
 				077106B91744EC1B008A27BC /* ViewController.m in Sources */,
-				07A8B7881749EC5400E3227C /* Sender.m in Sources */,
 				07A8B78B1749EC5400E3227C /* Message.m in Sources */,
 				07CFC834174B528400417D68 /* NSString+Transcode.m in Sources */,
+				07CFC843174BA12800417D68 /* Word.m in Sources */,
+				07CFC846174BA4B400417D68 /* Word+Create.m in Sources */,
+				07CFC849174BA61F00417D68 /* Sender.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

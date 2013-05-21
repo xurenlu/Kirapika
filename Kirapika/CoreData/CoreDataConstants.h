@@ -11,8 +11,10 @@
 
 #import <CoreData/CoreData.h>
 
+#import "Word+Create.h"
 #import "Sender+Create.h"
 #import "Message+Create.h"
+
 #import "NSManagedObjectContext+Queryable.h"
 
 #define MESSAGE_CONTEXT @"context"
@@ -20,7 +22,10 @@
 #define MESSAGE_DATE @"date"
 #define MESSAGE_ROW_ID @"rowID"
 #define SENDER_NAME @"name"
-#define SENDER_PHOTOURL @"photoUrl"
+#define SENDER_PHOTOURL @"photoURL"
 #define SENDER_IS_LEFT_USER @"isLeftUser"
+
+#define WORD_ORG @"org"
+#define WORD_TRANS @"trans"
 
 #endif
