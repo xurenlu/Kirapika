@@ -8,6 +8,8 @@
 
 #import "ReplyText.h"
 
+#define PROBABILITY_THRESHOLD 0.5
+
 @interface ReplyText()
 
 @property (nonatomic, strong) DegreeOfApproximation *degreeOfApproximation;
@@ -15,6 +17,7 @@
 @property (nonatomic, strong) NSArray *leftSenderMessages;
 @property (nonatomic, strong) NSArray *rightSenderMessages;
 @property (nonatomic) BOOL load;
+- (id)anyObject:(NSArray *)array;
 
 @end
 
@@ -22,7 +25,6 @@
 - (void)loadWithManagedObjectContext:(NSManagedObjectContext *)context andLimit:(long)limit
 {
     self.degreeOfApproximation = [DegreeOfApproximation new];
-    [self.degreeOfApproximation prepare];
     self.context = context;
 
     self.leftSenderMessages = [[[[[context ofType:@"Message"]
@@ -44,16 +46,10 @@
     if (!self.load) return nil;
     
     NSMutableArray *replys = [NSMutableArray new];
-    NSArray *messages;
-    
-    if (sender == ReplyTextLeftSender) {
-        messages = self.leftSenderMessages;
-    } else {
-        messages = self.rightSenderMessages;
-    }
-    
+    NSArray *messages = (sender == ReplyTextLeftSender) ? self.leftSenderMessages : self.rightSenderMessages;
+
     int rowID = NO;
-    [self.degreeOfApproximation saveOneString:str];
+    [self.degreeOfApproximation setX:str];
     for (Message *message in messages) {
         if (rowID) {
             NSArray *reply = [[[[self.context ofType:@"Message"]
@@ -63,31 +59,24 @@
             if (reply.count > 0) [replys addObject:reply];
             rowID = NO;
         }
-        double probability = [self.degreeOfApproximation degreeOfApproximationWithStringIncludeLengthCheck:nil andString:message.context];
-        if (probability >= 0.5) {
-            rowID = message.rowID.intValue;
-        }
+        double probability = [self.degreeOfApproximation degreeOfApproximation:message.contextTranscoding];
+        if (probability >= PROBABILITY_THRESHOLD) rowID = message.rowID.intValue;
     }
         
     if (replys.count == 0) {
-        Message *message = nil;
-        
-        if (sender == ReplyTextLeftSender) {
-            message = [self.rightSenderMessages lastObject];
-        } else {
-            message = [self.leftSenderMessages lastObject];
-        }
+        Message *message = (sender == ReplyTextLeftSender) ? self.rightSenderMessages.lastObject : self.leftSenderMessages.lastObject;
         
         message.date = [NSDate date];
         message.context = str;
         message.rowID = nil;
-        [replys addObject:[[NSArray alloc]initWithObjects:message, nil]];
+        message.contextTranscoding = nil;
+        [replys addObject:[NSArray arrayWithObject:message]];
     }
 
     if (self.replyTextPreference == NormalReply) {
-        return [NSArray arrayWithArray:[replys objectAtIndex:arc4random() % replys.count]];
+        return [replys objectAtIndex:arc4random() % replys.count];
     } else if (self.replyTextPreference == SingleReply) {
-        return [NSArray arrayWithArray:[[replys objectAtIndex:arc4random() % replys.count] objectAtIndex:0]];
+        return [[replys objectAtIndex:arc4random() % replys.count] objectAtIndex:0];
     } else if (self.replyTextPreference == AllPossibleReply) {
         NSMutableArray *tmp = [NSMutableArray new];
         for (NSArray *array in replys) for (Message *message in array) [tmp addObject:message];
@@ -99,11 +88,12 @@
 
 - (Message *)replyAnyObjectWithSender:(ReplyTextSender)sender
 {
-    if (sender == ReplyTextLeftSender) {
-        return [self.leftSenderMessages objectAtIndex:rand() % self.leftSenderMessages.count];
-    } else {
-        return [self.rightSenderMessages objectAtIndex:rand() % self.rightSenderMessages.count];
-    }
+    return [self anyObject:(sender == ReplyTextLeftSender) ? self.leftSenderMessages : self.rightSenderMessages];
+}
+
+- (id)anyObject:(NSArray *)array
+{
+    return [array objectAtIndex:rand() % array.count];
 }
 
 @end

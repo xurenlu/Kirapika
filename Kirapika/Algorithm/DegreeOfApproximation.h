@@ -10,14 +10,7 @@
 
 @interface DegreeOfApproximation : NSObject
 
-typedef enum{
-    IncludeLengthCheck,
-    ExcludeLengthCheck,
-}DegreeOfApproximationPreference;
-
-- (void)prepare;
-- (void)saveOneString:(NSString *)x;
-- (double)degreeOfApproximationWithString:(NSString *)x andString:(NSString *)y;
-- (double)degreeOfApproximationWithStringIncludeLengthCheck:(NSString *)x andString:(NSString *)y;
+@property (nonatomic, strong) NSString *x;
+- (double)degreeOfApproximation:(NSString *)y;
 
 @end

@@ -115,6 +115,7 @@
 		07A8B7881749EC5400E3227C /* Sender.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A8B7871749EC5400E3227C /* Sender.m */; };
 		07A8B78B1749EC5400E3227C /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A8B78A1749EC5400E3227C /* Message.m */; };
 		07A8B791174A657500E3227C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 07A8B790174A657500E3227C /* .gitignore */; };
+		07CFC834174B528400417D68 /* NSString+Transcode.m in Sources */ = {isa = PBXBuildFile; fileRef = 07CFC833174B528400417D68 /* NSString+Transcode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -271,6 +272,8 @@
 		07A8B7891749EC5400E3227C /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		07A8B78A1749EC5400E3227C /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		07A8B790174A657500E3227C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
+		07CFC832174B528400417D68 /* NSString+Transcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Transcode.h"; sourceTree = "<group>"; };
+		07CFC833174B528400417D68 /* NSString+Transcode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Transcode.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,6 +368,8 @@
 				077105D51744EC1B008A27BC /* DegreeOfApproximation.m */,
 				077105D61744EC1B008A27BC /* NSString+Tokenize.h */,
 				077105D71744EC1B008A27BC /* NSString+Tokenize.m */,
+				07CFC832174B528400417D68 /* NSString+Transcode.h */,
+				07CFC833174B528400417D68 /* NSString+Transcode.m */,
 				077105D81744EC1B008A27BC /* ReplyText.h */,
 				077105D91744EC1B008A27BC /* ReplyText.m */,
 				077105DA1744EC1B008A27BC /* Synonyms.txt */,
@@ -829,6 +834,7 @@
 				077106B91744EC1B008A27BC /* ViewController.m in Sources */,
 				07A8B7881749EC5400E3227C /* Sender.m in Sources */,
 				07A8B78B1749EC5400E3227C /* Message.m in Sources */,
+				07CFC834174B528400417D68 /* NSString+Transcode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
