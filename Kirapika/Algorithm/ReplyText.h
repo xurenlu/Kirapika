@@ -19,7 +19,7 @@ typedef enum{
 typedef enum {
 	ReplyTextRightSender = 0,
 	ReplyTextLeftSender = 1
-} ReplyTextSender;
+}ReplyTextSender;
 
 @interface ReplyText : NSObject
 

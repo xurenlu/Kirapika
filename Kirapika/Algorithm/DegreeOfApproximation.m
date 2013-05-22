@@ -10,7 +10,12 @@
 
 @implementation DegreeOfApproximation
 
-+ (double)degreeOfApproximation:(NSString *)x :(NSString *)y
++ (int)extraCost:(NSMutableString *)x
+{
+    return [x replaceOccurrencesOfString:@"NOSIMI" withString:nil options:NSWidthInsensitiveSearch range:NSMakeRange(0, [x length])];
+}
+
++ (double)degreeOfApproximation:(NSString *)x :(NSString *)y withExtra:(int)extra
 {
     int sl = (int)x.length/6+1;
     int tl = (int)y.length/6+1;
@@ -43,7 +48,7 @@
     free(buffer);
     free(matrix);
     
-    return (1-re/fmax(sl-1, tl-1));
+    return (1-(re+extra)/fmax(sl-1, tl-1));
 }
 
 @end

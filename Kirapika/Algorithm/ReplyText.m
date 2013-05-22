@@ -46,9 +46,11 @@
     
     NSMutableArray *replys = [NSMutableArray new];
     NSArray *messages = (sender == ReplyTextLeftSender) ? self.leftSenderMessages : self.rightSenderMessages;
-    str = str.transcode;
+    str = [str transcode:self.context save:NO];
     
     int rowID = NO;
+    int extra = [DegreeOfApproximation extraCost:[str mutableCopy]];
+    NSLog(@"Extra%d",extra);
     for (Message *message in messages) {
         if (rowID) {
             NSArray *reply = [[[[self.context ofType:@"Message"]
@@ -58,7 +60,7 @@
             if (reply.count > 0) [replys addObject:reply];
             rowID = NO;
         }
-        double probability = [DegreeOfApproximation degreeOfApproximation:str :message.contextTranscoding];
+        double probability = [DegreeOfApproximation degreeOfApproximation:str :message.contextTranscoding withExtra:extra];
         if (probability >= PROBABILITY_THRESHOLD) rowID = message.rowID.intValue;
     }
         

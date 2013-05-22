@@ -10,6 +10,6 @@
 
 @interface NSString (Transcode)
 
-- (NSString *)transcode;
+- (NSString *)transcode:(NSManagedObjectContext *)context save:(BOOL)saved;
 
 @end

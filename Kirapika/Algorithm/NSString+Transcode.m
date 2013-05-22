@@ -8,12 +8,53 @@
 
 #import "NSString+Transcode.h"
 #import "NSString+Tokenize.h"
+#import "CoreDataConstants.h"
 
 @implementation NSString (Transcode)
 
-- (NSString *)transcode
+- (NSString *)transcode:(NSManagedObjectContext *)context save:(BOOL)saved
 {
-    return self;
+    NSString *str = [self checkSynoyms:[self mutableCopy]];
+    NSMutableArray *arr = [str.arrayWithWordTokenize mutableCopy];
+    [arr removeObject:@":"];
+
+    for (int i=0; i<arr.count; i++) {
+        NSArray *matches = [[[context ofType:@"Word"] where:@"%@ = %@", WORD_ORG, [arr objectAtIndex:i]] toArray];
+        if (matches.count) {
+            if (matches.count > 1) NSLog(@"Multi trans cannot exist at the same time! Error, handle it!");
+            Word *word = matches.lastObject;
+            [arr replaceObjectAtIndex:i withObject:word.trans];
+        } else if (100000 >= [[arr objectAtIndex:i] intValue] || [[arr objectAtIndex:i] intValue] >= 999999 || [[arr objectAtIndex:i] length] > 6) {
+            if (saved) {
+                [Word wordWithData:[self dictionaryWithValuesForWord:[arr objectAtIndex:i] inContext:context] inManagedObjectContext:context];
+            } else {
+                [arr replaceObjectAtIndex:i withObject:@"NOSIMI"];
+            }
+        }
+    }
+    
+    return [arr componentsJoinedByString:nil];
+}
+
+- (NSDictionary *)dictionaryWithValuesForWord:(NSString *)str inContext:(NSManagedObjectContext *)context
+{
+    NSString *trans = nil;
+    do {
+        trans = [[NSNumber numberWithInt:100000 + rand() % 899999] stringValue];
+    } while ([[[[context ofType:@"Word"] where:@"%@ = %@", WORD_TRANS, trans] toArray] count]);
+    return [NSDictionary dictionaryWithObjectsAndKeys:str, WORD_ORG, trans, WORD_TRANS, nil];
+}
+
+- (NSString *)checkSynoyms:(NSMutableString *)str
+{
+    NSString *sStr = [NSString stringWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"Synonyms" withExtension:@"txt"] encoding:NSUTF8StringEncoding error:nil];
+    NSMutableArray *sPool = [NSMutableArray new];
+    for (NSString *str in [sStr componentsSeparatedByString:@";;\n"]) [sPool addObject:[str componentsSeparatedByString:@"::"]];
+    
+    for (int i=0; i<sPool.count; i++)
+        for (NSString *syns in [sPool objectAtIndex:i])
+            [str replaceOccurrencesOfString:syns withString:[NSString stringWithFormat:@"%d:", 100000+i] options:NSWidthInsensitiveSearch range:NSMakeRange(0, [str length])];
+    return str;
 }
 
 @end

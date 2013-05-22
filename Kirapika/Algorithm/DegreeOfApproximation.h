@@ -10,6 +10,7 @@
 
 @interface DegreeOfApproximation : NSObject
 
-+ (double)degreeOfApproximation:(NSString *)x :(NSString *)y;
++ (int)extraCost:(NSMutableString *)x;
++ (double)degreeOfApproximation:(NSString *)x :(NSString *)y withExtra:(int)extra;
 
 @end
