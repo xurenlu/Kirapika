@@ -20,6 +20,9 @@
     int sl = (int)x.length/6+1;
     int tl = (int)y.length/6+1;
     
+#warning need test
+    if (sl > 10 || tl > 10) NSLog(@"sl%d,tl%d",sl,tl);
+    
     if (sl==1) return tl-1;
     if (tl==1) return sl-1;
     
@@ -47,6 +50,8 @@
     int re = matrix[sl-1][tl-1];
     free(buffer);
     free(matrix);
+    
+    if (sl > 10 || tl > 10) NSLog(@"a");
     
     return (1-(re+extra)/fmax(sl-1, tl-1));
 }
