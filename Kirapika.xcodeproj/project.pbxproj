@@ -113,12 +113,21 @@
 		07710709174672A6008A27BC /* toggle_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106F5174672A6008A27BC /* toggle_button@2x.png */; };
 		0771070B174673E1008A27BC /* home screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0771070A174673E1008A27BC /* home screen.png */; };
 		07A8B78B1749EC5400E3227C /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A8B78A1749EC5400E3227C /* Message.m */; };
-		07A8B791174A657500E3227C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 07A8B790174A657500E3227C /* .gitignore */; };
 		07CFC834174B528400417D68 /* NSString+Transcode.m in Sources */ = {isa = PBXBuildFile; fileRef = 07CFC833174B528400417D68 /* NSString+Transcode.m */; };
 		07CFC843174BA12800417D68 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = 07CFC842174BA12800417D68 /* Word.m */; };
 		07CFC846174BA4B400417D68 /* Word+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 07CFC845174BA4B400417D68 /* Word+Create.m */; };
 		07CFC849174BA61F00417D68 /* Sender.m in Sources */ = {isa = PBXBuildFile; fileRef = 07CFC848174BA61F00417D68 /* Sender.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		077D47E0174CE31700443B8B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 077D47DC174CE31600443B8B /* Kirapika Builder.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 077D47BC174CE31600443B8B;
+			remoteInfo = "Kirapika Builder";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		077105B31744EBAA008A27BC /* Kirapika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kirapika.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,6 +278,7 @@
 		077106F4174672A6008A27BC /* toggle_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toggle_button.png; sourceTree = "<group>"; };
 		077106F5174672A6008A27BC /* toggle_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_button@2x.png"; sourceTree = "<group>"; };
 		0771070A174673E1008A27BC /* home screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home screen.png"; sourceTree = "<group>"; };
+		077D47DC174CE31600443B8B /* Kirapika Builder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Kirapika Builder.xcodeproj"; path = "Kirapika Builder/Kirapika Builder.xcodeproj"; sourceTree = "<group>"; };
 		07A8B7891749EC5400E3227C /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		07A8B78A1749EC5400E3227C /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		07A8B790174A657500E3227C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
@@ -301,6 +311,7 @@
 		077105AA1744EBAA008A27BC = {
 			isa = PBXGroup;
 			children = (
+				077D47DC174CE31600443B8B /* Kirapika Builder.xcodeproj */,
 				077105BC1744EBAA008A27BC /* Kirapika */,
 				077105B51744EBAA008A27BC /* Frameworks */,
 				077105B41744EBAA008A27BC /* Products */,
@@ -663,6 +674,14 @@
 			path = PSD;
 			sourceTree = "<group>";
 		};
+		077D47DD174CE31600443B8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				077D47E1174CE31700443B8B /* Kirapika Builder.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -703,12 +722,28 @@
 			mainGroup = 077105AA1744EBAA008A27BC;
 			productRefGroup = 077105B41744EBAA008A27BC /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 077D47DD174CE31600443B8B /* Products */;
+					ProjectRef = 077D47DC174CE31600443B8B /* Kirapika Builder.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				077105B21744EBAA008A27BC /* Kirapika */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		077D47E1174CE31700443B8B /* Kirapika Builder.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Kirapika Builder.app";
+			remoteRef = 077D47E0174CE31700443B8B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		077105B11744EBAA008A27BC /* Resources */ = {
@@ -775,7 +810,6 @@
 				07710708174672A6008A27BC /* toggle_button.png in Resources */,
 				07710709174672A6008A27BC /* toggle_button@2x.png in Resources */,
 				0771070B174673E1008A27BC /* home screen.png in Resources */,
-				07A8B791174A657500E3227C /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

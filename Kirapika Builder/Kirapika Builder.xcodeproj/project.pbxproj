@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07508744174E432200F45F9C /* kirakira pikapika.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 077D47E4174CE33200443B8B /* kirakira pikapika.xcdatamodeld */; };
+		077D47C0174CE31600443B8B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077D47BF174CE31600443B8B /* Cocoa.framework */; };
+		077D47CA174CE31600443B8B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 077D47C8174CE31600443B8B /* InfoPlist.strings */; };
+		077D47CC174CE31600443B8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D47CB174CE31600443B8B /* main.m */; };
+		077D47D0174CE31600443B8B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 077D47CE174CE31600443B8B /* Credits.rtf */; };
+		077D47D3174CE31600443B8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D47D2174CE31600443B8B /* AppDelegate.m */; };
+		077D47D6174CE31600443B8B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 077D47D4174CE31600443B8B /* MainMenu.xib */; };
+		077D4816174CE33200443B8B /* Synonyms.txt in Resources */ = {isa = PBXBuildFile; fileRef = 077D47FC174CE33200443B8B /* Synonyms.txt */; };
+		077D481B174CE66100443B8B /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D481A174CE66100443B8B /* TBXML.m */; };
+		077D481C174CEF9200443B8B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077D47C3174CE31600443B8B /* CoreData.framework */; };
+		077D481D174DA40D00443B8B /* NSManagedObjectContext+Queryable.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D47E6174CE33200443B8B /* NSManagedObjectContext+Queryable.m */; };
+		077D481E174DA40D00443B8B /* Sender.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D47E8174CE33200443B8B /* Sender.m */; };
+		077D481F174DA40D00443B8B /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D47EA174CE33200443B8B /* Word.m */; };
+		077D4820174DA40D00443B8B /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D47EC174CE33200443B8B /* Message.m */; };
+		077D4821174DA40D00443B8B /* Word+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D47EE174CE33200443B8B /* Word+Create.m */; };
+		077D4822174DA40D00443B8B /* Message+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D47F0174CE33200443B8B /* Message+Create.m */; };
+		077D4823174DA40D00443B8B /* Sender+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D47F2174CE33200443B8B /* Sender+Create.m */; };
+		077D4824174DA40D00443B8B /* DegreeOfApproximation.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D47F5174CE33200443B8B /* DegreeOfApproximation.m */; };
+		077D4825174DA40D00443B8B /* NSString+Tokenize.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D47F7174CE33200443B8B /* NSString+Tokenize.m */; };
+		077D4826174DA40D00443B8B /* NSString+Transcode.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D47F9174CE33200443B8B /* NSString+Transcode.m */; };
+		077D4827174DA40D00443B8B /* ReplyText.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D47FB174CE33200443B8B /* ReplyText.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		077D47BC174CE31600443B8B /* Kirapika Builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kirapika Builder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		077D47BF174CE31600443B8B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		077D47C2174CE31600443B8B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		077D47C3174CE31600443B8B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		077D47C4174CE31600443B8B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		077D47C7174CE31600443B8B /* Kirapika Builder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Kirapika Builder-Info.plist"; sourceTree = "<group>"; };
+		077D47C9174CE31600443B8B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		077D47CB174CE31600443B8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		077D47CD174CE31600443B8B /* Kirapika Builder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kirapika Builder-Prefix.pch"; sourceTree = "<group>"; };
+		077D47CF174CE31600443B8B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		077D47D1174CE31600443B8B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		077D47D2174CE31600443B8B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		077D47D5174CE31600443B8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		077D47E2174CE33200443B8B /* CoreDataConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataConstants.h; sourceTree = "<group>"; };
+		077D47E3174CE33200443B8B /* kirakira pikapika.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "kirakira pikapika.xcdatamodel"; sourceTree = "<group>"; };
+		077D47E5174CE33200443B8B /* NSManagedObjectContext+Queryable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Queryable.h"; sourceTree = "<group>"; };
+		077D47E6174CE33200443B8B /* NSManagedObjectContext+Queryable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Queryable.m"; sourceTree = "<group>"; };
+		077D47E7174CE33200443B8B /* Sender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sender.h; sourceTree = "<group>"; };
+		077D47E8174CE33200443B8B /* Sender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sender.m; sourceTree = "<group>"; };
+		077D47E9174CE33200443B8B /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
+		077D47EA174CE33200443B8B /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
+		077D47EB174CE33200443B8B /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		077D47EC174CE33200443B8B /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		077D47ED174CE33200443B8B /* Word+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Word+Create.h"; sourceTree = "<group>"; };
+		077D47EE174CE33200443B8B /* Word+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Word+Create.m"; sourceTree = "<group>"; };
+		077D47EF174CE33200443B8B /* Message+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Message+Create.h"; sourceTree = "<group>"; };
+		077D47F0174CE33200443B8B /* Message+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Message+Create.m"; sourceTree = "<group>"; };
+		077D47F1174CE33200443B8B /* Sender+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Sender+Create.h"; sourceTree = "<group>"; };
+		077D47F2174CE33200443B8B /* Sender+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Sender+Create.m"; sourceTree = "<group>"; };
+		077D47F4174CE33200443B8B /* DegreeOfApproximation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DegreeOfApproximation.h; sourceTree = "<group>"; };
+		077D47F5174CE33200443B8B /* DegreeOfApproximation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DegreeOfApproximation.m; sourceTree = "<group>"; };
+		077D47F6174CE33200443B8B /* NSString+Tokenize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Tokenize.h"; sourceTree = "<group>"; };
+		077D47F7174CE33200443B8B /* NSString+Tokenize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Tokenize.m"; sourceTree = "<group>"; };
+		077D47F8174CE33200443B8B /* NSString+Transcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Transcode.h"; sourceTree = "<group>"; };
+		077D47F9174CE33200443B8B /* NSString+Transcode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Transcode.m"; sourceTree = "<group>"; };
+		077D47FA174CE33200443B8B /* ReplyText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplyText.h; sourceTree = "<group>"; };
+		077D47FB174CE33200443B8B /* ReplyText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplyText.m; sourceTree = "<group>"; };
+		077D47FC174CE33200443B8B /* Synonyms.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Synonyms.txt; sourceTree = "<group>"; };
+		077D4819174CE66100443B8B /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
+		077D481A174CE66100443B8B /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		077D47B9174CE31600443B8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				077D481C174CEF9200443B8B /* CoreData.framework in Frameworks */,
+				077D47C0174CE31600443B8B /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		077D47B3174CE31600443B8B = {
+			isa = PBXGroup;
+			children = (
+				077D47C5174CE31600443B8B /* Kirapika Builder */,
+				077D47BE174CE31600443B8B /* Frameworks */,
+				077D47BD174CE31600443B8B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		077D47BD174CE31600443B8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				077D47BC174CE31600443B8B /* Kirapika Builder.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		077D47BE174CE31600443B8B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				077D47BF174CE31600443B8B /* Cocoa.framework */,
+				077D47C1174CE31600443B8B /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		077D47C1174CE31600443B8B /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				077D47C2174CE31600443B8B /* AppKit.framework */,
+				077D47C3174CE31600443B8B /* CoreData.framework */,
+				077D47C4174CE31600443B8B /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		077D47C5174CE31600443B8B /* Kirapika Builder */ = {
+			isa = PBXGroup;
+			children = (
+				077D47D1174CE31600443B8B /* AppDelegate.h */,
+				077D47D2174CE31600443B8B /* AppDelegate.m */,
+				077D47D4174CE31600443B8B /* MainMenu.xib */,
+				077D47F3174CE33200443B8B /* CoreData */,
+				077D47FD174CE33200443B8B /* Algorithm */,
+				077D4817174CE66100443B8B /* Supporting Code */,
+				077D47C6174CE31600443B8B /* Supporting Files */,
+			);
+			path = "Kirapika Builder";
+			sourceTree = "<group>";
+		};
+		077D47C6174CE31600443B8B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				077D47C7174CE31600443B8B /* Kirapika Builder-Info.plist */,
+				077D47C8174CE31600443B8B /* InfoPlist.strings */,
+				077D47CB174CE31600443B8B /* main.m */,
+				077D47CD174CE31600443B8B /* Kirapika Builder-Prefix.pch */,
+				077D47CE174CE31600443B8B /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		077D47F3174CE33200443B8B /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				077D47E2174CE33200443B8B /* CoreDataConstants.h */,
+				077D47E4174CE33200443B8B /* kirakira pikapika.xcdatamodeld */,
+				077D47E5174CE33200443B8B /* NSManagedObjectContext+Queryable.h */,
+				077D47E6174CE33200443B8B /* NSManagedObjectContext+Queryable.m */,
+				077D47E7174CE33200443B8B /* Sender.h */,
+				077D47E8174CE33200443B8B /* Sender.m */,
+				077D47E9174CE33200443B8B /* Word.h */,
+				077D47EA174CE33200443B8B /* Word.m */,
+				077D47EB174CE33200443B8B /* Message.h */,
+				077D47EC174CE33200443B8B /* Message.m */,
+				077D47ED174CE33200443B8B /* Word+Create.h */,
+				077D47EE174CE33200443B8B /* Word+Create.m */,
+				077D47EF174CE33200443B8B /* Message+Create.h */,
+				077D47F0174CE33200443B8B /* Message+Create.m */,
+				077D47F1174CE33200443B8B /* Sender+Create.h */,
+				077D47F2174CE33200443B8B /* Sender+Create.m */,
+			);
+			name = CoreData;
+			path = ../../Kirapika/CoreData;
+			sourceTree = "<group>";
+		};
+		077D47FD174CE33200443B8B /* Algorithm */ = {
+			isa = PBXGroup;
+			children = (
+				077D47F4174CE33200443B8B /* DegreeOfApproximation.h */,
+				077D47F5174CE33200443B8B /* DegreeOfApproximation.m */,
+				077D47F6174CE33200443B8B /* NSString+Tokenize.h */,
+				077D47F7174CE33200443B8B /* NSString+Tokenize.m */,
+				077D47F8174CE33200443B8B /* NSString+Transcode.h */,
+				077D47F9174CE33200443B8B /* NSString+Transcode.m */,
+				077D47FA174CE33200443B8B /* ReplyText.h */,
+				077D47FB174CE33200443B8B /* ReplyText.m */,
+				077D47FC174CE33200443B8B /* Synonyms.txt */,
+			);
+			name = Algorithm;
+			path = ../../Kirapika/Algorithm;
+			sourceTree = "<group>";
+		};
+		077D4817174CE66100443B8B /* Supporting Code */ = {
+			isa = PBXGroup;
+			children = (
+				077D4818174CE66100443B8B /* TBXML */,
+			);
+			path = "Supporting Code";
+			sourceTree = "<group>";
+		};
+		077D4818174CE66100443B8B /* TBXML */ = {
+			isa = PBXGroup;
+			children = (
+				077D4819174CE66100443B8B /* TBXML.h */,
+				077D481A174CE66100443B8B /* TBXML.m */,
+			);
+			path = TBXML;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		077D47BB174CE31600443B8B /* Kirapika Builder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 077D47D9174CE31600443B8B /* Build configuration list for PBXNativeTarget "Kirapika Builder" */;
+			buildPhases = (
+				077D47B8174CE31600443B8B /* Sources */,
+				077D47B9174CE31600443B8B /* Frameworks */,
+				077D47BA174CE31600443B8B /* Resources */,
+				077D4828174DA42D00443B8B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Kirapika Builder";
+			productName = "Kirapika Builder";
+			productReference = 077D47BC174CE31600443B8B /* Kirapika Builder.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		077D47B4174CE31600443B8B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Justin Jia";
+			};
+			buildConfigurationList = 077D47B7174CE31600443B8B /* Build configuration list for PBXProject "Kirapika Builder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 077D47B3174CE31600443B8B;
+			productRefGroup = 077D47BD174CE31600443B8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				077D47BB174CE31600443B8B /* Kirapika Builder */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		077D47BA174CE31600443B8B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				077D47CA174CE31600443B8B /* InfoPlist.strings in Resources */,
+				077D47D0174CE31600443B8B /* Credits.rtf in Resources */,
+				077D47D6174CE31600443B8B /* MainMenu.xib in Resources */,
+				077D4816174CE33200443B8B /* Synonyms.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		077D4828174DA42D00443B8B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$((0x$buildNumber))\nbuildNumber=$(($buildNumber + 1))\nbuildNumber=$(printf \"%X\" $buildNumber)\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		077D47B8174CE31600443B8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07508744174E432200F45F9C /* kirakira pikapika.xcdatamodeld in Sources */,
+				077D481D174DA40D00443B8B /* NSManagedObjectContext+Queryable.m in Sources */,
+				077D481E174DA40D00443B8B /* Sender.m in Sources */,
+				077D481F174DA40D00443B8B /* Word.m in Sources */,
+				077D4820174DA40D00443B8B /* Message.m in Sources */,
+				077D4821174DA40D00443B8B /* Word+Create.m in Sources */,
+				077D4822174DA40D00443B8B /* Message+Create.m in Sources */,
+				077D4823174DA40D00443B8B /* Sender+Create.m in Sources */,
+				077D4824174DA40D00443B8B /* DegreeOfApproximation.m in Sources */,
+				077D4825174DA40D00443B8B /* NSString+Tokenize.m in Sources */,
+				077D4826174DA40D00443B8B /* NSString+Transcode.m in Sources */,
+				077D4827174DA40D00443B8B /* ReplyText.m in Sources */,
+				077D47CC174CE31600443B8B /* main.m in Sources */,
+				077D47D3174CE31600443B8B /* AppDelegate.m in Sources */,
+				077D481B174CE66100443B8B /* TBXML.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		077D47C8174CE31600443B8B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				077D47C9174CE31600443B8B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		077D47CE174CE31600443B8B /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				077D47CF174CE31600443B8B /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		077D47D4174CE31600443B8B /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				077D47D5174CE31600443B8B /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		077D47D7174CE31600443B8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		077D47D8174CE31600443B8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		077D47DA174CE31600443B8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Kirapika Builder/Kirapika Builder-Prefix.pch";
+				INFOPLIST_FILE = "Kirapika Builder/Kirapika Builder-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		077D47DB174CE31600443B8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Kirapika Builder/Kirapika Builder-Prefix.pch";
+				INFOPLIST_FILE = "Kirapika Builder/Kirapika Builder-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		077D47B7174CE31600443B8B /* Build configuration list for PBXProject "Kirapika Builder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				077D47D7174CE31600443B8B /* Debug */,
+				077D47D8174CE31600443B8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		077D47D9174CE31600443B8B /* Build configuration list for PBXNativeTarget "Kirapika Builder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				077D47DA174CE31600443B8B /* Debug */,
+				077D47DB174CE31600443B8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		077D47E4174CE33200443B8B /* kirakira pikapika.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				077D47E3174CE33200443B8B /* kirakira pikapika.xcdatamodel */,
+			);
+			currentVersion = 077D47E3174CE33200443B8B /* kirakira pikapika.xcdatamodel */;
+			path = "kirakira pikapika.xcdatamodeld";
+			sourceTree = "<group>";
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 077D47B4174CE31600443B8B /* Project object */;
+}

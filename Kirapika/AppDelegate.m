@@ -17,7 +17,7 @@
     if (url && url.isFileURL) {
         if ([url.pathExtension isEqualToString:PLIST_TYPE]) {
             [[NSUserDefaults standardUserDefaults] setObject:url.path forKey:IMPORT_PLIST_PATH];
-        } else if ([[url pathExtension] isEqualToString:DATABASE_TYPE]) {
+        } else if ([url.pathExtension isEqualToString:DATABASE_TYPE]) {
             [[NSUserDefaults standardUserDefaults] setObject:url.path forKey:IMPORT_DATABASE_PATH];
         }
     }
