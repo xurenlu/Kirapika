@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		075D1539175326BC00D64358 /* Kirapika.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 077105F01744EC1B008A27BC /* Kirapika.xcdatamodeld */; };
 		077105B71744EBAA008A27BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077105B61744EBAA008A27BC /* UIKit.framework */; };
 		077105B91744EBAA008A27BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077105B81744EBAA008A27BC /* Foundation.framework */; };
 		077105BB1744EBAA008A27BC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077105BA1744EBAA008A27BC /* CoreGraphics.framework */; };
@@ -23,7 +24,7 @@
 		077106751744EC1B008A27BC /* ToggleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 077105E91744EC1B008A27BC /* ToggleBase.m */; };
 		077106761744EC1B008A27BC /* ToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 077105EB1744EC1B008A27BC /* ToggleButton.m */; };
 		077106771744EC1B008A27BC /* ToggleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 077105ED1744EC1B008A27BC /* ToggleView.m */; };
-		077106781744EC1B008A27BC /* kirakira pikapika.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 077105F01744EC1B008A27BC /* kirakira pikapika.xcdatamodeld */; };
+		077106781744EC1B008A27BC /* Kirapika.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 077105F01744EC1B008A27BC /* Kirapika.xcdatamodeld */; };
 		077106791744EC1B008A27BC /* Message+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 077105F31744EC1B008A27BC /* Message+Create.m */; };
 		0771067B1744EC1B008A27BC /* NSManagedObjectContext+Queryable.m in Sources */ = {isa = PBXBuildFile; fileRef = 077105F71744EC1B008A27BC /* NSManagedObjectContext+Queryable.m */; };
 		0771067E1744EC1B008A27BC /* Sender+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 077105FB1744EC1B008A27BC /* Sender+Create.m */; };
@@ -86,11 +87,6 @@
 		077106BD1744EC8A008A27BC /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106BC1744EC8A008A27BC /* Icon@2x.png */; };
 		077106BF1744EC9F008A27BC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077106BE1744EC9F008A27BC /* CoreData.framework */; };
 		077106C11744ECA7008A27BC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077106C01744ECA7008A27BC /* AudioToolbox.framework */; };
-		077106C91744ED91008A27BC /* avatar@2x.psd in Resources */ = {isa = PBXBuildFile; fileRef = 077106C41744ED91008A27BC /* avatar@2x.psd */; };
-		077106CA1744ED91008A27BC /* guide-view@2x.psd in Resources */ = {isa = PBXBuildFile; fileRef = 077106C51744ED91008A27BC /* guide-view@2x.psd */; };
-		077106CB1744ED91008A27BC /* home screen@2x.psd in Resources */ = {isa = PBXBuildFile; fileRef = 077106C61744ED91008A27BC /* home screen@2x.psd */; };
-		077106CC1744ED91008A27BC /* toggle_base@2x.psd in Resources */ = {isa = PBXBuildFile; fileRef = 077106C71744ED91008A27BC /* toggle_base@2x.psd */; };
-		077106CD1744ED91008A27BC /* soloViewDemo@2x.psd in Resources */ = {isa = PBXBuildFile; fileRef = 077106C81744ED91008A27BC /* soloViewDemo@2x.psd */; };
 		077106F6174672A6008A27BC /* left_button_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106E2174672A6008A27BC /* left_button_off.png */; };
 		077106F7174672A6008A27BC /* left_button_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106E3174672A6008A27BC /* left_button_off@2x.png */; };
 		077106F8174672A6008A27BC /* left_button_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106E4174672A6008A27BC /* left_button_on.png */; };
@@ -157,7 +153,7 @@
 		077105EC1744EC1B008A27BC /* ToggleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToggleView.h; sourceTree = "<group>"; };
 		077105ED1744EC1B008A27BC /* ToggleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToggleView.m; sourceTree = "<group>"; };
 		077105EF1744EC1B008A27BC /* CoreDataConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataConstants.h; sourceTree = "<group>"; };
-		077105F11744EC1B008A27BC /* kirakira pikapika.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "kirakira pikapika.xcdatamodel"; sourceTree = "<group>"; };
+		077105F11744EC1B008A27BC /* Kirapika.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Kirapika.xcdatamodel; sourceTree = "<group>"; };
 		077105F21744EC1B008A27BC /* Message+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Message+Create.h"; sourceTree = "<group>"; };
 		077105F31744EC1B008A27BC /* Message+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Message+Create.m"; sourceTree = "<group>"; };
 		077105F61744EC1B008A27BC /* NSManagedObjectContext+Queryable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Queryable.h"; sourceTree = "<group>"; };
@@ -447,7 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				077105EF1744EC1B008A27BC /* CoreDataConstants.h */,
-				077105F01744EC1B008A27BC /* kirakira pikapika.xcdatamodeld */,
+				077105F01744EC1B008A27BC /* Kirapika.xcdatamodeld */,
 				077105F61744EC1B008A27BC /* NSManagedObjectContext+Queryable.h */,
 				077105F71744EC1B008A27BC /* NSManagedObjectContext+Queryable.m */,
 				07CFC847174BA61F00417D68 /* Sender.h */,
@@ -750,6 +746,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				075D1539175326BC00D64358 /* Kirapika.xcdatamodeld in Resources */,
 				077105C11744EBAA008A27BC /* InfoPlist.strings in Resources */,
 				077105C91744EBAA008A27BC /* Default.png in Resources */,
 				077105CB1744EBAA008A27BC /* Default@2x.png in Resources */,
@@ -784,11 +781,6 @@
 				077106B31744EC1B008A27BC /* Storyboard-iPhone.storyboard in Resources */,
 				077106BB1744EC86008A27BC /* Icon.png in Resources */,
 				077106BD1744EC8A008A27BC /* Icon@2x.png in Resources */,
-				077106C91744ED91008A27BC /* avatar@2x.psd in Resources */,
-				077106CA1744ED91008A27BC /* guide-view@2x.psd in Resources */,
-				077106CB1744ED91008A27BC /* home screen@2x.psd in Resources */,
-				077106CC1744ED91008A27BC /* toggle_base@2x.psd in Resources */,
-				077106CD1744ED91008A27BC /* soloViewDemo@2x.psd in Resources */,
 				077106F6174672A6008A27BC /* left_button_off.png in Resources */,
 				077106F7174672A6008A27BC /* left_button_off@2x.png in Resources */,
 				077106F8174672A6008A27BC /* left_button_on.png in Resources */,
@@ -844,7 +836,7 @@
 				077106751744EC1B008A27BC /* ToggleBase.m in Sources */,
 				077106761744EC1B008A27BC /* ToggleButton.m in Sources */,
 				077106771744EC1B008A27BC /* ToggleView.m in Sources */,
-				077106781744EC1B008A27BC /* kirakira pikapika.xcdatamodeld in Sources */,
+				077106781744EC1B008A27BC /* Kirapika.xcdatamodeld in Sources */,
 				077106791744EC1B008A27BC /* Message+Create.m in Sources */,
 				0771067B1744EC1B008A27BC /* NSManagedObjectContext+Queryable.m in Sources */,
 				0771067E1744EC1B008A27BC /* Sender+Create.m in Sources */,
@@ -1002,13 +994,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		077105F01744EC1B008A27BC /* kirakira pikapika.xcdatamodeld */ = {
+		077105F01744EC1B008A27BC /* Kirapika.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				077105F11744EC1B008A27BC /* kirakira pikapika.xcdatamodel */,
+				077105F11744EC1B008A27BC /* Kirapika.xcdatamodel */,
 			);
-			currentVersion = 077105F11744EC1B008A27BC /* kirakira pikapika.xcdatamodel */;
-			path = "kirakira pikapika.xcdatamodeld";
+			currentVersion = 077105F11744EC1B008A27BC /* Kirapika.xcdatamodel */;
+			path = Kirapika.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

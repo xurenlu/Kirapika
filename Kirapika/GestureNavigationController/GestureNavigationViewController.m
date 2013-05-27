@@ -1,6 +1,6 @@
 //
 //  GestureNavigationViewController.m
-//  kirakira pikapika
+//  Kirapika
 //
 //  Created by Justin Jia on 5/13/13.
 //  Copyright (c) 2013 Justin Jia. All rights reserved.

@@ -24,6 +24,11 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
 
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+{
+
+}
+
 - (void)chooseButtonTapped:(id)sender
 {
     NSOpenPanel *openDlg = [NSOpenPanel openPanel];
@@ -41,61 +46,57 @@
     }
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-
-}
-
 - (void)load
 {
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:self.inputPath.stringValue]];
-    TBXML *tbxml = [[TBXML alloc]initWithXMLData:data error:nil];
-    
-    // Obtain root element
-    TBXMLElement *root = tbxml.rootXMLElement;
-    
-    // If TBXML found a root node, process element and iterate all children
-    if (root) {
-        // search for the first author element within the root element's children
-        TBXMLElement *message = [TBXML childElementNamed:@"message" parentElement:root error:nil];
-        while (message) {
-            NSString *messageContext = [TBXML textForElement:[TBXML childElementNamed:@"text" parentElement:message]];
-            NSString *messageContextTrans = [messageContext transcode:self.managedObjectContext save:YES];
-            NSNumber *rowID = [NSNumber numberWithInt:self.rowID];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:self.inputPath.stringValue]];
+        TBXML *tbxml = [[TBXML alloc]initWithXMLData:data error:nil];
+        EightDigitNumberPool *pool = [EightDigitNumberPool new];
+        // Obtain root element
+        TBXMLElement *root = tbxml.rootXMLElement;
+        
+        // If TBXML found a root node, process element and iterate all children
+        if (root) {
+            // search for the first author element within the root element's children
+            TBXMLElement *message = [TBXML childElementNamed:@"message" parentElement:root error:nil];
+            while (message) {
+                NSString *messageContext = [TBXML textForElement:[TBXML childElementNamed:@"text" parentElement:message]];
+                NSString *messageContextTrans = [messageContext transcode:self.managedObjectContext save:YES withEightDigitNumberPool:pool];
+                NSNumber *rowID = [NSNumber numberWithInt:self.rowID];
 #warning wrong Date
-            NSDate *date = [NSDate dateWithTimeIntervalSince1970:[[TBXML textForElement:[TBXML childElementNamed:@"date" parentElement:message]] intValue]];
-            BOOL isLeftUser = [[TBXML textForElement:[TBXML childElementNamed:@"is_from_me" parentElement:message]] intValue];
+                NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:[[TBXML textForElement:[TBXML childElementNamed:@"date" parentElement:message]] intValue]];
+                BOOL isLeftUser = [[TBXML textForElement:[TBXML childElementNamed:@"is_from_me" parentElement:message]] intValue];
 #warning data
-            NSString *senderName = isLeftUser ? @"LEFT_SENDER_NAME" : @"RIGHT_SENDER_NAME";
-            NSString *senderURL = isLeftUser ? @"LEFT_SENDER_URL" : @"RIGHT_SENDER_URL";
-            
-            NSMutableDictionary *anMessageDic = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                                 messageContext, MESSAGE_CONTEXT,
-                                                 messageContextTrans, MESSAGE_CONTEXT_TRANS,
-                                                 date, MESSAGE_DATE,
-                                                 rowID, MESSAGE_ROW_ID,
-                                                 senderName, SENDER_NAME,
-                                                 senderURL, SENDER_PHOTOURL,
-                                                 isLeftUser, SENDER_IS_LEFT_USER, nil];
-            
-            [Message messageWithData:anMessageDic inManagedObjectContext:self.managedObjectContext];
-            
-            message = [TBXML nextSiblingNamed:@"message" searchFromElement:message];
-            NSLog(@"%d", rowID.intValue);
+                NSString *senderName = isLeftUser ? @"LEFT_SENDER_NAME" : @"RIGHT_SENDER_NAME";
+                NSString *senderURL = isLeftUser ? @"LEFT_SENDER_URL" : @"RIGHT_SENDER_URL";
+                
+                NSMutableDictionary *anMessageDic = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                                     messageContext, MESSAGE_CONTEXT,
+                                                     messageContextTrans, MESSAGE_CONTEXT_TRANS,
+                                                     date, MESSAGE_DATE,
+                                                     rowID, MESSAGE_ROW_ID,
+                                                     senderName, SENDER_NAME,
+                                                     senderURL, SENDER_PHOTOURL,
+                                                     [NSNumber numberWithBool:isLeftUser], SENDER_IS_LEFT_USER, nil];
+                
+                [Message messageWithData:anMessageDic inManagedObjectContext:self.managedObjectContext];
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    self.info.stringValue = [NSString stringWithFormat:@"%d", rowID.intValue];
+                });
+                message = [TBXML nextSiblingNamed:@"message" searchFromElement:message];
+            }
         }
-    }
-    
-    if (![self.managedObjectContext save:nil]) {
-        NSLog(@"Error while saving");
-    }
-    
-    //rename
-    NSURL *oldURL = [NSURL fileURLWithPath:self.outputPath.stringValue];
-    NSURL *newURL = [[oldURL URLByDeletingPathExtension] URLByAppendingPathComponent:@"kpdatabase"];
-    
-    [[NSFileManager defaultManager] moveItemAtURL:oldURL toURL:newURL error:nil];
-    
-    NSLog(@"Finished.");
+        
+        [self saveAction:nil];
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            //rename
+            NSURL *oldURL = [NSURL fileURLWithPath:self.outputPath.stringValue];
+            NSURL *newURL = [[oldURL URLByDeletingPathExtension] URLByAppendingPathExtension:@"kpdatabase"];
+            [[NSFileManager defaultManager] moveItemAtURL:oldURL toURL:newURL error:nil];
+            self.info.stringValue = @"finished!";
+        });
+    });
 }
 
 #pragma mark - Data
@@ -107,29 +108,20 @@
     return [appSupportURL URLByAppendingPathComponent:@"Jacinth.Kirapika_Builder"];
 }
 
-// Creates if necessary and returns the managed object model for the application.
 - (NSManagedObjectModel *)managedObjectModel
 {
-    if (_managedObjectModel) {
-        return _managedObjectModel;
-    }
-	
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"kirakira pikapika" withExtension:@"momd"];
-#warning buggy
-//    NSURL *modelURL = [NSURL fileURLWithPath:[[self.outputPath.stringValue stringByDeletingPathExtension] stringByAppendingPathExtension:@"momd"]];
-    NSLog(@"%@",modelURL);
-    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-//    _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
-
+    if (_managedObjectModel) return _managedObjectModel;
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Kirapika" ofType:@"momd"];
+    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path]];
+    
     return _managedObjectModel;
 }
 
 // Returns the persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. (The directory for the store is created, if necessary.)
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
-    if (_persistentStoreCoordinator) {
-        return _persistentStoreCoordinator;
-    }
+    if (_persistentStoreCoordinator) return _persistentStoreCoordinator;
     
     NSManagedObjectModel *mom = [self managedObjectModel];
     if (!mom) {
@@ -169,7 +161,7 @@
 //    NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"kirapika_Builder.storedata"];
     NSURL *url = [NSURL fileURLWithPath:self.outputPath.stringValue];
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
-    if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:nil error:&error]) {
+    if (![coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:nil error:&error]) {
         [[NSApplication sharedApplication] presentError:error];
         return nil;
     }

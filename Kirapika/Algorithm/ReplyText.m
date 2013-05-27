@@ -1,6 +1,6 @@
 //
 //  ReplyText.m
-//  kirakira pikapika
+//  Kirapika
 //
 //  Created by Justin Jia on 2/1/13.
 //  Copyright (c) 2013 Justin Jia. All rights reserved.
@@ -27,16 +27,22 @@
     self.context = context;
 
     self.leftSenderMessages = [[[[[context ofType:@"Message"]
-                                  where:@"whoSent.%@",SENDER_IS_LEFT_USER]
+                                  where:[NSString stringWithFormat:@"whoSent.%@ = 1",SENDER_IS_LEFT_USER]]
                                  orderBy:MESSAGE_ROW_ID]
                                 take:limit]
                                toArray];
+    for (Message *me in self.leftSenderMessages) {
+        NSLog(@"left:%@",me.context);
+    }
     self.rightSenderMessages = [[[[[context ofType:@"Message"]
-                                   where:@"!whoSent.%@",SENDER_IS_LEFT_USER]
+                                   where:[NSString stringWithFormat:@"whoSent.%@ = 0",SENDER_IS_LEFT_USER]]
                                   orderBy:MESSAGE_ROW_ID]
                                  take:limit]
                                 toArray];
     
+    for (Message *me in self.rightSenderMessages) {
+        NSLog(@"right:%@",me.context);
+    }
     self.load = YES;
 }
 
@@ -46,15 +52,14 @@
     
     NSMutableArray *replys = [NSMutableArray new];
     NSArray *messages = (sender == ReplyTextLeftSender) ? self.leftSenderMessages : self.rightSenderMessages;
-    str = [str transcode:self.context save:NO];
+    str = [str transcode:self.context save:NO withEightDigitNumberPool:nil];
     
     int rowID = NO;
     int extra = [DegreeOfApproximation extraCost:[str mutableCopy]];
-    NSLog(@"Extra%d",extra);
     for (Message *message in messages) {
         if (rowID) {
             NSArray *reply = [[[[self.context ofType:@"Message"]
-                                where:@"%@ BETWEEN {%d,%d}",MESSAGE_ROW_ID, rowID+1, message.rowID.intValue-1]
+                                where:@"%K BETWEEN {%d,%d}",MESSAGE_ROW_ID, rowID+1, message.rowID.intValue-1]
                                orderBy:MESSAGE_ROW_ID]
                               toArray];
             if (reply.count > 0) [replys addObject:reply];
@@ -64,14 +69,7 @@
         if (probability >= PROBABILITY_THRESHOLD) rowID = message.rowID.intValue;
     }
         
-    if (!replys.count) {
-        Message *message = (sender == ReplyTextLeftSender) ? self.rightSenderMessages.lastObject : self.leftSenderMessages.lastObject;
-        message.date = [NSDate date];
-        message.context = str;
-        message.rowID = nil;
-        message.contextTranscoding = nil;
-        [replys addObject:[NSArray arrayWithObject:message]];
-    }
+    if (!replys.count) return nil;
 
     if (self.replyTextPreference == NormalReply) {
         return [replys objectAtIndex:arc4random() % replys.count];

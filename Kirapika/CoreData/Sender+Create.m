@@ -1,6 +1,6 @@
 //
 //  Sender+Create.m
-//  kirakira pikapika
+//  Kirapika
 //
 //  Created by Justin Jia on 1/20/13.
 //  Copyright (c) 2013 Justin Jia. All rights reserved.
@@ -14,7 +14,7 @@
 {
     Sender *sender = nil;
     
-    NSArray *matches = [[[[context ofType:@"Sender"] where:@"%@ = %@", SENDER_NAME, [data objectForKey:SENDER_NAME]] orderBy:SENDER_NAME] toArray];
+    NSArray *matches = [[[context ofType:@"Sender"] where:@"%K = %@", SENDER_NAME, [data objectForKey:SENDER_NAME]] toArray];
     
     if (matches.count > 1 || !matches) {
         NSLog(@"Error, handle it!");

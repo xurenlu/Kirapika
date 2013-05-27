@@ -14,7 +14,7 @@
 {
     Word *word = nil;
     
-    NSArray *matches = [[[[context ofType:@"Word"] where:@"%@ = %@", WORD_ORG, [data objectForKey:WORD_ORG]] orderBy:WORD_ORG] toArray];
+    NSArray *matches = [[[context ofType:@"Word"] where:@"%K = %@", WORD_ORG, [data objectForKey:WORD_ORG]] toArray];
     
     if (matches.count > 1 || !matches) {
         NSLog(@"Error, handle it!");
@@ -29,4 +29,4 @@
     return word;
 }
 
-@end
+@end 

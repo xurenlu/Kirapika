@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EightDigitNumberPool.h"
+
+#define NOSIMIWO @"NOSIMIWO"
 
 @interface NSString (Transcode)
 
-- (NSString *)transcode:(NSManagedObjectContext *)context save:(BOOL)saved;
+- (NSString *)transcode:(NSManagedObjectContext *)context save:(BOOL)saved withEightDigitNumberPool:(EightDigitNumberPool *)pool;
 
 @end

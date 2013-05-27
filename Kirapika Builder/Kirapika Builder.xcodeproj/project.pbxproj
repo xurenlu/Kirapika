@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07508744174E432200F45F9C /* kirakira pikapika.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 077D47E4174CE33200443B8B /* kirakira pikapika.xcdatamodeld */; };
+		07508748174E49E400F45F9C /* Kirapika.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 07508746174E49E400F45F9C /* Kirapika.xcdatamodeld */; };
+		075D1534174F443200D64358 /* EightDigitNumberPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 075D1533174F443200D64358 /* EightDigitNumberPool.m */; };
+		075D153A1753275C00D64358 /* Kirapika.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 07508746174E49E400F45F9C /* Kirapika.xcdatamodeld */; };
 		077D47C0174CE31600443B8B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077D47BF174CE31600443B8B /* Cocoa.framework */; };
 		077D47CA174CE31600443B8B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 077D47C8174CE31600443B8B /* InfoPlist.strings */; };
 		077D47CC174CE31600443B8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D47CB174CE31600443B8B /* main.m */; };
@@ -31,6 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07508747174E49E400F45F9C /* Kirapika.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Kirapika.xcdatamodel; sourceTree = "<group>"; };
+		075D1532174F443200D64358 /* EightDigitNumberPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EightDigitNumberPool.h; sourceTree = "<group>"; };
+		075D1533174F443200D64358 /* EightDigitNumberPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EightDigitNumberPool.m; sourceTree = "<group>"; };
 		077D47BC174CE31600443B8B /* Kirapika Builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kirapika Builder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		077D47BF174CE31600443B8B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		077D47C2174CE31600443B8B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -45,7 +50,6 @@
 		077D47D2174CE31600443B8B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		077D47D5174CE31600443B8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		077D47E2174CE33200443B8B /* CoreDataConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataConstants.h; sourceTree = "<group>"; };
-		077D47E3174CE33200443B8B /* kirakira pikapika.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "kirakira pikapika.xcdatamodel"; sourceTree = "<group>"; };
 		077D47E5174CE33200443B8B /* NSManagedObjectContext+Queryable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Queryable.h"; sourceTree = "<group>"; };
 		077D47E6174CE33200443B8B /* NSManagedObjectContext+Queryable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Queryable.m"; sourceTree = "<group>"; };
 		077D47E7174CE33200443B8B /* Sender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sender.h; sourceTree = "<group>"; };
@@ -152,7 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				077D47E2174CE33200443B8B /* CoreDataConstants.h */,
-				077D47E4174CE33200443B8B /* kirakira pikapika.xcdatamodeld */,
+				07508746174E49E400F45F9C /* Kirapika.xcdatamodeld */,
 				077D47E5174CE33200443B8B /* NSManagedObjectContext+Queryable.h */,
 				077D47E6174CE33200443B8B /* NSManagedObjectContext+Queryable.m */,
 				077D47E7174CE33200443B8B /* Sender.h */,
@@ -181,6 +185,8 @@
 				077D47F7174CE33200443B8B /* NSString+Tokenize.m */,
 				077D47F8174CE33200443B8B /* NSString+Transcode.h */,
 				077D47F9174CE33200443B8B /* NSString+Transcode.m */,
+				075D1532174F443200D64358 /* EightDigitNumberPool.h */,
+				075D1533174F443200D64358 /* EightDigitNumberPool.m */,
 				077D47FA174CE33200443B8B /* ReplyText.h */,
 				077D47FB174CE33200443B8B /* ReplyText.m */,
 				077D47FC174CE33200443B8B /* Synonyms.txt */,
@@ -258,6 +264,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				075D153A1753275C00D64358 /* Kirapika.xcdatamodeld in Resources */,
 				077D47CA174CE31600443B8B /* InfoPlist.strings in Resources */,
 				077D47D0174CE31600443B8B /* Credits.rtf in Resources */,
 				077D47D6174CE31600443B8B /* MainMenu.xib in Resources */,
@@ -288,7 +295,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07508744174E432200F45F9C /* kirakira pikapika.xcdatamodeld in Sources */,
 				077D481D174DA40D00443B8B /* NSManagedObjectContext+Queryable.m in Sources */,
 				077D481E174DA40D00443B8B /* Sender.m in Sources */,
 				077D481F174DA40D00443B8B /* Word.m in Sources */,
@@ -303,6 +309,8 @@
 				077D47CC174CE31600443B8B /* main.m in Sources */,
 				077D47D3174CE31600443B8B /* AppDelegate.m in Sources */,
 				077D481B174CE66100443B8B /* TBXML.m in Sources */,
+				07508748174E49E400F45F9C /* Kirapika.xcdatamodeld in Sources */,
+				075D1534174F443200D64358 /* EightDigitNumberPool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,14 +451,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		077D47E4174CE33200443B8B /* kirakira pikapika.xcdatamodeld */ = {
+		07508746174E49E400F45F9C /* Kirapika.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				077D47E3174CE33200443B8B /* kirakira pikapika.xcdatamodel */,
+				07508747174E49E400F45F9C /* Kirapika.xcdatamodel */,
 			);
-			currentVersion = 077D47E3174CE33200443B8B /* kirakira pikapika.xcdatamodel */;
-			path = "kirakira pikapika.xcdatamodeld";
+			currentVersion = 07508747174E49E400F45F9C /* Kirapika.xcdatamodel */;
+			path = Kirapika.xcdatamodeld;
 			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};

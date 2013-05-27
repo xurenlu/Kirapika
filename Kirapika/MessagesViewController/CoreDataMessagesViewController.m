@@ -1,6 +1,6 @@
 //
 //  CoreDataMessagesViewController.m
-//  kirakira pikapika
+//  Kirapika
 //
 //  Created by Justin Jia on 4/7/13.
 //  Copyright (c) 2013 Justin Jia. All rights reserved.
@@ -32,9 +32,8 @@
     NSString *path = [self.userDefaults objectForKey:CURRENT_DATABASE_PATH];
     if (path) {
         NSURL *url = [[NSURL fileURLWithPath:[[FilesManagement documentDirectory] path]] URLByAppendingPathComponent:path];
-//        NSURL *url = [[[NSBundle bundleWithURL:[FilesManagement documentDirectory]] resourceURL] URLByAppendingPathComponent:path];
         self.document = [[UIManagedDocument alloc]initWithFileURL:url];
-        if ([[NSFileManager defaultManager] fileExistsAtPath:[url path]]) {
+        if ([[NSFileManager defaultManager] fileExistsAtPath:url.path]) {
             [self.document openWithCompletionHandler:^(BOOL success){
                 if (success) [self documentIsOpened];
                 if (!success) NSLog(@"Couldn't open document at %@", url);
@@ -94,7 +93,7 @@
 
 - (BubbleMessageStyle)bubbleCurrentSender:(Sender *)sender
 {
-    return (BubbleMessageStyle)sender.isLeftUser;
+    return (BubbleMessageStyle)sender.isLeftUser.intValue;
 }
 
 @end
