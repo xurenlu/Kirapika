@@ -18,12 +18,9 @@
 
 + (double)degreeOfApproximation:(NSString *)x :(NSString *)y withExtra:(int)extra
 {
-    int ml = NOSIMIWO.length;
+    int ml = (int)NOSIMIWO.length;
     int sl = (int)x.length/ml+1;
     int tl = (int)y.length/ml+1;
-    
-#warning need test
-    if (sl > 10 || tl > 10) NSLog(@"sl%d,tl%d",sl,tl);
     
     if (sl==1 || tl==1) return 0;
 
@@ -51,11 +48,7 @@
     int re = matrix[sl-1][tl-1];
     free(buffer);
     free(matrix);
-    
-    if (sl > 10 || tl > 10) NSLog(@"a");
-    
-    NSLog(@"re%d,extra%d;x%@,y%@",re,extra,x,y);
-    
+            
     return (1-(re+extra)/fmax(sl-1, tl-1));
 }
 

@@ -31,18 +31,12 @@
                                  orderBy:MESSAGE_ROW_ID]
                                 take:limit]
                                toArray];
-    for (Message *me in self.leftSenderMessages) {
-        NSLog(@"left:%@",me.context);
-    }
     self.rightSenderMessages = [[[[[context ofType:@"Message"]
                                    where:[NSString stringWithFormat:@"whoSent.%@ = 0",SENDER_IS_LEFT_USER]]
                                   orderBy:MESSAGE_ROW_ID]
                                  take:limit]
                                 toArray];
-    
-    for (Message *me in self.rightSenderMessages) {
-        NSLog(@"right:%@",me.context);
-    }
+
     self.load = YES;
 }
 

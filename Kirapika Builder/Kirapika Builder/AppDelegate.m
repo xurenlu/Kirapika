@@ -63,10 +63,10 @@
                 NSString *messageContext = [TBXML textForElement:[TBXML childElementNamed:@"text" parentElement:message]];
                 NSString *messageContextTrans = [messageContext transcode:self.managedObjectContext save:YES withEightDigitNumberPool:pool];
                 NSNumber *rowID = [NSNumber numberWithInt:self.rowID];
-#warning wrong Date
+                #warning Date
                 NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:[[TBXML textForElement:[TBXML childElementNamed:@"date" parentElement:message]] intValue]];
                 BOOL isLeftUser = [[TBXML textForElement:[TBXML childElementNamed:@"is_from_me" parentElement:message]] intValue];
-#warning data
+                #warning data
                 NSString *senderName = isLeftUser ? @"LEFT_SENDER_NAME" : @"RIGHT_SENDER_NAME";
                 NSString *senderURL = isLeftUser ? @"LEFT_SENDER_URL" : @"RIGHT_SENDER_URL";
                 

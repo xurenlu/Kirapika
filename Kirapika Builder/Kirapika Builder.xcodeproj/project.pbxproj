@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07508748174E49E400F45F9C /* Kirapika.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 07508746174E49E400F45F9C /* Kirapika.xcdatamodeld */; };
 		075D1534174F443200D64358 /* EightDigitNumberPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 075D1533174F443200D64358 /* EightDigitNumberPool.m */; };
 		075D153A1753275C00D64358 /* Kirapika.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 07508746174E49E400F45F9C /* Kirapika.xcdatamodeld */; };
 		077D47C0174CE31600443B8B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077D47BF174CE31600443B8B /* Cocoa.framework */; };
@@ -309,7 +308,6 @@
 				077D47CC174CE31600443B8B /* main.m in Sources */,
 				077D47D3174CE31600443B8B /* AppDelegate.m in Sources */,
 				077D481B174CE66100443B8B /* TBXML.m in Sources */,
-				07508748174E49E400F45F9C /* Kirapika.xcdatamodeld in Sources */,
 				075D1534174F443200D64358 /* EightDigitNumberPool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
