@@ -18,6 +18,11 @@
 @property (assign) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSTextField *inputPath;
 @property (weak) IBOutlet NSTextField *outputPath;
+@property (weak) IBOutlet NSTextField *leftSenderName;
+@property (weak) IBOutlet NSTextField *rightSenderName;
+@property (weak) IBOutlet NSTextField *leftSenderPhotoURL;
+@property (weak) IBOutlet NSTextField *rightSenderPhotoURL;
+@property (weak) IBOutlet NSMatrix *isFromMeMatrix;
 
 - (IBAction)chooseButtonTapped:(id)sender;
 - (IBAction)saveAction:(id)sender;

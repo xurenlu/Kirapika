@@ -52,23 +52,19 @@
         NSData *data = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:self.inputPath.stringValue]];
         TBXML *tbxml = [[TBXML alloc]initWithXMLData:data error:nil];
         EightDigitNumberPool *pool = [EightDigitNumberPool new];
-        // Obtain root element
         TBXMLElement *root = tbxml.rootXMLElement;
         
-        // If TBXML found a root node, process element and iterate all children
         if (root) {
-            // search for the first author element within the root element's children
-            TBXMLElement *message = [TBXML childElementNamed:MESSAGE parentElement:root error:nil];
+            TBXMLElement *message = [TBXML childElementNamed:@"message" parentElement:root error:nil];
             while (message) {
                 NSString *messageContext = [TBXML textForElement:[TBXML childElementNamed:@"text" parentElement:message]];
                 NSString *messageContextTrans = [messageContext transcode:self.managedObjectContext save:YES withEightDigitNumberPool:pool];
                 NSNumber *rowID = [NSNumber numberWithInt:self.rowID];
-                #warning Date
                 NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:[[TBXML textForElement:[TBXML childElementNamed:@"date" parentElement:message]] intValue]];
-                BOOL isLeftUser = [[TBXML textForElement:[TBXML childElementNamed:@"is_from_me" parentElement:message]] intValue];
-                #warning data
-                NSString *senderName = isLeftUser ? @"LEFT_SENDER_NAME" : @"RIGHT_SENDER_NAME";
-                NSString *senderURL = isLeftUser ? @"LEFT_SENDER_URL" : @"RIGHT_SENDER_URL";
+                BOOL isFromMe = [[TBXML textForElement:[TBXML childElementNamed:@"is_from_me" parentElement:message]] intValue];
+                BOOL isLeftUser = self.isFromMeMatrix.selectedRow == 1 ? isFromMe : !isFromMe;
+                NSString *senderName = isLeftUser ? self.leftSenderName.stringValue : self.rightSenderName.stringValue;
+                NSString *senderURL = isLeftUser ? self.leftSenderPhotoURL.stringValue : self.rightSenderPhotoURL.stringValue;
                 
                 NSMutableDictionary *anMessageDic = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                                      messageContext, MESSAGE_CONTEXT,
@@ -83,14 +79,13 @@
                 dispatch_sync(dispatch_get_main_queue(), ^{
                     self.info.stringValue = [NSString stringWithFormat:@"%d", rowID.intValue];
                 });
-                message = [TBXML nextSiblingNamed:MESSAGE searchFromElement:message];
+                message = [TBXML nextSiblingNamed:@"message" searchFromElement:message];
             }
         }
         
         [self saveAction:nil];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
-            //rename
             NSURL *oldURL = [NSURL fileURLWithPath:self.outputPath.stringValue];
             NSURL *newURL = [[oldURL URLByDeletingPathExtension] URLByAppendingPathExtension:@"kpdatabase"];
             [[NSFileManager defaultManager] moveItemAtURL:oldURL toURL:newURL error:nil];
