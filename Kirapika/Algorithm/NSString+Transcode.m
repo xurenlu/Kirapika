@@ -14,35 +14,30 @@
 
 - (NSString *)transcode:(NSManagedObjectContext *)context save:(BOOL)saved withEightDigitNumberPool:(EightDigitNumberPool *)pool
 {
-    NSString *str = [self checkSynoyms:self.mutableCopy];
-    NSMutableArray *arr = [str.arrayWithWordTokenize mutableCopy];
+    NSMutableArray *arr = [[self checkSynoyms:self.mutableCopy].arrayWithWordTokenize mutableCopy];
     [arr removeObject:@":"];
     
     for (int i=0; i<arr.count; i++) {
         NSString *org = [arr objectAtIndex:i];
-        NSArray *matches = [[[context ofType:@"Word"] where:@"%K = %@", WORD_ORG, org] toArray];
+        NSArray *matches = [[[context ofType:WORD] where:@"%K = %@", WORD_ORG, org] toArray];
         if (matches.count) {
             [arr replaceObjectAtIndex:i withObject:[(Word *)matches.lastObject trans]];
         } else if (org.intValue <= 10000000 || org.intValue >= 99999999 || org.length != NOSIMIWO.length) {
-            if (saved) {
-                Word *word = [Word wordWithData:[self dictionaryWithValuesForWord:org inContext:context withEightDigitNumberPool:pool] inManagedObjectContext:context];
-                [arr replaceObjectAtIndex:i withObject:word.trans];
-            } else {
-                [arr replaceObjectAtIndex:i withObject:NOSIMIWO];
-            }
+            Word *word = saved ? [Word wordWithData:[self dictionaryForWord:org inContext:context withEightDigitNumberPool:pool] inManagedObjectContext:context] : nil;
+            [arr replaceObjectAtIndex:i withObject:saved ? word.trans : NOSIMIWO];
         }
     }
         
     return [arr componentsJoinedByString:nil];
 }
 
-- (NSDictionary *)dictionaryWithValuesForWord:(NSString *)str inContext:(NSManagedObjectContext *)context withEightDigitNumberPool:(EightDigitNumberPool *)pool
+- (NSDictionary *)dictionaryForWord:(NSString *)str inContext:(NSManagedObjectContext *)context withEightDigitNumberPool:(EightDigitNumberPool *)pool
 {
     NSString *trans = pool ? [[NSNumber numberWithInt:pool.number] stringValue] : nil;
     if (!trans)
         do {
-            trans = [[NSNumber numberWithInt:(20000000 + rand() % 89999999)] stringValue];
-        } while ([[[[context ofType:@"Word"] where:@"%K = %@", WORD_TRANS, trans] toArray] count]);
+            trans = [[NSNumber numberWithInt:(20000000 + rand() % 79999999)] stringValue];
+        } while ([[[[context ofType:WORD] where:@"%K = %@", WORD_TRANS, trans] toArray] count]);
     return [NSDictionary dictionaryWithObjectsAndKeys:str, WORD_ORG, trans, WORD_TRANS, nil];
 }
 

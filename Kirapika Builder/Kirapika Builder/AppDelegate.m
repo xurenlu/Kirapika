@@ -58,7 +58,7 @@
         // If TBXML found a root node, process element and iterate all children
         if (root) {
             // search for the first author element within the root element's children
-            TBXMLElement *message = [TBXML childElementNamed:@"message" parentElement:root error:nil];
+            TBXMLElement *message = [TBXML childElementNamed:MESSAGE parentElement:root error:nil];
             while (message) {
                 NSString *messageContext = [TBXML textForElement:[TBXML childElementNamed:@"text" parentElement:message]];
                 NSString *messageContextTrans = [messageContext transcode:self.managedObjectContext save:YES withEightDigitNumberPool:pool];
@@ -83,7 +83,7 @@
                 dispatch_sync(dispatch_get_main_queue(), ^{
                     self.info.stringValue = [NSString stringWithFormat:@"%d", rowID.intValue];
                 });
-                message = [TBXML nextSiblingNamed:@"message" searchFromElement:message];
+                message = [TBXML nextSiblingNamed:MESSAGE searchFromElement:message];
             }
         }
         

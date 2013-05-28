@@ -14,7 +14,7 @@
 {
     Message *message = nil;
     
-    NSArray *matches = [[[context ofType:@"Message"] where:@"%K = %@", MESSAGE_DATE, [data objectForKey:MESSAGE_DATE]] toArray];
+    NSArray *matches = [[[context ofType:MESSAGE] where:@"%K = %@", MESSAGE_DATE, [data objectForKey:MESSAGE_DATE]] toArray];
     
     if (matches.count > 1 || !matches) {
         NSLog(@"Error, handle it!");

@@ -14,12 +14,12 @@
 {
     Word *word = nil;
     
-    NSArray *matches = [[[context ofType:@"Word"] where:@"%K = %@", WORD_ORG, [data objectForKey:WORD_ORG]] toArray];
+    NSArray *matches = [[[context ofType:WORD] where:@"%K = %@", WORD_ORG, [data objectForKey:WORD_ORG]] toArray];
     
     if (matches.count > 1 || !matches) {
         NSLog(@"Error, handle it!");
     } else if (matches.count == 0) {
-        word = [NSEntityDescription insertNewObjectForEntityForName:@"Word" inManagedObjectContext:context];
+        word = [NSEntityDescription insertNewObjectForEntityForName:WORD inManagedObjectContext:context];
         word.org = [data objectForKey:WORD_ORG];
         word.trans = [data objectForKey:WORD_TRANS];
     } else {

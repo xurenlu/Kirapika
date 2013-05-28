@@ -9,7 +9,7 @@
 #import "ReplyText.h"
 #import "NSString+Transcode.h"
 
-#define PROBABILITY_THRESHOLD 0.5
+#define PROBABILITY_THRESHOLD 0.65
 
 @interface ReplyText()
 
@@ -26,12 +26,12 @@
 {
     self.context = context;
 
-    self.leftSenderMessages = [[[[[context ofType:@"Message"]
+    self.leftSenderMessages = [[[[[context ofType:MESSAGE]
                                   where:[NSString stringWithFormat:@"whoSent.%@ = 1",SENDER_IS_LEFT_USER]]
                                  orderBy:MESSAGE_ROW_ID]
                                 take:limit]
                                toArray];
-    self.rightSenderMessages = [[[[[context ofType:@"Message"]
+    self.rightSenderMessages = [[[[[context ofType:MESSAGE]
                                    where:[NSString stringWithFormat:@"whoSent.%@ = 0",SENDER_IS_LEFT_USER]]
                                   orderBy:MESSAGE_ROW_ID]
                                  take:limit]
@@ -52,7 +52,7 @@
     int extra = [DegreeOfApproximation extraCost:[str mutableCopy]];
     for (Message *message in messages) {
         if (rowID) {
-            NSArray *reply = [[[[self.context ofType:@"Message"]
+            NSArray *reply = [[[[self.context ofType:MESSAGE]
                                 where:@"%K BETWEEN {%d,%d}",MESSAGE_ROW_ID, rowID+1, message.rowID.intValue-1]
                                orderBy:MESSAGE_ROW_ID]
                               toArray];

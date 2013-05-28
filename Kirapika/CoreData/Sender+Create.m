@@ -14,12 +14,12 @@
 {
     Sender *sender = nil;
     
-    NSArray *matches = [[[context ofType:@"Sender"] where:@"%K = %@", SENDER_NAME, [data objectForKey:SENDER_NAME]] toArray];
+    NSArray *matches = [[[context ofType:SENDER] where:@"%K = %@", SENDER_NAME, [data objectForKey:SENDER_NAME]] toArray];
     
     if (matches.count > 1 || !matches) {
         NSLog(@"Error, handle it!");
     } else if (matches.count == 0) {
-        sender = [NSEntityDescription insertNewObjectForEntityForName:@"Sender" inManagedObjectContext:context];
+        sender = [NSEntityDescription insertNewObjectForEntityForName:SENDER inManagedObjectContext:context];
         sender.name = [data objectForKey:SENDER_NAME];
         sender.photoURL = [data objectForKey:SENDER_PHOTOURL];
         sender.isLeftUser = [data objectForKey:SENDER_IS_LEFT_USER];

@@ -17,14 +17,16 @@
 
 #import "NSManagedObjectContext+Queryable.h"
 
+#define MESSAGE @"Message"
 #define MESSAGE_CONTEXT @"context"
 #define MESSAGE_CONTEXT_TRANS @"contextTranscoding"
 #define MESSAGE_DATE @"date"
 #define MESSAGE_ROW_ID @"rowID"
+#define SENDER @"Sender"
 #define SENDER_NAME @"name"
 #define SENDER_PHOTOURL @"photoURL"
 #define SENDER_IS_LEFT_USER @"isLeftUser"
-
+#define WORD @"Word"
 #define WORD_ORG @"org"
 #define WORD_TRANS @"trans"
 
