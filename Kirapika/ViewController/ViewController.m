@@ -7,12 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "UserDefaultsKeys.h"
-#import "FilesManagement.h"
 
 @interface ViewController ()
-
-- (void)dismissAnimation;
 
 @end
 
@@ -25,28 +21,16 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    if (self.view.alpha != 1) {
-        [UIView animateWithDuration:0.5 animations:^{
-            self.view.alpha = 1;
-        }];
-    }
-    
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    BOOL noData = ![userDefaults objectForKey:CURRENT_DATABASE_PATH] || ![userDefaults objectForKey:CURRENT_PLIST_PATH];
-    BOOL importData = [userDefaults objectForKey:IMPORT_DATABASE_PATH] || [userDefaults objectForKey:IMPORT_PLIST_PATH];
-    if (noData || importData) {
-        [self dismissAnimation];
-        [self performSegueWithIdentifier:@"moeSegue" sender:self];
-    }
+    [UIView animateWithDuration:0.5 animations:^{
+        self.view.alpha = 1;
+    }];
 }
 
 - (void)recognizedMark:(RecognizedMarkType)mark
 {
-    if (self.view.guideView.alpha != 1.0f) {
-        [UIView animateWithDuration:0.5 animations:^{
-            self.view.guideView.alpha = 1.0f;
-        }];
-    }
+    [UIView animateWithDuration:0.5 animations:^{
+        self.view.guideView.alpha = 1.0f;
+    }];
     
     if (mark == LetterC) {
         self.view.guideView.label.text = NSLocalizedString(@"release to chat", nil);
@@ -61,8 +45,6 @@
 
 - (void)finalRecognizedMark:(RecognizedMarkType)mark
 {
-    [self dismissAnimation];
-    
     if (mark == LetterC) {
         [self performSegueWithIdentifier:@"chatSegue" sender:self];
     } else if (mark == LetterM) {
@@ -74,7 +56,7 @@
     }
 }
 
-- (void)dismissAnimation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [UIView animateWithDuration:0.35 animations:^{
         self.view.guideView.alpha = 0;

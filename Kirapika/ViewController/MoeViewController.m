@@ -13,6 +13,7 @@
 @interface MoeViewController ()
 
 @property (nonatomic, strong) NSUserDefaults *userDefaults;
+- (void)openURL:(NSNotification *)aNotification;
 - (BOOL)importDatabase:(NSURL *)url;
 - (BOOL)importPlist:(NSURL *)url;
 - (BOOL)removeDatabaseFromDocumentDictionary:(NSString *)name;
@@ -25,28 +26,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.status.text = @"nothing happened";
 
+    self.status.text = @"nothing happened";    
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)openURL:(NSNotification *)aNotification
 {
-    NSString *importDatabasePath = [self.userDefaults objectForKey:IMPORT_DATABASE_PATH];
-    NSString *importPlistPath = [self.userDefaults objectForKey:IMPORT_PLIST_PATH];
-    if (importDatabasePath) {
-        NSURL *url = [NSURL fileURLWithPath:importDatabasePath];
+    NSURL *url = aNotification.object;
+    
+    if ([url.pathExtension isEqualToString:PLIST_TYPE]) {
+        [self importPlist:url];
+    } else if ([url.pathExtension isEqualToString:DATABASE_TYPE]) {
         [self importDatabase:url];
     }
-    if (importPlistPath) {
-        NSURL *url = [NSURL fileURLWithPath:importPlistPath];
-        [self importPlist:url];
-    }
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)importButtonTapped:(id)sender
@@ -63,7 +55,8 @@
 
 - (IBAction)clearButtonTapped:(id)sender
 {
-    if (![self removeDatabaseFromDocumentDictionary:self.importFileName.text]) [self removePlistFromDocumentDictionary:self.importFileName.text];
+    if (![self removeDatabaseFromDocumentDictionary:self.importFileName.text])
+        [self removePlistFromDocumentDictionary:self.importFileName.text];
 }
 
 - (BOOL)importDatabase:(NSURL *)url
@@ -72,7 +65,6 @@
     BOOL succeed = [FilesManagement importDatabase:url];
     if (succeed) {
         [self.userDefaults setValue:name forKey:CURRENT_DATABASE_PATH];
-        [self.userDefaults setValue:nil forKey:IMPORT_DATABASE_PATH];
         self.status.text = [NSString stringWithFormat:@"successfully import %@",name];
         return YES;
     } else {
@@ -87,7 +79,6 @@
     BOOL succeed = [FilesManagement importPlist:url];
     if (succeed) {
         [self.userDefaults setValue:name forKey:CURRENT_PLIST_PATH];
-        [self.userDefaults setValue:nil forKey:IMPORT_PLIST_PATH];
         self.status.text = [NSString stringWithFormat:@"successfully import %@",name];
         return YES;
     } else {
@@ -130,6 +121,18 @@
 {
     if (!_userDefaults) _userDefaults = [NSUserDefaults standardUserDefaults];
     return _userDefaults;
+}
+
+#pragma mark - Unload
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"openURLNotification" object:nil];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    _userDefaults = nil;
 }
 
 @end

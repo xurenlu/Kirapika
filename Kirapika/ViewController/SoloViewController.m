@@ -39,7 +39,6 @@
     
     NSString *path = [self.userDefaults objectForKey:CURRENT_PLIST_PATH];
     if (path) {
-//        NSURL *url = [[[[NSBundle bundleWithURL:[FilesManagement documentDirectory]] resourceURL] URLByAppendingPathComponent:path] URLByAppendingPathExtension:@"plist"];
         NSURL *url = [[[NSURL fileURLWithPath:[[FilesManagement documentDirectory] path]] URLByAppendingPathComponent:path] URLByAppendingPathExtension:@"plist"];
         self.sections = [[NSArray alloc]initWithContentsOfURL:url];
         [self nextSection];
