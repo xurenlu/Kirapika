@@ -9,8 +9,8 @@
 #ifndef Kirapika_UserDefaultsKeys_h
 #define Kirapika_UserDefaultsKeys_h
 
-#define CURRENT_DATABASE_PATH @"current database path key"
-#define CURRENT_PLIST_PATH @"current plist path key"
+#define CURRENT_DATABASE_NAME @"current database path key"
+#define CURRENT_PLIST_NAME @"current plist path key"
 
 #define MESSAGES_ARRAY_KEY [NSString stringWithFormat:@"messages array key %@", NSStringFromClass([self class])]
 #define CURRENT_SENDER_KEY [NSString stringWithFormat:@"is left user bool key %@", NSStringFromClass([self class])]

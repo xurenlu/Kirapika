@@ -14,11 +14,13 @@
 @interface FilesManagement : NSObject
 
 + (NSURL *)documentDirectory;
+
 + (NSArray *)fileURLsInDocumentDirectory;
++ (NSArray *)fileURLs:(NSURL *)url options:(NSDirectoryEnumerationOptions)options;
 
 + (BOOL)importDatabase:(NSURL *)resourceURL;
 + (BOOL)importPlist:(NSURL *)resourceURL;
-+ (BOOL)removeDatabaseFromDocumentDirectory:(NSString *)fileName;
-+ (BOOL)removePlistFromDocumentDirectory:(NSString *)fileName;
 
++ (BOOL)removeFileFromDocumentDirectory:(NSString *)fileName;
++ (BOOL)removeFile:(NSURL *)url;
 @end

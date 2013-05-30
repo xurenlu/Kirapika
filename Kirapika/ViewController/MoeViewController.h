@@ -8,11 +8,10 @@
 
 #import "ViewController.h"
 
-@interface MoeViewController : UIViewController
+@interface MoeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-- (IBAction)importButtonTapped:(id)sender;
-- (IBAction)clearButtonTapped:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *status;
-@property (weak, nonatomic) IBOutlet UITextField *importFileName;
+- (void)openURL:(NSNotification *)aNotification;
+- (IBAction)clearButtonTapped:(id)sender;
 
 @end

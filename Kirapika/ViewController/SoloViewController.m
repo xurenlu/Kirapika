@@ -37,9 +37,9 @@
     [self clearAllMessages];
     self.currentSender = BubbleMessageStyleRightSender;
     
-    NSString *path = [self.userDefaults objectForKey:CURRENT_PLIST_PATH];
+    NSString *path = [self.userDefaults objectForKey:CURRENT_PLIST_NAME];
     if (path) {
-        NSURL *url = [[[NSURL fileURLWithPath:[[FilesManagement documentDirectory] path]] URLByAppendingPathComponent:path] URLByAppendingPathExtension:@"plist"];
+        NSURL *url = [[NSURL fileURLWithPath:[[FilesManagement documentDirectory] path]] URLByAppendingPathComponent:path];
         self.sections = [[NSArray alloc]initWithContentsOfURL:url];
         [self nextSection];
     } else {

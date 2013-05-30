@@ -29,7 +29,7 @@
 {
     [self setEditingEnabled:NO];
 
-    NSString *path = [self.userDefaults objectForKey:CURRENT_DATABASE_PATH];
+    NSString *path = [self.userDefaults objectForKey:CURRENT_DATABASE_NAME];
     if (path) {
         NSURL *url = [[NSURL fileURLWithPath:[[FilesManagement documentDirectory] path]] URLByAppendingPathComponent:path];
         self.document = [[UIManagedDocument alloc]initWithFileURL:url];

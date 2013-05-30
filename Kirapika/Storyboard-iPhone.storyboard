@@ -82,95 +82,52 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEh-SF-HOd">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="import">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="importButtonTapped:" destination="FO9-mk-f58" eventType="touchUpInside" id="CsA-Rr-91O"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0VP-yj-14L">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="delete">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="clearButtonTapped:" destination="FO9-mk-f58" eventType="touchUpInside" id="n3M-Qe-5sb"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBI-h2-tFh">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2cD-CF-z1N">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBI-h2-tFh">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="172" id="27q-hR-wOT"/>
+                                    <constraint firstAttribute="width" constant="300" id="RQh-oQ-KeJ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="import from iTunes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9m-f1-uoj">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="80"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="file name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVI-wU-Wq3">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="action:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66P-gX-7oL">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="slide down to dismiss" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WtY-T0-WSV">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="_____________________________" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgO-u0-rQ4">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wS2-Kd-Qgr">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="10D-Za-cHi"/>
+                                    <constraint firstAttribute="height" constant="29" id="lKf-LY-MmU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="Clear All Cache">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearButtonTapped:" destination="FO9-mk-f58" eventType="touchUpInside" id="6et-7S-rzd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="touch to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pyp-Di-dXR">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="61" id="VUG-KE-gT1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0VP-yj-14L" firstAttribute="baseline" secondItem="FEh-SF-HOd" secondAttribute="baseline" type="default" id="6ay-xA-Vgt"/>
-                            <constraint firstItem="2cD-CF-z1N" firstAttribute="trailing" secondItem="0VP-yj-14L" secondAttribute="trailing" type="default" id="7JR-jH-48V"/>
-                            <constraint firstItem="WtY-T0-WSV" firstAttribute="top" secondItem="QHA-Wi-pS6" secondAttribute="top" type="default" id="Ep5-I6-RVT"/>
-                            <constraint firstItem="XgO-u0-rQ4" firstAttribute="centerX" secondItem="i9m-f1-uoj" secondAttribute="centerX" type="default" id="G4o-ZQ-orx"/>
-                            <constraint firstItem="2cD-CF-z1N" firstAttribute="top" secondItem="i9m-f1-uoj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="QTh-ow-2jg"/>
-                            <constraint firstItem="XgO-u0-rQ4" firstAttribute="centerX" secondItem="fBI-h2-tFh" secondAttribute="centerX" type="default" id="UcQ-mP-XqF"/>
-                            <constraint firstItem="i9m-f1-uoj" firstAttribute="top" secondItem="XgO-u0-rQ4" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Z2G-mM-J2H"/>
-                            <constraint firstItem="FEh-SF-HOd" firstAttribute="leading" secondItem="66P-gX-7oL" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="b5Q-Y6-kcp"/>
-                            <constraint firstItem="i9m-f1-uoj" firstAttribute="centerX" secondItem="QHA-Wi-pS6" secondAttribute="centerX" type="default" id="dPs-2X-qBi"/>
-                            <constraint firstItem="WtY-T0-WSV" firstAttribute="centerX" secondItem="fBI-h2-tFh" secondAttribute="centerX" type="default" id="gnO-Jz-UOM"/>
-                            <constraint firstItem="jVI-wU-Wq3" firstAttribute="leading" secondItem="QHA-Wi-pS6" secondAttribute="leading" constant="33" id="gq4-tb-VOX"/>
-                            <constraint firstItem="XgO-u0-rQ4" firstAttribute="top" secondItem="fBI-h2-tFh" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="h7X-9X-OJH"/>
-                            <constraint firstItem="FEh-SF-HOd" firstAttribute="leading" secondItem="2cD-CF-z1N" secondAttribute="leading" type="default" id="hGE-c7-WJw"/>
-                            <constraint firstItem="2cD-CF-z1N" firstAttribute="leading" secondItem="jVI-wU-Wq3" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="jo5-GR-poC"/>
-                            <constraint firstItem="fBI-h2-tFh" firstAttribute="top" secondItem="WtY-T0-WSV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="qnb-mA-clE"/>
-                            <constraint firstItem="66P-gX-7oL" firstAttribute="baseline" secondItem="FEh-SF-HOd" secondAttribute="baseline" type="default" id="rky-cS-hBo"/>
-                            <constraint firstItem="FEh-SF-HOd" firstAttribute="top" secondItem="2cD-CF-z1N" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="uB8-Y5-N2d"/>
-                            <constraint firstItem="2cD-CF-z1N" firstAttribute="baseline" secondItem="jVI-wU-Wq3" secondAttribute="baseline" type="default" id="vpx-T4-joc"/>
+                            <constraint firstItem="Pyp-Di-dXR" firstAttribute="centerX" secondItem="QHA-Wi-pS6" secondAttribute="centerX" type="default" id="1yH-V1-OGB"/>
+                            <constraint firstAttribute="bottom" secondItem="wS2-Kd-Qgr" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="209-pq-4xz"/>
+                            <constraint firstItem="Pyp-Di-dXR" firstAttribute="centerX" secondItem="wS2-Kd-Qgr" secondAttribute="centerX" type="default" id="6ha-F5-x7w"/>
+                            <constraint firstItem="fBI-h2-tFh" firstAttribute="centerY" secondItem="QHA-Wi-pS6" secondAttribute="centerY" type="default" id="N8N-2C-AxW"/>
+                            <constraint firstAttribute="bottom" secondItem="Pyp-Di-dXR" secondAttribute="bottom" constant="42" id="SfF-7a-g2L"/>
+                            <constraint firstItem="Pyp-Di-dXR" firstAttribute="centerX" secondItem="fBI-h2-tFh" secondAttribute="centerX" type="default" id="cL4-R8-Nxv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mzH-xY-40a"/>
                     <connections>
-                        <outlet property="importFileName" destination="2cD-CF-z1N" id="ODy-hg-Rzp"/>
                         <outlet property="status" destination="fBI-h2-tFh" id="V3J-dJ-Aqr"/>
                     </connections>
                 </viewController>
@@ -362,73 +319,6 @@
             <point key="canvasLocation" x="2716" y="444"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="ChatViewController" superclassName="CoreDataMessagesViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChatViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="titleView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="CoreDataMessagesViewController" superclassName="MessagesViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataMessagesViewController.h"/>
-        </class>
-        <class className="GestureNavigationBar" superclassName="UINavigationBar">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GestureNavigationBar.h"/>
-        </class>
-        <class className="GestureNavigationViewController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GestureNavigationViewController.h"/>
-        </class>
-        <class className="HintView" superclassName="UIImageView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HintView.h"/>
-        </class>
-        <class className="MessageInputView" superclassName="UIImageView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MessageInputView.h"/>
-        </class>
-        <class className="MessagesNavigationViewController" superclassName="GestureNavigationViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MessagesNavigationViewController.h"/>
-        </class>
-        <class className="MessagesTableView" superclassName="UITableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MessagesTableView.h"/>
-        </class>
-        <class className="MessagesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MessagesViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="inputView" candidateClass="MessageInputView"/>
-                <relationship kind="outlet" name="inputViewHeightConstraint" candidateClass="NSLayoutConstraint"/>
-                <relationship kind="outlet" name="tableView" candidateClass="MessagesTableView"/>
-            </relationships>
-        </class>
-        <class className="MoeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clearButtonTapped:"/>
-                <relationship kind="action" name="importButtonTapped:"/>
-                <relationship kind="outlet" name="importFileName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="status" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PixelStyleHandwritingRecognitionView" superclassName="UIImageView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PixelStyleHandwritingRecognitionView.h"/>
-        </class>
-        <class className="RecallViewController" superclassName="CoreDataMessagesViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecallViewController.h"/>
-        </class>
-        <class className="SoloViewController" superclassName="MessagesViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SoloViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="hint" candidateClass="HintView"/>
-            </relationships>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="view" candidateClass="PixelStyleHandwritingRecognitionView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

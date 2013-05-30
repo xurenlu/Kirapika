@@ -13,11 +13,8 @@
 @interface MoeViewController ()
 
 @property (nonatomic, strong) NSUserDefaults *userDefaults;
-- (void)openURL:(NSNotification *)aNotification;
-- (BOOL)importDatabase:(NSURL *)url;
-- (BOOL)importPlist:(NSURL *)url;
-- (BOOL)removeDatabaseFromDocumentDictionary:(NSString *)name;
-- (BOOL)removePlistFromDocumentDictionary:(NSString *)name;
+- (void)removePlist;
+- (void)removeDatabase;
 
 @end
 
@@ -26,95 +23,45 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.status.text = @"nothing happened";    
 }
 
 - (void)openURL:(NSNotification *)aNotification
 {
     NSURL *url = aNotification.object;
-    
     if ([url.pathExtension isEqualToString:PLIST_TYPE]) {
-        [self importPlist:url];
+        [self removePlist];
+        [FilesManagement importPlist:url];
+        [self.userDefaults setValue:[[[url URLByDeletingPathExtension] URLByAppendingPathExtension:@"plist"] lastPathComponent] forKey:CURRENT_PLIST_NAME];
     } else if ([url.pathExtension isEqualToString:DATABASE_TYPE]) {
-        [self importDatabase:url];
+        [self removeDatabase];
+        [FilesManagement importDatabase:url];
+        [self.userDefaults setValue:[[url URLByDeletingPathExtension] lastPathComponent] forKey:CURRENT_DATABASE_NAME];
     }
-}
-
-- (IBAction)importButtonTapped:(id)sender
-{
-    NSURL *url = [[FilesManagement documentDirectory] URLByAppendingPathComponent:self.importFileName.text];
-    if ([[url pathExtension] isEqualToString:DATABASE_TYPE]) {
-        [self importDatabase:url];
-    } else if ([[url pathExtension] isEqualToString:PLIST_TYPE]) {
-        [self importPlist:url];
-    } else {
-        self.status.text = @"wrong file type!";
-    }
+    self.status.text = @"imported";
 }
 
 - (IBAction)clearButtonTapped:(id)sender
 {
-    if (![self removeDatabaseFromDocumentDictionary:self.importFileName.text])
-        [self removePlistFromDocumentDictionary:self.importFileName.text];
+    [self removeFiles];
+    self.status.text = @"cleared";
 }
 
-- (BOOL)importDatabase:(NSURL *)url
+- (void)removeFiles
 {
-    NSString *name = [[url URLByDeletingPathExtension] lastPathComponent];
-    BOOL succeed = [FilesManagement importDatabase:url];
-    if (succeed) {
-        [self.userDefaults setValue:name forKey:CURRENT_DATABASE_PATH];
-        self.status.text = [NSString stringWithFormat:@"successfully import %@",name];
-        return YES;
-    } else {
-        self.status.text = @"failed";
-    }
-    return NO;
+    [self removePlist];
+    [self removeDatabase];
 }
 
-- (BOOL)importPlist:(NSURL *)url
+- (void)removePlist
 {
-    NSString *name = [[url URLByDeletingPathExtension] lastPathComponent];
-    BOOL succeed = [FilesManagement importPlist:url];
-    if (succeed) {
-        [self.userDefaults setValue:name forKey:CURRENT_PLIST_PATH];
-        self.status.text = [NSString stringWithFormat:@"successfully import %@",name];
-        return YES;
-    } else {
-        self.status.text = @"failed";
-    }
-    return NO;
+    [FilesManagement removeFileFromDocumentDirectory:CURRENT_PLIST_NAME];
+    [self.userDefaults setValue:nil forKey:CURRENT_PLIST_NAME];
 }
 
-- (BOOL)removeDatabaseFromDocumentDictionary:(NSString *)name
+- (void)removeDatabase
 {
-    if (name) {
-        BOOL succeed = [FilesManagement removeDatabaseFromDocumentDirectory:name];
-        if (succeed) {
-            [self.userDefaults setValue:nil forKey:CURRENT_DATABASE_PATH];
-            self.status.text = [NSString stringWithFormat:@"successfully remove %@",name];
-            return YES;
-        } else {
-            self.status.text = @"failed";
-        }
-    }
-    return NO;
-}
-
-- (BOOL)removePlistFromDocumentDictionary:(NSString *)name
-{
-    if (name) {
-        BOOL succeed = [FilesManagement removePlistFromDocumentDirectory:name];
-        if (succeed) {
-            [self.userDefaults setValue:nil forKey:CURRENT_PLIST_PATH];
-            self.status.text = [NSString stringWithFormat:@"successfully remove %@",name];
-            return YES;
-        } else {
-            self.status.text = @"failed";
-        }
-    }
-    return NO;
+    [FilesManagement removeFileFromDocumentDirectory:CURRENT_DATABASE_NAME];
+    [self.userDefaults setValue:nil forKey:CURRENT_DATABASE_NAME];
 }
 
 - (NSUserDefaults *)userDefaults
