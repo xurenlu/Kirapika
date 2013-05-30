@@ -23,11 +23,9 @@
     [self.view.findFirstResponder resignFirstResponder];
 }
 
-- (void)setBackgroundView:(UIWindow *)window with:(float)distanceToBottom
+- (void)setBackgroundViewWith:(float)distanceToBottom
 {
-    CGRect frame = window.frame;
-    frame.origin.y += 20;
-    frame.size.height -= 20;
+    CGRect frame = [UIScreen mainScreen].applicationFrame;
     
     frame.origin.x += distanceToBottom / 20;
     frame.size.width -= distanceToBottom / 20 * 2;
@@ -35,7 +33,7 @@
     frame.size.height -= distanceToBottom / 20 * 2;
     
     self.backgroundView.frame = frame;
-    self.backgroundView.alpha = 1 - (distanceToBottom / window.bounds.size.height);
+    self.backgroundView.alpha = 1 - (distanceToBottom / frame.size.height);
 }
 
 - (void)moveView:(float)distance
@@ -45,13 +43,13 @@
     self.view.frame = v;
 }
 
-- (void)touchSucceed:(UIWindow *)window
+- (void)touchSucceed
 {
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         CGRect v = self.view.frame;
-        v.origin.y = window.bounds.size.height;
+        v.origin.y = [UIScreen mainScreen].applicationFrame.size.height;
         self.view.frame = v;
-        [self setBackgroundView:window with:0];
+        [self setBackgroundViewWith:0];
     } completion:^(BOOL finished) {
         [self.backgroundView removeFromSuperview];
         [self setBackgroundView:nil];
@@ -59,13 +57,13 @@
     }];
 }
 
-- (void)touchFailed:(UIWindow *)window
+- (void)touchFailed
 {
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         CGRect v = self.view.frame;
         v.origin.y = 0;
         self.view.frame = v;
-        [self setBackgroundView:window with:window.bounds.size.height];
+        [self setBackgroundViewWith:[UIScreen mainScreen].applicationFrame.size.height];
     } completion:^(BOOL finished) {
         [self.backgroundView removeFromSuperview];
         [self setBackgroundView:nil];
@@ -90,7 +88,7 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
-#pragma mark - Dealloc
+#pragma mark - Unload
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

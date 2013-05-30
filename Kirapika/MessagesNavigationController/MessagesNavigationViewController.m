@@ -36,4 +36,15 @@
     [self.topViewController.navigationItem setLeftBarButtonItem:clearButton animated:YES];
 }
 
+#pragma mark - View Rotation
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+
 @end

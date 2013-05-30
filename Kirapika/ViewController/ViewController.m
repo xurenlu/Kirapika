@@ -33,13 +33,13 @@
     }];
     
     if (mark == LetterC) {
-        self.view.guideView.label.text = NSLocalizedString(@"release to chat", nil);
+        self.view.guideView.label.text = NSLocalizedString(@"release to chat", @"main view hint");
     } else if (mark == LetterM) {
-        self.view.guideView.label.text = NSLocalizedString(@"release to set up the app", nil);
+        self.view.guideView.label.text = NSLocalizedString(@"release to set up the app", @"main view hint");
     } else if (mark == LetterR) {
-        self.view.guideView.label.text = NSLocalizedString(@"release to go back in time", nil);
+        self.view.guideView.label.text = NSLocalizedString(@"release to go back in time", @"main view hint");
     } else if (mark == LetterS) {
-        self.view.guideView.label.text = NSLocalizedString(@"release to view messages", nil);
+        self.view.guideView.label.text = NSLocalizedString(@"release to view messages", @"main view hint");
     }
 }
 
@@ -62,11 +62,8 @@
         self.view.guideView.alpha = 0;
         self.view.alpha = 0;
         
-        CGRect frame = self.view.window.frame;
-        float dis = self.view.window.bounds.size.height;
-        
-        frame.origin.y += 20;
-        frame.size.height -= 20;
+        CGRect frame = [UIScreen mainScreen].applicationFrame;
+        float dis = frame.size.height;
         
         frame.origin.x += dis / 20;
         frame.size.width -= dis / 20 * 2;
@@ -76,7 +73,7 @@
         self.view.frame = frame;
     } completion:^(BOOL finished) {
         self.view.alpha = 1;
-        self.view.frame = self.view.window.frame;
+        self.view.frame = [UIScreen mainScreen].applicationFrame;
     }];
 }
 

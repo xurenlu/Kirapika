@@ -9,7 +9,7 @@
 #import "ReplyText.h"
 #import "NSString+Transcode.h"
 
-#define PROBABILITY_THRESHOLD 0.65
+#define PROBABILITY_THRESHOLD 0.50
 
 @interface ReplyText()
 

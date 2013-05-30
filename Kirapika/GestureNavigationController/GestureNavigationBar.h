@@ -11,11 +11,11 @@
 @protocol SwipeDownOnNavigationBarToDismissCurrentViewController <NSObject>
 
 - (void)touchBegan:(UIWindow *)window;
-- (void)setBackgroundView:(UIWindow *)window with:(float)distanceToBottom;
+- (void)setBackgroundViewWith:(float)distanceToBottom;
 - (void)moveView:(float)distance;
 
-- (void)touchFailed:(UIWindow *)window;
-- (void)touchSucceed:(UIWindow *)window;
+- (void)touchFailed;
+- (void)touchSucceed;
 
 @end
 

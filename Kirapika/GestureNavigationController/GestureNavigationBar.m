@@ -44,7 +44,7 @@
     
     CGPoint loaction = [touch locationInView:window];
     float distance = window.bounds.size.height - loaction.y;
-    [self.delegate setBackgroundView:window with:distance];
+    [self.delegate setBackgroundViewWith:distance];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -57,14 +57,13 @@
     
     float distance = window.bounds.size.height - loaction.y;
         
-    [self.delegate setBackgroundView:window with:distance];
+    [self.delegate setBackgroundViewWith:distance];
     [self.delegate moveView:loaction.y - oldLocation.y];
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch *touch = touches.anyObject;
-    [self.delegate touchFailed:touch.window];
+    [self.delegate touchFailed];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -74,7 +73,7 @@
 
     CGPoint location = [touch locationInView:window];
     CGPoint oldLocation = [touch previousLocationInView:window];
-    (location.y > oldLocation.y) ? [self.delegate touchSucceed:window] : [self.delegate touchFailed:window];
+    (location.y > oldLocation.y) ? [self.delegate touchSucceed] : [self.delegate touchFailed];
 }
 
 @end
