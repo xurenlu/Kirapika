@@ -13,6 +13,7 @@
 #import "MessageInputView.h"
 #import "MessageSoundEffect.h"
 #import "BubbleMessageCell.h"
+#import "BubbleTypingCell.h"
 
 @interface MessagesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, HPGrowingTextViewDelegate, MessagesNavigationViewControllerDelegate>
 
@@ -23,6 +24,7 @@
 
 #pragma mark - Data
 @property (strong, nonatomic) NSUserDefaults *userDefaults;
+@property (nonatomic) BOOL isReplying;
 
 #pragma mark - Actions
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)text;
@@ -48,7 +50,7 @@
 - (void)messagesAddObjectFromArray:(NSArray *)array;
 - (void)messagesRemoveAllObjects;
 - (BubbleMessageData *)createMessageFromText:(NSString *)text andSender:(BubbleMessageStyle)sender;
-- (void)setCurrentSender:(BubbleMessageStyle)currentSender;
 - (BubbleMessageStyle)currentSender;
+- (void)setCurrentSender:(BubbleMessageStyle)currentSender;
 
 @end

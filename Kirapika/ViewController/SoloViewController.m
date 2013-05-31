@@ -100,6 +100,7 @@
     [UIView animateWithDuration:0.20 animations:^{
         self.tableView.contentInset = UIEdgeInsetsMake(enabled * self.hint.bounds.size.height, 0, 0, 0);
         [self.hint setAlpha:enabled];
+        [self setIsReplying:!enabled];
     }completion:^(BOOL finished) {
         [super setEditingEnabled:enabled];
     }];

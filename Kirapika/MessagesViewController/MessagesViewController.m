@@ -140,30 +140,42 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.messages.count;
+    return self.messages.count + self.isReplying;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BubbleMessageStyle style = [self messageStyleForRowAtIndexPath:indexPath];
-    
-    NSString *CellID = [NSString stringWithFormat:@"MessageCell%d", style];
-    BubbleMessageCell *cell = (BubbleMessageCell *)[tableView dequeueReusableCellWithIdentifier:CellID];
-    
-    if(!cell)
-        cell = [[BubbleMessageCell alloc] initWithBubbleStyle:style
-                                              reuseIdentifier:CellID];
-    
-    cell.bubbleView.text = [self textForRowAtIndexPath:indexPath];
-    cell.backgroundColor = tableView.backgroundColor;
-    cell.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    
-    return cell;
+    if (indexPath.row >= self.messages.count) {
+        BubbleMessageStyle style = !self.currentSender;
+        
+        NSString *cellID = @"TypingCell";
+        BubbleTypingCell *cell = (BubbleTypingCell *)[tableView dequeueReusableCellWithIdentifier:cellID];
+        
+        if (!cell) cell = [[BubbleTypingCell alloc] initWithBubbleStyle:style reuseIdentifier:cellID];
+        
+        [cell setStyle:style];
+        
+        return cell;
+    } else {
+        BubbleMessageStyle style = [self messageStyleForRowAtIndexPath:indexPath];
+        
+        NSString *CellID = [NSString stringWithFormat:@"MessageCell%d", style];
+        BubbleMessageCell *cell = (BubbleMessageCell *)[tableView dequeueReusableCellWithIdentifier:CellID];
+        
+        if(!cell) cell = [[BubbleMessageCell alloc] initWithBubbleStyle:style reuseIdentifier:CellID];
+        
+        cell.bubbleView.text = [self textForRowAtIndexPath:indexPath];
+        cell.backgroundColor = tableView.backgroundColor;
+        cell.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        
+        return cell;
+    }
 }
 
 #pragma mark - Table View Delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row >= self.messages.count) return [BubbleTypingCell height];
     return [BubbleView cellHeightForText:[self textForRowAtIndexPath:indexPath]];
 }
 
@@ -214,13 +226,13 @@
 #pragma mark - Data
 - (NSUserDefaults *)userDefaults
 {
-    if (_userDefaults == nil) _userDefaults = [NSUserDefaults standardUserDefaults];
+    if (!_userDefaults) _userDefaults = [NSUserDefaults standardUserDefaults];
     return _userDefaults;
 }
 
 - (NSMutableArray *)messages
 {
-    if (_messages == nil) _messages = [[NSKeyedUnarchiver unarchiveObjectWithData:[self.userDefaults objectForKey:MESSAGES_ARRAY_KEY]] mutableCopy];
+    if (!_messages) _messages = [[NSKeyedUnarchiver unarchiveObjectWithData:[self.userDefaults objectForKey:MESSAGES_ARRAY_KEY]] mutableCopy];
     if (!_messages.count) _messages = [NSMutableArray new];
     [self clearAllNotificaitons];
     return _messages;
@@ -276,6 +288,13 @@
 - (void)setCurrentSender:(BubbleMessageStyle)currentSender
 {
     [self.userDefaults setBool:currentSender forKey:CURRENT_SENDER_KEY];
+    [self.tableView reloadData];
+}
+
+- (void)setIsReplying:(BOOL)isReplying
+{
+    _isReplying = isReplying;
+    [self.tableView reloadData];
 }
 
 #pragma mark - Unload

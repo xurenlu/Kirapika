@@ -38,7 +38,6 @@
 
 @property (strong, nonatomic) BubbleView *bubbleView;
 
-- (id)initWithBubbleStyle:(BubbleMessageStyle)style
-          reuseIdentifier:(NSString *)reuseIdentifier;
+- (id)initWithBubbleStyle:(BubbleMessageStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 
 @end

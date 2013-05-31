@@ -104,6 +104,12 @@
     return nil;
 }
 
+- (void)setEditingEnabled:(BOOL)enabled
+{
+    [super setEditingEnabled:enabled];
+    [self setIsReplying:!enabled];
+}
+
 #pragma mark - Toggle View Delegate
 - (void)selectLeftButton
 {
