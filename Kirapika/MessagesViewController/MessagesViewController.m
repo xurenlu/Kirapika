@@ -133,19 +133,14 @@
 }
 
 #pragma mark - Table View Data Source
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.messages.count + self.isReplying;
+    return self.messagesCount + self.isReplying;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row >= self.messages.count) {
+    if (indexPath.row >= self.messagesCount) {
         BubbleMessageStyle style = !self.currentSender;
         
         NSString *cellID = @"TypingCell";
@@ -175,7 +170,7 @@
 #pragma mark - Table View Delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row >= self.messages.count) return [BubbleTypingCell height];
+    if (indexPath.row >= self.messagesCount) return [BubbleTypingCell height];
     return [BubbleView cellHeightForText:[self textForRowAtIndexPath:indexPath]];
 }
 
@@ -288,13 +283,14 @@
 - (void)setCurrentSender:(BubbleMessageStyle)currentSender
 {
     [self.userDefaults setBool:currentSender forKey:CURRENT_SENDER_KEY];
-    [self.tableView reloadData];
 }
 
 - (void)setIsReplying:(BOOL)isReplying
 {
     _isReplying = isReplying;
-    [self.tableView reloadData];
+    NSArray *arr = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:self.messagesCount inSection:0]];
+    UITableViewRowAnimation ani = UITableViewRowAnimationFade;
+    isReplying ? [self.tableView insertRowsAtIndexPaths:arr withRowAnimation:ani] : [self.tableView deleteRowsAtIndexPaths:arr withRowAnimation:ani];
 }
 
 #pragma mark - Unload
