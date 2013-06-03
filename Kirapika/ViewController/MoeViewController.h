@@ -8,10 +8,12 @@
 
 #import "ViewController.h"
 
+#define OPEN_URL_NOTIFICATION @"openURLNotification"
+
 @interface MoeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *status;
-- (void)openURL:(NSNotification *)aNotification;
 - (IBAction)clearButtonTapped:(id)sender;
+- (void)openURL:(NSNotification *)aNotification;
 
 @end

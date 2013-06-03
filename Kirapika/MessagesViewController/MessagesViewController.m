@@ -83,14 +83,18 @@
 
 - (void)sendPressed:(UIButton *)sender
 {
-    [self sendPressed:sender withText:[self.inputView.textView.text trimWhitespace]];
+    dispatch_async(dispatch_get_main_queue(), ^{ [self sendPressed:sender withText:[self.inputView.textView.text trimWhitespace]]; });
 }
 
 - (void)replyRecievedWithText:(NSString *)text
 {
-    [self messagesAddObject:[self createMessageFromText:text andSender:!self.currentSender]];
-    [self presentNotificationWithText:text];
-    [MessageSoundEffect playMessageReceivedSound];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (text) {
+            [self messagesAddObject:[self createMessageFromText:text andSender:!self.currentSender]];
+            [MessageSoundEffect playMessageReceivedSound];
+        }
+        [self setIsReplying:NO];
+    });
 }
 
 - (void)clearAllMessages
@@ -118,6 +122,13 @@
 }
 
 - (void)setEditingEnabled:(BOOL)enabled
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self setEditingEnabledInterval:enabled];
+    });
+}
+
+- (void)setEditingEnabledInterval:(BOOL)enabled
 {
     [self.inputView.textView resignFirstResponder];
     [self.inputView setUserInteractionEnabled:enabled];
@@ -242,28 +253,28 @@
 {
     _messages = messages;
     [self.userDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:_messages] forKey:MESSAGES_ARRAY_KEY];
-    [self.tableView reloadData];
+    [self.tableView reloadDataWithAutoScrolling];
 }
 
 - (void)messagesAddObject:(id)object
 {
     [self.messages addObject:object];
     [self.userDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:_messages] forKey:MESSAGES_ARRAY_KEY];
-    [self.tableView reloadData];
+    [self.tableView insertRowAtIndexPath:[NSIndexPath indexPathForRow:self.messagesCount-1 inSection:0] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)messagesAddObjectFromArray:(NSArray *)array
 {
     [self.messages addObjectsFromArray:array];
     [self.userDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:_messages] forKey:MESSAGES_ARRAY_KEY];
-    [self.tableView reloadData];
+    [self.tableView reloadDataWithAutoScrolling];
 }
 
 - (void)messagesRemoveAllObjects
 {
     [self.messages removeAllObjects];
     [self.userDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:_messages] forKey:MESSAGES_ARRAY_KEY];
-    [self.tableView reloadData];
+    [self.tableView reloadDataWithAutoScrolling];
 }
 
 - (BubbleMessageData *)createMessageFromText:(NSString *)text andSender:(BubbleMessageStyle)sender
@@ -287,10 +298,14 @@
 
 - (void)setIsReplying:(BOOL)isReplying
 {
-    _isReplying = isReplying;
-    NSArray *arr = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:self.messagesCount inSection:0]];
-    UITableViewRowAnimation ani = UITableViewRowAnimationFade;
-    isReplying ? [self.tableView insertRowsAtIndexPaths:arr withRowAnimation:ani] : [self.tableView deleteRowsAtIndexPaths:arr withRowAnimation:ani];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (isReplying != _isReplying) {
+            _isReplying = isReplying;
+            NSIndexPath *ind = [NSIndexPath indexPathForRow:self.messagesCount inSection:0];
+            UITableViewRowAnimation ani = UITableViewRowAnimationFade;
+            isReplying ? [self.tableView insertRowAtIndexPath:ind withRowAnimation:ani] : [self.tableView deleteRowAtIndexPath:ind withRowAnimation:ani];
+        }
+    });
 }
 
 #pragma mark - Unload

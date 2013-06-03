@@ -111,7 +111,7 @@
     [self.sendButton setBackgroundImage:sendBack forState:UIControlStateDisabled];
     [self.sendButton setBackgroundImage:sendBackHighLighted forState:UIControlStateHighlighted];
     
-    NSString *title = NSLocalizedString(@"Send", nil);
+    NSString *title = NSLocalizedString(@"Send", @"send button text");
     [self.sendButton setTitle:title forState:UIControlStateNormal];
     [self.sendButton setTitle:title forState:UIControlStateHighlighted];
     [self.sendButton setTitle:title forState:UIControlStateDisabled];
@@ -134,6 +134,7 @@
 - (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled
 {
     [super setUserInteractionEnabled:userInteractionEnabled];
+    
     UIImage *image = [UIImage imageNamed:userInteractionEnabled ? @"input-field" : @"input-field-disable"];
     self.inputFieldBack.image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(20.0f, 12.0f, 18.0f, 18.0f)];
 }

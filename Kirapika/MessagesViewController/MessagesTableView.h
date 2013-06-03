@@ -10,7 +10,9 @@
 
 @interface MessagesTableView : UITableView
 
-- (void)reloadDataWithoutAutoScroll;
+- (void)reloadDataWithAutoScrolling;
+- (void)insertRowAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation;
+- (void)deleteRowAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation;
 - (void)scrollToBottomAnimated:(BOOL)animated;
 
 @end

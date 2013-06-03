@@ -36,6 +36,7 @@
 - (void)presentNotificationWithText:(NSString *)text;
 
 - (void)setEditingEnabled:(BOOL)enabled;
+- (void)setEditingEnabledInterval:(BOOL)enabled;
 - (void)setViewingModeEnabled:(BOOL)enabled;
 
 #pragma mark - Messages View Controller

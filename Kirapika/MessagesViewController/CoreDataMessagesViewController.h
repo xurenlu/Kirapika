@@ -15,11 +15,15 @@
 
 - (void)documentIsReady;
 
-- (void)presentNotificationWithMessages:(NSArray *)replys;
 - (void)presentNotificationWithMessage:(Message *)message;
+- (void)presentNotificationWithMessages:(NSArray *)replys;
 
+- (void)replyRecievedWithMessage:(Message *)reply;
 - (void)replyRecievedWithMessages:(NSArray *)replys;
 - (BubbleMessageData *)createMessageFromMessage:(Message *)message;
 - (BubbleMessageStyle)bubbleCurrentSender:(Sender *)sender;
+
+- (UIBackgroundTaskIdentifier)startBackgroundTask;
+- (void)endBackgroundTask:(UIBackgroundTaskIdentifier)bgTask;
 
 @end

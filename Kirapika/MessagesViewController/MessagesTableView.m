@@ -46,15 +46,28 @@
     self.showsVerticalScrollIndicator = NO;
 }
 
-- (void)reloadData
+- (void)reloadDataWithAutoScrolling
 {
     [super reloadData];
     [self scrollToBottomAnimated:YES];
 }
 
-- (void)reloadDataWithoutAutoScroll
+- (void)insertRowAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation
 {
-    [super reloadData];
+    [super insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:animation];
+    [self scrollToBottomAnimated:YES];
+}
+
+- (void)insertRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
+{
+    [super insertRowsAtIndexPaths:indexPaths withRowAnimation:animation];
+    [self scrollToBottomAnimated:YES];
+}
+
+- (void)deleteRowAtIndexPath:(NSArray *)indexPath withRowAnimation:(UITableViewRowAnimation)animation
+{
+    [super deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:animation];
+    [self scrollToBottomAnimated:YES];
 }
 
 - (void)setContentInset:(UIEdgeInsets)contentInset

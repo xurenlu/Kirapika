@@ -37,13 +37,13 @@
         [FilesManagement importDatabase:url];
         [self.userDefaults setValue:[[url URLByDeletingPathExtension] lastPathComponent] forKey:CURRENT_DATABASE_NAME];
     }
-    self.status.text = @"imported";
+    self.status.text = NSLocalizedString(@"imported", @"setting view status");
 }
 
 - (IBAction)clearButtonTapped:(id)sender
 {
     [self removeFiles];
-    self.status.text = @"cleared";
+    self.status.text = NSLocalizedString(@"cleared", @"setting view status");
 }
 
 - (void)removeFiles
@@ -73,7 +73,7 @@
 #pragma mark - Unload
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"openURLNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:OPEN_URL_NOTIFICATION object:nil];
 }
 
 - (void)didReceiveMemoryWarning

@@ -43,7 +43,7 @@
         self.sections = [[NSArray alloc]initWithContentsOfURL:url];
         [self nextSection];
     } else {
-        NSLog(@"Plist is not in use!");
+        [self replyRecievedWithText:NSLocalizedString(@"Sorry, I think the document is not existed.", @"error message")];
     }
 }
 
@@ -71,18 +71,15 @@
 
 - (void)displayContexts:(NSArray *)contexts
 {
-    [self setEditingEnabled:NO];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        [NSThread sleepForTimeInterval:1.5];
+        [self setEditingEnabled:NO];
         for (NSString *context in contexts) {
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                [self replyRecievedWithText:context];
-            });
-            [NSThread sleepForTimeInterval:fmax(1.5, context.length/6)];
+            [self setIsReplying:YES];
+            [NSThread sleepForTimeInterval:fmax(1.5, context.length/6.5)];
+            [self replyRecievedWithText:context];
         }
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [self setEditingEnabled:YES];
-        });
+        [NSThread sleepForTimeInterval:1.5];
+        [self setEditingEnabled:YES];
     });
 }
 
@@ -94,15 +91,14 @@
     self.currentSectionIndex >= self.sections.count ? [self finalSection] : [self nextSection];
 }
 
-- (void)setEditingEnabled:(BOOL)enabled
+- (void)setEditingEnabledInterval:(BOOL)enabled
 {
     [self.tableView scrollToBottomAnimated:YES];
     [UIView animateWithDuration:0.20 animations:^{
         self.tableView.contentInset = UIEdgeInsetsMake(enabled * self.hint.bounds.size.height, 0, 0, 0);
         [self.hint setAlpha:enabled];
-        [self setIsReplying:!enabled];
     }completion:^(BOOL finished) {
-        [super setEditingEnabled:enabled];
+        [super setEditingEnabledInterval:enabled];
     }];
 }
 

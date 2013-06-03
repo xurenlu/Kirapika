@@ -20,8 +20,8 @@
         [rootView.presentedViewController dismissViewControllerAnimated:NO completion:nil];
         [rootView performSegueWithIdentifier:@"moeSegue" sender:rootView];
         MoeViewController *moeView = (MoeViewController *)[(GestureNavigationViewController *)rootView.presentedViewController topViewController];
-        [[NSNotificationCenter defaultCenter] addObserver:moeView selector:@selector(openURL:) name:@"openURLNotification" object:nil];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"openURLNotification" object:url];
+        [[NSNotificationCenter defaultCenter] addObserver:moeView selector:@selector(openURL:) name:OPEN_URL_NOTIFICATION object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:OPEN_URL_NOTIFICATION object:url];
     }
     
     return YES;

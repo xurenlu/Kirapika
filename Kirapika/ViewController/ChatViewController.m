@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) ToggleView *toggleView;
 @property (nonatomic, strong) ReplyText *replyText;
+@property (nonatomic) UIBackgroundTaskIdentifier replyingMessagesTask;
 - (void)replyWithText:(NSString *)text;
 - (NSString *)checkSpecialCommandWithText:(NSString *)text;
 - (ToggleButtonSelected)toggleButtonSelected;
@@ -35,9 +36,8 @@
 
 - (void)documentIsReady
 {
-    if (!self.messagesCount)
-        [self messagesAddObject:[self createMessageFromMessage:[self.replyText replyAnyObjectWithSender:!self.replyTextSender]]];
-    
+    self.messagesCount ? [self setIsReplying:NO] : [self replyRecievedWithMessage:[self.replyText replyAnyObjectWithSender:!self.currentSender]];
+
     [super documentIsReady];
 }
 
@@ -51,30 +51,21 @@
 
 - (void)replyWithText:(NSString *)text
 {
+    [self setIsReplying:YES];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        self.replyingMessagesTask = [self startBackgroundTask];
         NSString *check = [self checkSpecialCommandWithText:text];
-        if (check) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self replyRecievedWithText:check];
-                [self setEditingEnabled:YES];
-            });
-        } else {
-            UIApplication* application = [UIApplication sharedApplication];
-            __block UIBackgroundTaskIdentifier bgTask = [application beginBackgroundTaskWithExpirationHandler:^(void){
-                [application endBackgroundTask:bgTask];
-                bgTask = UIBackgroundTaskInvalid;
-            }];
-            
-            NSArray *replys = [self.replyText replyWithMessageContext:text andSender:self.replyTextSender andData:nil];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self replyRecievedWithMessages:replys];
-                [self setEditingEnabled:YES];
-                
-                [application endBackgroundTask:bgTask];
-                bgTask = UIBackgroundTaskInvalid;
-            });
-        }
+        NSArray *replys = !check ? [self.replyText replyWithMessageContext:text andSender:self.replyTextSender andData:nil] : nil;
+        
+        [self presentNotificationWithText:check];
+        [self presentNotificationWithMessages:replys];
+        
+        [self replyRecievedWithText:check];
+        [self replyRecievedWithMessages:replys];
+
+        [self setEditingEnabled:YES];
+        
+        [self endBackgroundTask:self.replyingMessagesTask];
     });
 }
 
@@ -86,28 +77,22 @@
             if (number > 0) {
                 [self.replyText loadWithManagedObjectContext:self.managedObjectContext andLimit:number];
                 [self.userDefaults setInteger:number forKey:DATA_LIMIT_NUMBER_KEY];
-                return [NSString stringWithFormat:@"have set limit to:%ld", number];
+                return [NSString stringWithFormat:@"%@%ld", NSLocalizedString(@"have set limitation to:", @"special command return value"), number];
             } else {
-                return @"cannot be 0";
+                return NSLocalizedString(@"limitation cannot be 0.", @"special command return value");
             }
         } else if ([text isEqualToString:@"SetNormalReply"]) {
             self.replyText.replyTextPreference = NormalReply;
-            return @"have set reply text preference to 'normal'";
+            return NSLocalizedString(@"Succeed.", @"special command return value");
         } else if ([text isEqualToString:@"SetSingleReply"]) {
             self.replyText.replyTextPreference = SingleReply;
-            return @"have set reply text preference to 'single'";
+            return NSLocalizedString(@"Succeed.", @"special command return value");
         } else if ([text isEqualToString:@"SetAllPossibleReply"]) {
             self.replyText.replyTextPreference = AllPossibleReply;
-            return @"have set reply text preference to 'all possiable'";
+            return NSLocalizedString(@"Succeed.", @"special command return value");
         }
     }
     return nil;
-}
-
-- (void)setEditingEnabled:(BOOL)enabled
-{
-    [super setEditingEnabled:enabled];
-    [self setIsReplying:!enabled];
 }
 
 #pragma mark - Toggle View Delegate
@@ -144,6 +129,11 @@
 }
 
 #pragma mark - Unload
+- (void)viewWillDisappear:(BOOL)animated
+{
+    if (self.replyingMessagesTask != UIBackgroundTaskInvalid) [self endBackgroundTask:self.replyingMessagesTask];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

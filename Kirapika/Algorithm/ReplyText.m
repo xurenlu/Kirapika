@@ -85,7 +85,7 @@
 
 - (id)anyObject:(NSArray *)array
 {
-    return [array objectAtIndex:rand() % array.count];
+    return [array objectAtIndex:arc4random() % array.count];
 }
 
 @end

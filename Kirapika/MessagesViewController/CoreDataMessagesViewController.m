@@ -28,6 +28,7 @@
 - (void)loadDocument
 {
     [self setEditingEnabled:NO];
+    [self setIsReplying:YES];
 
     NSString *path = [self.userDefaults objectForKey:CURRENT_DATABASE_NAME];
     if (path) {
@@ -35,14 +36,13 @@
         self.document = [[UIManagedDocument alloc]initWithFileURL:url];
         if ([[NSFileManager defaultManager] fileExistsAtPath:url.path]) {
             [self.document openWithCompletionHandler:^(BOOL success){
-                if (success) [self documentIsOpened];
-                if (!success) NSLog(@"Couldn't open document at %@", url);
+                [self documentIsOpened];
             }];
         } else {
-            NSLog(@"Document is not existed at %@.", url);
+            [self replyRecievedWithText:NSLocalizedString(@"Sorry, I think there is something wrong with the document.", @"error message")];
         }
     } else {
-        NSLog(@"Database is not in use!");
+        [self replyRecievedWithText:NSLocalizedString(@"Sorry, I think the document is not existed.", @"error message")];
     }
 }
 
@@ -54,7 +54,7 @@
             [self documentIsReady];
         }];
     } else {
-        NSLog(@"Document is not ready!");
+        [self replyRecievedWithText:NSLocalizedString(@"Sorry, I think there is something wrong with the document. Please try again.", @"error message")];
     }
 }
 
@@ -63,23 +63,30 @@
     [self setEditingEnabled:YES];
 }
 
-- (void)presentNotificationWithMessages:(NSArray *)replys
-{
-    for (Message *message in replys) [self presentNotificationWithMessage:message];
-}
-
 - (void)presentNotificationWithMessage:(Message *)message
 {
     [self presentNotificationWithText:message.context];
 }
 
+- (void)presentNotificationWithMessages:(NSArray *)replys
+{
+    for (Message *message in replys) [self presentNotificationWithMessage:message];
+}
+
+- (void)replyRecievedWithMessage:(Message *)reply
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (reply) {
+            [self messagesAddObject:[self createMessageFromMessage:reply]];
+            [MessageSoundEffect playMessageReceivedSound];
+        }
+        [self setIsReplying:NO];
+    });
+}
+
 - (void)replyRecievedWithMessages:(NSArray *)replys
 {
-    for (Message *message in replys) {
-        [self messagesAddObject:[self createMessageFromMessage:message]];
-        [self presentNotificationWithMessage:message];
-    }
-    [MessageSoundEffect playMessageReceivedSound];
+    for (Message *reply in replys) [self replyRecievedWithMessage:reply];
 }
 
 - (BubbleMessageData *)createMessageFromMessage:(Message *)message
@@ -94,6 +101,17 @@
 - (BubbleMessageStyle)bubbleCurrentSender:(Sender *)sender
 {
     return (BubbleMessageStyle)sender.isLeftUser.intValue;
+}
+
+- (UIBackgroundTaskIdentifier)startBackgroundTask
+{
+    return [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
+}
+
+- (void)endBackgroundTask:(UIBackgroundTaskIdentifier)bgTask
+{
+    [[UIApplication sharedApplication] endBackgroundTask:bgTask];
+    bgTask = UIBackgroundTaskInvalid;
 }
 
 @end

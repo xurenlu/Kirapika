@@ -1,9 +1,331 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="ezw-ET-CfL">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="JDH-mk-Bh0">
+            <objects>
+                <viewController id="ezw-ET-CfL" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" alpha="0.0" contentMode="scaleToFill" id="IUG-5d-U7L" customClass="PixelStyleHandwritingRecognitionView">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <connections>
+                        <outlet property="view" destination="IUG-5d-U7L" id="qu1-ix-Lzk"/>
+                        <segue destination="OuV-2E-wXh" kind="modal" identifier="soloSegue" id="7H3-Bk-WOe"/>
+                        <segue destination="viH-7r-Sjw" kind="modal" identifier="recallSegue" id="eTW-lB-jBu"/>
+                        <segue destination="GPp-4j-0BT" kind="modal" identifier="chatSegue" id="QCf-di-eQu"/>
+                        <segue destination="1Og-s6-o4L" kind="modal" identifier="moeSegue" id="2d8-e8-EGP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KIb-28-2LQ" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2144" y="-1002"/>
+        </scene>
+        <!--Chat View Controller - kirapika-->
+        <scene sceneID="UuT-ak-iGN">
+            <objects>
+                <viewController title="kirapika" id="eum-4C-VSs" customClass="ChatViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MbK-Ca-R19">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="IV0-Ve-RT1" customClass="MessagesTableView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GS5-Fb-zFT" customClass="MessageInputView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" type="user" id="3O8-SZ-knw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GS5-Fb-zFT" firstAttribute="leading" secondItem="MbK-Ca-R19" secondAttribute="leading" type="user" id="9S5-u3-5gh"/>
+                            <constraint firstItem="GS5-Fb-zFT" firstAttribute="bottom" secondItem="MbK-Ca-R19" secondAttribute="bottom" type="user" id="A0n-kk-uTn"/>
+                            <constraint firstItem="IV0-Ve-RT1" firstAttribute="leading" secondItem="MbK-Ca-R19" secondAttribute="leading" type="user" id="Meh-yu-wyH"/>
+                            <constraint firstItem="IV0-Ve-RT1" firstAttribute="top" secondItem="MbK-Ca-R19" secondAttribute="top" type="user" id="Pyb-2z-4VT"/>
+                            <constraint firstItem="GS5-Fb-zFT" firstAttribute="width" secondItem="IV0-Ve-RT1" secondAttribute="width" type="user" id="ZVH-vc-a61"/>
+                            <constraint firstItem="IV0-Ve-RT1" firstAttribute="trailing" secondItem="MbK-Ca-R19" secondAttribute="trailing" type="user" id="dxg-IA-TKn"/>
+                            <constraint firstItem="GS5-Fb-zFT" firstAttribute="trailing" secondItem="MbK-Ca-R19" secondAttribute="trailing" type="user" id="mLO-4I-nSN"/>
+                            <constraint firstItem="GS5-Fb-zFT" firstAttribute="top" secondItem="IV0-Ve-RT1" secondAttribute="bottom" type="user" id="noo-cK-Slx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="6iz-RA-5y8">
+                        <nil key="title"/>
+                        <view key="titleView" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="gFO-QU-nHi">
+                            <rect key="frame" x="304" y="6" width="160" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                    </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <connections>
+                        <outlet property="inputView" destination="GS5-Fb-zFT" id="cFA-Qe-Bro"/>
+                        <outlet property="inputViewHeightConstraint" destination="3O8-SZ-knw" id="Voi-6o-wgC"/>
+                        <outlet property="tableView" destination="IV0-Ve-RT1" id="ygc-FB-eWO"/>
+                        <outlet property="titleView" destination="gFO-QU-nHi" id="hN5-px-BJs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I1o-GB-ZlF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4222" y="-318"/>
+        </scene>
+        <!--Moe View Controller-->
+        <scene sceneID="htN-bS-7Ud">
+            <objects>
+                <viewController id="3hA-PM-udL" customClass="MoeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8dk-xH-K7d">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBz-1a-TGW">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="epr-IM-qSB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="80"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gp-0l-cdh">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="NxL-k1-XlE"/>
+                                    <constraint firstAttribute="height" constant="29" id="dxR-ob-3ci"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="Clear All Cache">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearButtonTapped:" destination="3hA-PM-udL" eventType="touchUpInside" id="253-Eg-n61"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="touch to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSj-ZD-7d9">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="61" id="uMQ-yY-tIM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="3gp-0l-cdh" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="CPH-7o-DNd"/>
+                            <constraint firstItem="eBz-1a-TGW" firstAttribute="centerY" secondItem="8dk-xH-K7d" secondAttribute="centerY" type="default" id="DWy-pf-2CA"/>
+                            <constraint firstAttribute="bottom" secondItem="XSj-ZD-7d9" secondAttribute="bottom" constant="42" id="Np0-I7-L2j"/>
+                            <constraint firstItem="XSj-ZD-7d9" firstAttribute="centerX" secondItem="eBz-1a-TGW" secondAttribute="centerX" type="default" id="sIH-Er-yF5"/>
+                            <constraint firstItem="XSj-ZD-7d9" firstAttribute="centerX" secondItem="3gp-0l-cdh" secondAttribute="centerX" type="default" id="tHT-NW-gpg"/>
+                            <constraint firstItem="XSj-ZD-7d9" firstAttribute="centerX" secondItem="8dk-xH-K7d" secondAttribute="centerX" type="default" id="wpN-rt-a9i"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ftQ-2x-exF"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <connections>
+                        <outlet property="status" destination="eBz-1a-TGW" id="tIr-oY-Kq6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g3y-PC-ZgH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4214" y="944"/>
+        </scene>
+        <!--Recall View Controller-->
+        <scene sceneID="OxP-SQ-XC1">
+            <objects>
+                <viewController id="m02-Kw-MFK" customClass="RecallViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ikb-2Z-1Db">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Fhv-VB-KFa" customClass="MessagesTableView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKB-pj-eCJ" customClass="MessageInputView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" type="user" id="IRm-E4-H3e"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dKB-pj-eCJ" firstAttribute="top" secondItem="Fhv-VB-KFa" secondAttribute="bottom" type="user" id="AcO-ep-3Lm"/>
+                            <constraint firstItem="dKB-pj-eCJ" firstAttribute="leading" secondItem="Ikb-2Z-1Db" secondAttribute="leading" type="user" id="Mlp-Uo-UF4"/>
+                            <constraint firstItem="Fhv-VB-KFa" firstAttribute="leading" secondItem="Ikb-2Z-1Db" secondAttribute="leading" type="user" id="NDL-ym-T0O"/>
+                            <constraint firstItem="dKB-pj-eCJ" firstAttribute="trailing" secondItem="Ikb-2Z-1Db" secondAttribute="trailing" type="user" id="SId-Wt-Lgx"/>
+                            <constraint firstItem="dKB-pj-eCJ" firstAttribute="bottom" secondItem="Ikb-2Z-1Db" secondAttribute="bottom" type="user" id="hEB-Th-2d3"/>
+                            <constraint firstItem="Fhv-VB-KFa" firstAttribute="trailing" secondItem="Ikb-2Z-1Db" secondAttribute="trailing" type="user" id="vPC-yA-SDg"/>
+                            <constraint firstItem="Fhv-VB-KFa" firstAttribute="width" secondItem="dKB-pj-eCJ" secondAttribute="width" type="user" id="xap-cp-0b8"/>
+                            <constraint firstItem="Fhv-VB-KFa" firstAttribute="top" secondItem="Ikb-2Z-1Db" secondAttribute="top" type="user" id="zev-3K-uHx"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Back" id="IjI-FA-HfR">
+                            <connections>
+                                <action selector="backButtonTapped:" destination="eum-4C-VSs" id="QBS-Vs-zgv"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="PFZ-Pt-qh2"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <connections>
+                        <outlet property="inputView" destination="dKB-pj-eCJ" id="myf-Vz-w1Y"/>
+                        <outlet property="inputViewHeightConstraint" destination="IRm-E4-H3e" id="FXb-fp-jhy"/>
+                        <outlet property="tableView" destination="Fhv-VB-KFa" id="mjH-Wv-jw9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XXQ-IE-NYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4230" y="-1518"/>
+        </scene>
+        <!--Solo View Controller - kirapika-->
+        <scene sceneID="bQa-D4-pUs">
+            <objects>
+                <viewController id="0B2-pb-8lE" customClass="SoloViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WKR-vR-GWk">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ogj-v6-7XC" customClass="MessagesTableView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xii-wa-tSX" customClass="MessageInputView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" type="user" id="qi3-Vk-NUM"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cki-wx-LhM" customClass="HintView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" type="user" id="jcv-sg-Uej"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Xii-wa-tSX" firstAttribute="bottom" secondItem="WKR-vR-GWk" secondAttribute="bottom" type="user" id="1or-y1-jSB"/>
+                            <constraint firstItem="ogj-v6-7XC" firstAttribute="top" secondItem="WKR-vR-GWk" secondAttribute="top" type="user" id="4sS-l5-AiG"/>
+                            <constraint firstItem="ogj-v6-7XC" firstAttribute="width" secondItem="Xii-wa-tSX" secondAttribute="width" type="user" id="5Ah-FI-tYG"/>
+                            <constraint firstItem="Xii-wa-tSX" firstAttribute="top" secondItem="ogj-v6-7XC" secondAttribute="bottom" type="user" id="5xE-Ff-QCE"/>
+                            <constraint firstItem="Cki-wx-LhM" firstAttribute="top" secondItem="WKR-vR-GWk" secondAttribute="top" type="user" id="9cV-Wh-qdI"/>
+                            <constraint firstItem="Cki-wx-LhM" firstAttribute="leading" secondItem="WKR-vR-GWk" secondAttribute="leading" type="user" id="Hwj-2A-YcA"/>
+                            <constraint firstItem="ogj-v6-7XC" firstAttribute="trailing" secondItem="WKR-vR-GWk" secondAttribute="trailing" type="user" id="MkD-XN-UuR"/>
+                            <constraint firstItem="Cki-wx-LhM" firstAttribute="trailing" secondItem="WKR-vR-GWk" secondAttribute="trailing" type="user" id="UdM-ft-sUc"/>
+                            <constraint firstItem="ogj-v6-7XC" firstAttribute="leading" secondItem="WKR-vR-GWk" secondAttribute="leading" type="user" id="hRJ-6l-6fA"/>
+                            <constraint firstItem="Xii-wa-tSX" firstAttribute="leading" secondItem="WKR-vR-GWk" secondAttribute="leading" type="user" id="rdw-kc-Ink"/>
+                            <constraint firstItem="ogj-v6-7XC" firstAttribute="width" secondItem="Cki-wx-LhM" secondAttribute="width" type="user" id="xdW-ug-mMW"/>
+                            <constraint firstItem="Xii-wa-tSX" firstAttribute="trailing" secondItem="WKR-vR-GWk" secondAttribute="trailing" type="user" id="xnp-LU-5q9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="kirapika" id="ZTp-LK-Klx"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <connections>
+                        <outlet property="hint" destination="Cki-wx-LhM" id="VYB-r7-Kyi"/>
+                        <outlet property="inputView" destination="Xii-wa-tSX" id="iWi-9e-fww"/>
+                        <outlet property="inputViewHeightConstraint" destination="qi3-Vk-NUM" id="sKI-Ti-pX1"/>
+                        <outlet property="tableView" destination="ogj-v6-7XC" id="HxG-8E-INf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dUG-r7-s1U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4230" y="-2756"/>
+        </scene>
+        <!--Messages Navigation View Controller-->
+        <scene sceneID="kY9-5Z-dj5">
+            <objects>
+                <navigationController id="GPp-4j-0BT" customClass="MessagesNavigationViewController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5x6-Ao-b3g" customClass="GestureNavigationBar">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <outlet property="delegate" destination="GPp-4j-0BT" id="z7l-nq-K7Q"/>
+                        </connections>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eum-4C-VSs" kind="relationship" relationship="rootViewController" id="GS7-9g-MRp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6er-cC-pyp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3160" y="-318"/>
+        </scene>
+        <!--Messages Navigation View Controller-->
+        <scene sceneID="lbs-PA-Cit">
+            <objects>
+                <navigationController id="viH-7r-Sjw" customClass="MessagesNavigationViewController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZgA-W7-4qd" customClass="GestureNavigationBar">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <outlet property="delegate" destination="viH-7r-Sjw" id="EFe-9I-0Zl"/>
+                        </connections>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="m02-Kw-MFK" kind="relationship" relationship="rootViewController" id="HeE-nU-EzA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pa1-jK-EbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3168" y="-1518"/>
+        </scene>
+        <!--Messages Navigation View Controller-->
+        <scene sceneID="KTg-PY-cc3">
+            <objects>
+                <navigationController id="OuV-2E-wXh" customClass="MessagesNavigationViewController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mmM-MQ-2cq" customClass="GestureNavigationBar">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <outlet property="delegate" destination="OuV-2E-wXh" id="zW1-le-Isv"/>
+                        </connections>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0B2-pb-8lE" kind="relationship" relationship="rootViewController" id="pdb-O4-57Y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Iw-Mi-IgY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3168" y="-2756"/>
+        </scene>
+        <!--Gesture Navigation View Controller-->
+        <scene sceneID="NOX-Ab-Ahp">
+            <objects>
+                <navigationController id="1Og-s6-o4L" customClass="GestureNavigationViewController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dos-YG-yTc" customClass="GestureNavigationBar">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3hA-PM-udL" kind="relationship" relationship="rootViewController" id="4xo-7B-Tnq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oeg-ON-DyX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3152" y="944"/>
+        </scene>
+    </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
