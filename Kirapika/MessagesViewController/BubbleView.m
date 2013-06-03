@@ -117,7 +117,7 @@
 
 + (CGSize)textSizeForText:(NSString *)txt
 {
-    CGFloat width = [UIScreen mainScreen].applicationFrame.size.width * 0.65f;
+    CGFloat width = [UIScreen mainScreen].bounds.size.width * 0.65f;
     return [txt sizeWithFont:[BubbleView font] constrainedToSize:CGSizeMake(width, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
 }
 

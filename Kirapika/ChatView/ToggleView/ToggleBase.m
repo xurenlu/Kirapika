@@ -3,14 +3,13 @@
 //  ToggleView
 //
 //  Created by SOMTD on 12/10/15.
-//  Copyright (c) 2012年 somtd.com. All rights reserved.
+//  Copyright (c) 2012 somtd.com. All rights reserved.
 //
 
 #import "ToggleBase.h"
 
-//change base image option
-NSString *const TOGGLE_BASE_IMAGE_L     = @"toggle_base_l.png";
-NSString *const TOGGLE_BASE_IMAGE_R     = @"toggle_base_r.png";
+NSString *const TOGGLE_BASE_IMAGE_L     = @"toggle_base.png";
+NSString *const TOGGLE_BASE_IMAGE_R     = @"toggle_base.png";
 
 @implementation ToggleBase
 @synthesize baseType;

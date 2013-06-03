@@ -56,20 +56,9 @@
     return UIInterfaceOrientationMaskAllButUpsideDown;
 }
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    [self.view.findFirstResponder resignFirstResponder];
-    [self.inputView setAlpha:0];
-}
-
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     [self setViewingModeEnabled:(toInterfaceOrientation == UIInterfaceOrientationPortrait) ? NO : YES];
-}
-
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
-{
-    [self.tableView scrollToBottomAnimated:YES];
 }
 
 #pragma mark - Actions
@@ -123,9 +112,7 @@
 
 - (void)setEditingEnabled:(BOOL)enabled
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self setEditingEnabledInterval:enabled];
-    });
+    dispatch_async(dispatch_get_main_queue(), ^{ [self setEditingEnabledInterval:enabled]; });
 }
 
 - (void)setEditingEnabledInterval:(BOOL)enabled
@@ -139,8 +126,9 @@
     [[UIApplication sharedApplication] setStatusBarHidden:enabled];
     [self.navigationController setNavigationBarHidden:enabled animated:YES];
     [self.inputViewHeightConstraint setConstant:enabled ? 0 : 40];
-    [self.inputView setAlpha:!enabled];
+    [self.inputView setHidden:enabled];
     [self.tableView setShowsVerticalScrollIndicator:enabled];
+    [self.view.findFirstResponder resignFirstResponder];
 }
 
 #pragma mark - Table View Data Source
@@ -258,21 +246,22 @@
 
 - (void)messagesAddObject:(id)object
 {
-    [self.messages addObject:object];
+    [_messages addObject:object];
     [self.userDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:_messages] forKey:MESSAGES_ARRAY_KEY];
-    [self.tableView insertRowAtIndexPath:[NSIndexPath indexPathForRow:self.messagesCount-1 inSection:0] withRowAnimation:UITableViewRowAnimationFade];
+    UITableViewRowAnimation ani = self.isReplying ? UITableViewRowAnimationNone : UITableViewRowAnimationFade;
+    [self.tableView insertRowAtIndexPath:[NSIndexPath indexPathForRow:self.messagesCount-1 inSection:0] withRowAnimation:ani];
 }
 
 - (void)messagesAddObjectFromArray:(NSArray *)array
 {
-    [self.messages addObjectsFromArray:array];
+    [_messages addObjectsFromArray:array];
     [self.userDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:_messages] forKey:MESSAGES_ARRAY_KEY];
     [self.tableView reloadDataWithAutoScrolling];
 }
 
 - (void)messagesRemoveAllObjects
 {
-    [self.messages removeAllObjects];
+    [_messages removeAllObjects];
     [self.userDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:_messages] forKey:MESSAGES_ARRAY_KEY];
     [self.tableView reloadDataWithAutoScrolling];
 }

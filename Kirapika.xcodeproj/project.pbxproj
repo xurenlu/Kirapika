@@ -86,18 +86,6 @@
 		077106BD1744EC8A008A27BC /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106BC1744EC8A008A27BC /* Icon@2x.png */; };
 		077106BF1744EC9F008A27BC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077106BE1744EC9F008A27BC /* CoreData.framework */; };
 		077106C11744ECA7008A27BC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077106C01744ECA7008A27BC /* AudioToolbox.framework */; };
-		077106F6174672A6008A27BC /* left_button_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106E2174672A6008A27BC /* left_button_off.png */; };
-		077106F7174672A6008A27BC /* left_button_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106E3174672A6008A27BC /* left_button_off@2x.png */; };
-		077106F8174672A6008A27BC /* left_button_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106E4174672A6008A27BC /* left_button_on.png */; };
-		077106F9174672A6008A27BC /* left_button_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106E5174672A6008A27BC /* left_button_on@2x.png */; };
-		077106FA174672A6008A27BC /* right_button_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106E6174672A6008A27BC /* right_button_off.png */; };
-		077106FB174672A6008A27BC /* right_button_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106E7174672A6008A27BC /* right_button_off@2x.png */; };
-		077106FC174672A6008A27BC /* right_button_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106E8174672A6008A27BC /* right_button_on.png */; };
-		077106FD174672A6008A27BC /* right_button_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106E9174672A6008A27BC /* right_button_on@2x.png */; };
-		077106FE174672A6008A27BC /* toggle_base_l.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106EA174672A6008A27BC /* toggle_base_l.png */; };
-		077106FF174672A6008A27BC /* toggle_base_l@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106EB174672A6008A27BC /* toggle_base_l@2x.png */; };
-		07710700174672A6008A27BC /* toggle_base_r.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106EC174672A6008A27BC /* toggle_base_r.png */; };
-		07710701174672A6008A27BC /* toggle_base_r@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106ED174672A6008A27BC /* toggle_base_r@2x.png */; };
 		07710702174672A6008A27BC /* toggle_base.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106EE174672A6008A27BC /* toggle_base.png */; };
 		07710703174672A6008A27BC /* toggle_base@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106EF174672A6008A27BC /* toggle_base@2x.png */; };
 		07710704174672A6008A27BC /* toggle_button_l.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106F0174672A6008A27BC /* toggle_button_l.png */; };
@@ -255,18 +243,6 @@
 		077106C71744ED91008A27BC /* toggle_base@2x.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "toggle_base@2x.psd"; sourceTree = "<group>"; };
 		077106C81744ED91008A27BC /* soloViewDemo@2x.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soloViewDemo@2x.psd"; sourceTree = "<group>"; };
 		077106D017450983008A27BC /* UserDefaultsKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDefaultsKeys.h; sourceTree = "<group>"; };
-		077106E2174672A6008A27BC /* left_button_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_button_off.png; sourceTree = "<group>"; };
-		077106E3174672A6008A27BC /* left_button_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_button_off@2x.png"; sourceTree = "<group>"; };
-		077106E4174672A6008A27BC /* left_button_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_button_on.png; sourceTree = "<group>"; };
-		077106E5174672A6008A27BC /* left_button_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_button_on@2x.png"; sourceTree = "<group>"; };
-		077106E6174672A6008A27BC /* right_button_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_button_off.png; sourceTree = "<group>"; };
-		077106E7174672A6008A27BC /* right_button_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_button_off@2x.png"; sourceTree = "<group>"; };
-		077106E8174672A6008A27BC /* right_button_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_button_on.png; sourceTree = "<group>"; };
-		077106E9174672A6008A27BC /* right_button_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_button_on@2x.png"; sourceTree = "<group>"; };
-		077106EA174672A6008A27BC /* toggle_base_l.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toggle_base_l.png; sourceTree = "<group>"; };
-		077106EB174672A6008A27BC /* toggle_base_l@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_base_l@2x.png"; sourceTree = "<group>"; };
-		077106EC174672A6008A27BC /* toggle_base_r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toggle_base_r.png; sourceTree = "<group>"; };
-		077106ED174672A6008A27BC /* toggle_base_r@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_base_r@2x.png"; sourceTree = "<group>"; };
 		077106EE174672A6008A27BC /* toggle_base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toggle_base.png; sourceTree = "<group>"; };
 		077106EF174672A6008A27BC /* toggle_base@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_base@2x.png"; sourceTree = "<group>"; };
 		077106F0174672A6008A27BC /* toggle_button_l.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toggle_button_l.png; sourceTree = "<group>"; };
@@ -421,18 +397,6 @@
 		077105DD1744EC1B008A27BC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				077106E2174672A6008A27BC /* left_button_off.png */,
-				077106E3174672A6008A27BC /* left_button_off@2x.png */,
-				077106E4174672A6008A27BC /* left_button_on.png */,
-				077106E5174672A6008A27BC /* left_button_on@2x.png */,
-				077106E6174672A6008A27BC /* right_button_off.png */,
-				077106E7174672A6008A27BC /* right_button_off@2x.png */,
-				077106E8174672A6008A27BC /* right_button_on.png */,
-				077106E9174672A6008A27BC /* right_button_on@2x.png */,
-				077106EA174672A6008A27BC /* toggle_base_l.png */,
-				077106EB174672A6008A27BC /* toggle_base_l@2x.png */,
-				077106EC174672A6008A27BC /* toggle_base_r.png */,
-				077106ED174672A6008A27BC /* toggle_base_r@2x.png */,
 				077106EE174672A6008A27BC /* toggle_base.png */,
 				077106EF174672A6008A27BC /* toggle_base@2x.png */,
 				077106F0174672A6008A27BC /* toggle_button_l.png */,
@@ -790,18 +754,6 @@
 				077106B31744EC1B008A27BC /* Storyboard-iPhone.storyboard in Resources */,
 				077106BB1744EC86008A27BC /* Icon.png in Resources */,
 				077106BD1744EC8A008A27BC /* Icon@2x.png in Resources */,
-				077106F6174672A6008A27BC /* left_button_off.png in Resources */,
-				077106F7174672A6008A27BC /* left_button_off@2x.png in Resources */,
-				077106F8174672A6008A27BC /* left_button_on.png in Resources */,
-				077106F9174672A6008A27BC /* left_button_on@2x.png in Resources */,
-				077106FA174672A6008A27BC /* right_button_off.png in Resources */,
-				077106FB174672A6008A27BC /* right_button_off@2x.png in Resources */,
-				077106FC174672A6008A27BC /* right_button_on.png in Resources */,
-				077106FD174672A6008A27BC /* right_button_on@2x.png in Resources */,
-				077106FE174672A6008A27BC /* toggle_base_l.png in Resources */,
-				077106FF174672A6008A27BC /* toggle_base_l@2x.png in Resources */,
-				07710700174672A6008A27BC /* toggle_base_r.png in Resources */,
-				07710701174672A6008A27BC /* toggle_base_r@2x.png in Resources */,
 				07710702174672A6008A27BC /* toggle_base.png in Resources */,
 				07710703174672A6008A27BC /* toggle_base@2x.png in Resources */,
 				07710704174672A6008A27BC /* toggle_button_l.png in Resources */,

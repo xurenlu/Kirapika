@@ -51,9 +51,11 @@
 
 - (void)replyWithText:(NSString *)text
 {
-    [self setIsReplying:YES];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         self.replyingMessagesTask = [self startBackgroundTask];
+
+        [self setIsReplying:YES];
+
         NSString *check = [self checkSpecialCommandWithText:text];
         NSArray *replys = !check ? [self.replyText replyWithMessageContext:text andSender:self.replyTextSender andData:nil] : nil;
         

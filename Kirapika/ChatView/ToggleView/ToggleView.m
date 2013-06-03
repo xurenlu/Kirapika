@@ -3,20 +3,20 @@
 //  ToggleView
 //
 //  Created by SOMTD on 12/10/14.
-//  Copyright (c) 2012年 somtd.com. All rights reserved.
+//  Copyright (c) 2012 somtd.com. All rights reserved.
 //
 
 #import "ToggleView.h"
 #import "ToggleButton.h"
 #import "ToggleBase.h"
-//replace sample image files
+
 NSString *const TOGGLE_BUTTON_IMAGE      = @"toggle_button.png";
 NSString *const TOGGLE_BASE_IMAGE        = @"toggle_base.png";
 NSString *const TOGGLE_VIEW_BACKGROUND   = @"background.png";
-NSString *const LEFT_BUTTON_IMAGE        = @"left_button_on.png";
-NSString *const LEFT_BUTTON_IMAGE_SEL    = @"left_button_off.png";
-NSString *const RIGHT_BUTTON_IMAGE       = @"right_button_on.png";
-NSString *const RIGHT_BUTTON_IMAGE_SEL   = @"right_button_off.png";
+NSString *const LEFT_BUTTON_IMAGE        = @"toggle_button_l.png";
+NSString *const LEFT_BUTTON_IMAGE_SEL    = @"toggle_button_l.png";
+NSString *const RIGHT_BUTTON_IMAGE       = @"toggle_button_r.png";
+NSString *const RIGHT_BUTTON_IMAGE_SEL   = @"toggle_button_r.png";
 
 #define LEFT_BUTTON_RECT CGRectMake(0, 0, 36.f, 36.f)
 #define RIGHT_BUTTON_RECT CGRectMake(0, 0, 36.f, 36.f)
