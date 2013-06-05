@@ -11,7 +11,6 @@
 
 @interface ChatViewController ()
 
-@property (nonatomic, strong) ToggleView *toggleView;
 @property (nonatomic, strong) ReplyText *replyText;
 @property (nonatomic) UIBackgroundTaskIdentifier replyingMessagesTask;
 - (void)replyWithText:(NSString *)text;
@@ -28,10 +27,7 @@
 {
     [super viewDidLoad];
     
-    self.toggleView = [[ToggleView alloc]initWithFrame:CGRectMake(0, 0, 160, 36) toggleViewType:ToggleViewTypeWithLabel toggleBaseType:ToggleBaseTypeDefault toggleButtonType:ToggleButtonTypeChangeImage];
-    self.toggleView.toggleDelegate = self;
-    self.toggleView.selectedButton = self.toggleButtonSelected;
-    [self.titleView addSubview:self.toggleView];
+    self.senderSwitch.toggleView.toggleDelegate = self;
 }
 
 - (void)documentIsReady
@@ -57,7 +53,7 @@
         [self setIsReplying:YES];
 
         NSString *check = [self checkSpecialCommandWithText:text];
-        NSArray *replys = !check ? [self.replyText replyWithMessageContext:text andSender:self.replyTextSender andData:nil] : nil;
+        NSArray *replys = !check ? [self.replyText replysWithText:text andSender:self.replyTextSender] : nil;
         
         [self presentNotificationWithText:check];
         [self presentNotificationWithMessages:replys];
@@ -133,12 +129,13 @@
 #pragma mark - Unload
 - (void)viewWillDisappear:(BOOL)animated
 {
-    if (self.replyingMessagesTask != UIBackgroundTaskInvalid) [self endBackgroundTask:self.replyingMessagesTask];
+    [self endBackgroundTask:self.replyingMessagesTask];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    [self endBackgroundTask:self.replyingMessagesTask];
     _replyText = nil;
 }
 

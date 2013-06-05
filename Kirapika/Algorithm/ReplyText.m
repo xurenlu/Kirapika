@@ -40,7 +40,7 @@
     self.load = YES;
 }
 
-- (NSArray *)replyWithMessageContext:(NSString *)str andSender:(ReplyTextSender)sender andData:(id)data
+- (NSArray *)replysWithText:(NSString *)str andSender:(ReplyTextSender)sender
 {
     if (!self.load) return nil;
     
@@ -62,7 +62,7 @@
         double probability = [DegreeOfApproximation degreeOfApproximation:str :message.contextTranscoding withExtra:extra];
         if (probability >= PROBABILITY_THRESHOLD) rowID = message.rowID.intValue;
     }
-        
+    
     if (!replys.count) return nil;
 
     if (self.replyTextPreference == NormalReply) {

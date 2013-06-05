@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "CoreDataMessagesViewController.h"
-#import "ToggleView.h"
+#import "SenderSwitch.h"
 
 @interface ChatViewController : CoreDataMessagesViewController <ToggleViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UIView *titleView;
+@property (strong, nonatomic) IBOutlet SenderSwitch *senderSwitch;
 
 @end

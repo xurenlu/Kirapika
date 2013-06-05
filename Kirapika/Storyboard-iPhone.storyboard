@@ -57,7 +57,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="yNn-Qh-KvQ">
                         <nil key="title"/>
-                        <view key="titleView" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="26D-T9-aR6">
+                        <view key="titleView" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="26D-T9-aR6" customClass="SenderSwitch">
                             <rect key="frame" x="80" y="6" width="160" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -66,8 +66,8 @@
                     <connections>
                         <outlet property="inputView" destination="dPX-yn-u3C" id="ePk-GV-GTv"/>
                         <outlet property="inputViewHeightConstraint" destination="ZLB-ry-GIs" id="6PR-HS-vq0"/>
+                        <outlet property="senderSwitch" destination="26D-T9-aR6" id="tmh-PD-yif"/>
                         <outlet property="tableView" destination="hHE-if-1KJ" id="ofl-WO-R4L"/>
-                        <outlet property="titleView" destination="26D-T9-aR6" id="G8v-WO-hNa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m1P-90-B0c" userLabel="First Responder" sceneMemberID="firstResponder"/>

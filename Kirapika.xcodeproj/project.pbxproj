@@ -95,6 +95,7 @@
 		07710708174672A6008A27BC /* toggle_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106F4174672A6008A27BC /* toggle_button.png */; };
 		07710709174672A6008A27BC /* toggle_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 077106F5174672A6008A27BC /* toggle_button@2x.png */; };
 		0771070B174673E1008A27BC /* home screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0771070A174673E1008A27BC /* home screen.png */; };
+		07775CE5175DC7530075BADF /* SenderSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 07775CE4175DC7530075BADF /* SenderSwitch.m */; };
 		07A8B78B1749EC5400E3227C /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A8B78A1749EC5400E3227C /* Message.m */; };
 		07CA8AE9175838FC00A41C84 /* messageBubbleTypingRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CA8AE7175838FB00A41C84 /* messageBubbleTypingRight.png */; };
 		07CA8AEA175838FC00A41C84 /* messageBubbleTypingRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CA8AE8175838FC00A41C84 /* messageBubbleTypingRight@2x.png */; };
@@ -252,6 +253,8 @@
 		077106F4174672A6008A27BC /* toggle_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toggle_button.png; sourceTree = "<group>"; };
 		077106F5174672A6008A27BC /* toggle_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_button@2x.png"; sourceTree = "<group>"; };
 		0771070A174673E1008A27BC /* home screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home screen.png"; sourceTree = "<group>"; };
+		07775CE3175DC7530075BADF /* SenderSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenderSwitch.h; sourceTree = "<group>"; };
+		07775CE4175DC7530075BADF /* SenderSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenderSwitch.m; sourceTree = "<group>"; };
 		077D47DC174CE31600443B8B /* Kirapika Builder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Kirapika Builder.xcodeproj"; path = "Kirapika Builder/Kirapika Builder.xcodeproj"; sourceTree = "<group>"; };
 		07A8B7891749EC5400E3227C /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		07A8B78A1749EC5400E3227C /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
@@ -390,6 +393,8 @@
 				077105EB1744EC1B008A27BC /* ToggleButton.m */,
 				077105EC1744EC1B008A27BC /* ToggleView.h */,
 				077105ED1744EC1B008A27BC /* ToggleView.m */,
+				07775CE3175DC7530075BADF /* SenderSwitch.h */,
+				07775CE4175DC7530075BADF /* SenderSwitch.m */,
 			);
 			path = ToggleView;
 			sourceTree = "<group>";
@@ -837,6 +842,7 @@
 				07CFC846174BA4B400417D68 /* Word+Create.m in Sources */,
 				07CFC849174BA61F00417D68 /* Sender.m in Sources */,
 				07CA8AED17583A2800A41C84 /* BubbleTypingCell.m in Sources */,
+				07775CE5175DC7530075BADF /* SenderSwitch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

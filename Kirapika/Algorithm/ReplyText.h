@@ -26,7 +26,7 @@ typedef enum {
 @property (nonatomic) ReplyTextPreference replyTextPreference;
 
 - (void)loadWithManagedObjectContext:(NSManagedObjectContext *)context andLimit:(long)limit;
-- (NSArray *)replyWithMessageContext:(NSString *)str andSender:(ReplyTextSender)sender andData:(id)data;
+- (NSArray *)replysWithText:(NSString *)str andSender:(ReplyTextSender)sender;
 - (Message *)replyAnyObjectWithSender:(ReplyTextSender)sender;
 
 @end
