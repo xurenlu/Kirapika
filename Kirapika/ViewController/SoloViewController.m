@@ -17,13 +17,14 @@
 
 @interface SoloViewController ()
 
-@property (nonatomic, setter = setCurrentSectionIndex:, getter = currentSection) int currentSectionIndex;
+@property (nonatomic) int currentSectionIndex;
 @property (nonatomic, strong) NSArray *sections;
 - (void)nextSection;
 - (void)finalSection;
 - (void)displayHint:(NSString *)hint;
 - (void)displayContexts:(NSArray *)context;
 - (void)checkCondition:(NSString *)text;
+- (NSDictionary *)currentSection;
 
 @end
 
@@ -33,13 +34,13 @@
 {
     [super viewDidLoad];
     [super setEditingEnabled:NO];
-    
+
     [self clearAllMessages];
     self.currentSender = BubbleMessageStyleRightSender;
     
     NSString *path = [self.userDefaults objectForKey:CURRENT_PLIST_NAME];
     if (path) {
-        NSURL *url = [[NSURL fileURLWithPath:[[FilesManagement documentDirectory] path]] URLByAppendingPathComponent:path];
+        NSURL *url = [[[FilesManagement documentDirectory] URLByAppendingPathComponent:path] filePathURL];
         self.sections = [[NSArray alloc]initWithContentsOfURL:url];
         [self nextSection];
     } else {
@@ -55,13 +56,13 @@
 
 - (void)nextSection
 {
-    [self displayContexts:[[self.sections objectAtIndex:self.currentSectionIndex] objectForKey:CONTEXTS_ARRAY_KEY]];
-    [self displayHint:[[self.sections objectAtIndex:self.currentSectionIndex] objectForKey:HINT_KEY]];
+    [self displayContexts:[self.currentSection objectForKey:CONTEXTS_ARRAY_KEY]];
+    [self displayHint:[self.currentSection objectForKey:HINT_KEY]];
 }
 
 - (void)finalSection
 {
-    NSLog(@"finalSection");
+    [super setEditingEnabled:NO];
 }
 
 - (void)displayHint:(NSString *)hint
@@ -85,8 +86,7 @@
 
 - (void)checkCondition:(NSString *)text
 {
-    NSDictionary *section = [self.sections objectAtIndex:self.currentSectionIndex];
-    self.currentSectionIndex = [text isEqualToString:[section objectForKey:CONDITION_KEY]] ? [[section objectForKey:PASSED_CONDITION_KEY] intValue] : [[section objectForKey:FAILED_CONDITION_KEY] intValue];
+    self.currentSectionIndex = [text isEqualToString:[self.currentSection objectForKey:CONDITION_KEY]] ? [[self.currentSection objectForKey:PASSED_CONDITION_KEY] intValue] : [[self.currentSection objectForKey:FAILED_CONDITION_KEY] intValue];
     
     self.currentSectionIndex >= self.sections.count ? [self finalSection] : [self nextSection];
 }
@@ -100,6 +100,12 @@
     }completion:^(BOOL finished) {
         [super setEditingEnabledInterval:enabled];
     }];
+}
+
+#pragma mark - Data
+- (NSDictionary *)currentSection
+{
+    return [self.sections objectAtIndex:self.currentSectionIndex];
 }
 
 @end
