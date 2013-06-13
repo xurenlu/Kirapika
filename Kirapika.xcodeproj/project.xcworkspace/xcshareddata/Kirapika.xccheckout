@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>49882B90-6E6E-40D4-BA18-FF6B9EEDBEA0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Kirapika</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>36B41589-3936-45FF-A461-0742E5654FCC</key>
+		<string>https://github.com/everte-J/Kirapika.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Kirapika.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>36B41589-3936-45FF-A461-0742E5654FCC</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/everte-J/Kirapika.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>36B41589-3936-45FF-A461-0742E5654FCC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>36B41589-3936-45FF-A461-0742E5654FCC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Kirapika</string>
+		</dict>
+	</array>
+</dict>
+</plist>
