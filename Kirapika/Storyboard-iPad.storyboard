@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="ezw-ET-CfL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4457.6" systemVersion="12E55" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="ezw-ET-CfL">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3682.6"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -9,10 +10,11 @@
             <objects>
                 <viewController id="ezw-ET-CfL" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" alpha="0.0" contentMode="scaleToFill" id="IUG-5d-U7L" customClass="PixelStyleHandwritingRecognitionView">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
                         <outlet property="view" destination="IUG-5d-U7L" id="qu1-ix-Lzk"/>
@@ -35,27 +37,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="IV0-Ve-RT1" customClass="MessagesTableView">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="920"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GS5-Fb-zFT" customClass="MessageInputView">
+                                <rect key="frame" x="0.0" y="920" width="768" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" type="user" id="3O8-SZ-knw"/>
+                                    <constraint firstAttribute="height" constant="40" id="3O8-SZ-knw"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GS5-Fb-zFT" firstAttribute="leading" secondItem="MbK-Ca-R19" secondAttribute="leading" type="user" id="9S5-u3-5gh"/>
-                            <constraint firstItem="GS5-Fb-zFT" firstAttribute="bottom" secondItem="MbK-Ca-R19" secondAttribute="bottom" type="user" id="A0n-kk-uTn"/>
-                            <constraint firstItem="IV0-Ve-RT1" firstAttribute="leading" secondItem="MbK-Ca-R19" secondAttribute="leading" type="user" id="Meh-yu-wyH"/>
-                            <constraint firstItem="IV0-Ve-RT1" firstAttribute="top" secondItem="MbK-Ca-R19" secondAttribute="top" type="user" id="Pyb-2z-4VT"/>
-                            <constraint firstItem="GS5-Fb-zFT" firstAttribute="width" secondItem="IV0-Ve-RT1" secondAttribute="width" type="user" id="ZVH-vc-a61"/>
-                            <constraint firstItem="IV0-Ve-RT1" firstAttribute="trailing" secondItem="MbK-Ca-R19" secondAttribute="trailing" type="user" id="dxg-IA-TKn"/>
-                            <constraint firstItem="GS5-Fb-zFT" firstAttribute="trailing" secondItem="MbK-Ca-R19" secondAttribute="trailing" type="user" id="mLO-4I-nSN"/>
-                            <constraint firstItem="GS5-Fb-zFT" firstAttribute="top" secondItem="IV0-Ve-RT1" secondAttribute="bottom" type="user" id="noo-cK-Slx"/>
+                            <constraint firstItem="GS5-Fb-zFT" firstAttribute="leading" secondItem="MbK-Ca-R19" secondAttribute="leading" id="9S5-u3-5gh"/>
+                            <constraint firstItem="GS5-Fb-zFT" firstAttribute="bottom" secondItem="MbK-Ca-R19" secondAttribute="bottom" id="A0n-kk-uTn"/>
+                            <constraint firstItem="IV0-Ve-RT1" firstAttribute="leading" secondItem="MbK-Ca-R19" secondAttribute="leading" id="Meh-yu-wyH"/>
+                            <constraint firstItem="IV0-Ve-RT1" firstAttribute="top" secondItem="MbK-Ca-R19" secondAttribute="top" id="Pyb-2z-4VT"/>
+                            <constraint firstItem="GS5-Fb-zFT" firstAttribute="width" secondItem="IV0-Ve-RT1" secondAttribute="width" id="ZVH-vc-a61"/>
+                            <constraint firstItem="IV0-Ve-RT1" firstAttribute="trailing" secondItem="MbK-Ca-R19" secondAttribute="trailing" id="dxg-IA-TKn"/>
+                            <constraint firstItem="GS5-Fb-zFT" firstAttribute="trailing" secondItem="MbK-Ca-R19" secondAttribute="trailing" id="mLO-4I-nSN"/>
+                            <constraint firstItem="GS5-Fb-zFT" firstAttribute="top" secondItem="IV0-Ve-RT1" secondAttribute="bottom" id="noo-cK-Slx"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="6iz-RA-5y8">
                         <nil key="title"/>
                         <view key="titleView" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="gFO-QU-nHi">
@@ -85,6 +90,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBz-1a-TGW">
+                                <rect key="frame" x="234" y="434" width="300" height="92"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="epr-IM-qSB"/>
                                 </constraints>
@@ -93,6 +99,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gp-0l-cdh">
+                                <rect key="frame" x="294" y="911" width="180" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="NxL-k1-XlE"/>
                                     <constraint firstAttribute="height" constant="29" id="dxR-ob-3ci"/>
@@ -110,6 +117,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="touch to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSj-ZD-7d9">
+                                <rect key="frame" x="354" y="898" width="61" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="61" id="uMQ-yY-tIM"/>
                                 </constraints>
@@ -120,14 +128,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="3gp-0l-cdh" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="CPH-7o-DNd"/>
-                            <constraint firstItem="eBz-1a-TGW" firstAttribute="centerY" secondItem="8dk-xH-K7d" secondAttribute="centerY" type="default" id="DWy-pf-2CA"/>
+                            <constraint firstAttribute="bottom" secondItem="3gp-0l-cdh" secondAttribute="bottom" constant="20" symbolic="YES" id="CPH-7o-DNd"/>
+                            <constraint firstItem="eBz-1a-TGW" firstAttribute="centerY" secondItem="8dk-xH-K7d" secondAttribute="centerY" id="DWy-pf-2CA"/>
                             <constraint firstAttribute="bottom" secondItem="XSj-ZD-7d9" secondAttribute="bottom" constant="42" id="Np0-I7-L2j"/>
-                            <constraint firstItem="XSj-ZD-7d9" firstAttribute="centerX" secondItem="eBz-1a-TGW" secondAttribute="centerX" type="default" id="sIH-Er-yF5"/>
-                            <constraint firstItem="XSj-ZD-7d9" firstAttribute="centerX" secondItem="3gp-0l-cdh" secondAttribute="centerX" type="default" id="tHT-NW-gpg"/>
-                            <constraint firstItem="XSj-ZD-7d9" firstAttribute="centerX" secondItem="8dk-xH-K7d" secondAttribute="centerX" type="default" id="wpN-rt-a9i"/>
+                            <constraint firstItem="XSj-ZD-7d9" firstAttribute="centerX" secondItem="eBz-1a-TGW" secondAttribute="centerX" id="sIH-Er-yF5"/>
+                            <constraint firstItem="XSj-ZD-7d9" firstAttribute="centerX" secondItem="3gp-0l-cdh" secondAttribute="centerX" id="tHT-NW-gpg"/>
+                            <constraint firstItem="XSj-ZD-7d9" firstAttribute="centerX" secondItem="8dk-xH-K7d" secondAttribute="centerX" id="wpN-rt-a9i"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="ftQ-2x-exF"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
@@ -147,27 +156,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Fhv-VB-KFa" customClass="MessagesTableView">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="920"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKB-pj-eCJ" customClass="MessageInputView">
+                                <rect key="frame" x="0.0" y="920" width="768" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" type="user" id="IRm-E4-H3e"/>
+                                    <constraint firstAttribute="height" constant="40" id="IRm-E4-H3e"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dKB-pj-eCJ" firstAttribute="top" secondItem="Fhv-VB-KFa" secondAttribute="bottom" type="user" id="AcO-ep-3Lm"/>
-                            <constraint firstItem="dKB-pj-eCJ" firstAttribute="leading" secondItem="Ikb-2Z-1Db" secondAttribute="leading" type="user" id="Mlp-Uo-UF4"/>
-                            <constraint firstItem="Fhv-VB-KFa" firstAttribute="leading" secondItem="Ikb-2Z-1Db" secondAttribute="leading" type="user" id="NDL-ym-T0O"/>
-                            <constraint firstItem="dKB-pj-eCJ" firstAttribute="trailing" secondItem="Ikb-2Z-1Db" secondAttribute="trailing" type="user" id="SId-Wt-Lgx"/>
-                            <constraint firstItem="dKB-pj-eCJ" firstAttribute="bottom" secondItem="Ikb-2Z-1Db" secondAttribute="bottom" type="user" id="hEB-Th-2d3"/>
-                            <constraint firstItem="Fhv-VB-KFa" firstAttribute="trailing" secondItem="Ikb-2Z-1Db" secondAttribute="trailing" type="user" id="vPC-yA-SDg"/>
-                            <constraint firstItem="Fhv-VB-KFa" firstAttribute="width" secondItem="dKB-pj-eCJ" secondAttribute="width" type="user" id="xap-cp-0b8"/>
-                            <constraint firstItem="Fhv-VB-KFa" firstAttribute="top" secondItem="Ikb-2Z-1Db" secondAttribute="top" type="user" id="zev-3K-uHx"/>
+                            <constraint firstItem="dKB-pj-eCJ" firstAttribute="top" secondItem="Fhv-VB-KFa" secondAttribute="bottom" id="AcO-ep-3Lm"/>
+                            <constraint firstItem="dKB-pj-eCJ" firstAttribute="leading" secondItem="Ikb-2Z-1Db" secondAttribute="leading" id="Mlp-Uo-UF4"/>
+                            <constraint firstItem="Fhv-VB-KFa" firstAttribute="leading" secondItem="Ikb-2Z-1Db" secondAttribute="leading" id="NDL-ym-T0O"/>
+                            <constraint firstItem="dKB-pj-eCJ" firstAttribute="trailing" secondItem="Ikb-2Z-1Db" secondAttribute="trailing" id="SId-Wt-Lgx"/>
+                            <constraint firstItem="dKB-pj-eCJ" firstAttribute="bottom" secondItem="Ikb-2Z-1Db" secondAttribute="bottom" id="hEB-Th-2d3"/>
+                            <constraint firstItem="Fhv-VB-KFa" firstAttribute="trailing" secondItem="Ikb-2Z-1Db" secondAttribute="trailing" id="vPC-yA-SDg"/>
+                            <constraint firstItem="Fhv-VB-KFa" firstAttribute="width" secondItem="dKB-pj-eCJ" secondAttribute="width" id="xap-cp-0b8"/>
+                            <constraint firstItem="Fhv-VB-KFa" firstAttribute="top" secondItem="Ikb-2Z-1Db" secondAttribute="top" id="zev-3K-uHx"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems>
                         <barButtonItem title="Back" id="IjI-FA-HfR">
                             <connections>
@@ -196,37 +208,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ogj-v6-7XC" customClass="MessagesTableView">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="920"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xii-wa-tSX" customClass="MessageInputView">
+                                <rect key="frame" x="0.0" y="920" width="768" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" type="user" id="qi3-Vk-NUM"/>
+                                    <constraint firstAttribute="height" constant="40" id="qi3-Vk-NUM"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cki-wx-LhM" customClass="HintView">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="24"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="24" type="user" id="jcv-sg-Uej"/>
+                                    <constraint firstAttribute="height" constant="24" id="jcv-sg-Uej"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Xii-wa-tSX" firstAttribute="bottom" secondItem="WKR-vR-GWk" secondAttribute="bottom" type="user" id="1or-y1-jSB"/>
-                            <constraint firstItem="ogj-v6-7XC" firstAttribute="top" secondItem="WKR-vR-GWk" secondAttribute="top" type="user" id="4sS-l5-AiG"/>
-                            <constraint firstItem="ogj-v6-7XC" firstAttribute="width" secondItem="Xii-wa-tSX" secondAttribute="width" type="user" id="5Ah-FI-tYG"/>
-                            <constraint firstItem="Xii-wa-tSX" firstAttribute="top" secondItem="ogj-v6-7XC" secondAttribute="bottom" type="user" id="5xE-Ff-QCE"/>
-                            <constraint firstItem="Cki-wx-LhM" firstAttribute="top" secondItem="WKR-vR-GWk" secondAttribute="top" type="user" id="9cV-Wh-qdI"/>
-                            <constraint firstItem="Cki-wx-LhM" firstAttribute="leading" secondItem="WKR-vR-GWk" secondAttribute="leading" type="user" id="Hwj-2A-YcA"/>
-                            <constraint firstItem="ogj-v6-7XC" firstAttribute="trailing" secondItem="WKR-vR-GWk" secondAttribute="trailing" type="user" id="MkD-XN-UuR"/>
-                            <constraint firstItem="Cki-wx-LhM" firstAttribute="trailing" secondItem="WKR-vR-GWk" secondAttribute="trailing" type="user" id="UdM-ft-sUc"/>
-                            <constraint firstItem="ogj-v6-7XC" firstAttribute="leading" secondItem="WKR-vR-GWk" secondAttribute="leading" type="user" id="hRJ-6l-6fA"/>
-                            <constraint firstItem="Xii-wa-tSX" firstAttribute="leading" secondItem="WKR-vR-GWk" secondAttribute="leading" type="user" id="rdw-kc-Ink"/>
-                            <constraint firstItem="ogj-v6-7XC" firstAttribute="width" secondItem="Cki-wx-LhM" secondAttribute="width" type="user" id="xdW-ug-mMW"/>
-                            <constraint firstItem="Xii-wa-tSX" firstAttribute="trailing" secondItem="WKR-vR-GWk" secondAttribute="trailing" type="user" id="xnp-LU-5q9"/>
+                            <constraint firstItem="Xii-wa-tSX" firstAttribute="bottom" secondItem="WKR-vR-GWk" secondAttribute="bottom" id="1or-y1-jSB"/>
+                            <constraint firstItem="ogj-v6-7XC" firstAttribute="top" secondItem="WKR-vR-GWk" secondAttribute="top" id="4sS-l5-AiG"/>
+                            <constraint firstItem="ogj-v6-7XC" firstAttribute="width" secondItem="Xii-wa-tSX" secondAttribute="width" id="5Ah-FI-tYG"/>
+                            <constraint firstItem="Xii-wa-tSX" firstAttribute="top" secondItem="ogj-v6-7XC" secondAttribute="bottom" id="5xE-Ff-QCE"/>
+                            <constraint firstItem="Cki-wx-LhM" firstAttribute="top" secondItem="WKR-vR-GWk" secondAttribute="top" id="9cV-Wh-qdI"/>
+                            <constraint firstItem="Cki-wx-LhM" firstAttribute="leading" secondItem="WKR-vR-GWk" secondAttribute="leading" id="Hwj-2A-YcA"/>
+                            <constraint firstItem="ogj-v6-7XC" firstAttribute="trailing" secondItem="WKR-vR-GWk" secondAttribute="trailing" id="MkD-XN-UuR"/>
+                            <constraint firstItem="Cki-wx-LhM" firstAttribute="trailing" secondItem="WKR-vR-GWk" secondAttribute="trailing" id="UdM-ft-sUc"/>
+                            <constraint firstItem="ogj-v6-7XC" firstAttribute="leading" secondItem="WKR-vR-GWk" secondAttribute="leading" id="hRJ-6l-6fA"/>
+                            <constraint firstItem="Xii-wa-tSX" firstAttribute="leading" secondItem="WKR-vR-GWk" secondAttribute="leading" id="rdw-kc-Ink"/>
+                            <constraint firstItem="ogj-v6-7XC" firstAttribute="width" secondItem="Cki-wx-LhM" secondAttribute="width" id="xdW-ug-mMW"/>
+                            <constraint firstItem="Xii-wa-tSX" firstAttribute="trailing" secondItem="WKR-vR-GWk" secondAttribute="trailing" id="xnp-LU-5q9"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="kirapika" id="ZTp-LK-Klx"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
@@ -244,6 +260,7 @@
         <scene sceneID="kY9-5Z-dj5">
             <objects>
                 <navigationController id="GPp-4j-0BT" customClass="MessagesNavigationViewController" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5x6-Ao-b3g" customClass="GestureNavigationBar">
@@ -266,6 +283,7 @@
         <scene sceneID="lbs-PA-Cit">
             <objects>
                 <navigationController id="viH-7r-Sjw" customClass="MessagesNavigationViewController" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZgA-W7-4qd" customClass="GestureNavigationBar">
@@ -288,6 +306,7 @@
         <scene sceneID="KTg-PY-cc3">
             <objects>
                 <navigationController id="OuV-2E-wXh" customClass="MessagesNavigationViewController" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mmM-MQ-2cq" customClass="GestureNavigationBar">
@@ -310,6 +329,7 @@
         <scene sceneID="NOX-Ab-Ahp">
             <objects>
                 <navigationController id="1Og-s6-o4L" customClass="GestureNavigationViewController" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dos-YG-yTc" customClass="GestureNavigationBar">

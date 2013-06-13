@@ -10,7 +10,7 @@
 
 #define OPEN_URL_NOTIFICATION @"openURLNotification"
 
-@interface MoeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface MoeViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *status;
 - (IBAction)clearButtonTapped:(id)sender;

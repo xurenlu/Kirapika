@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4457.6" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3682.6"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -9,10 +10,11 @@
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" alpha="0.0" contentMode="scaleToFill" id="Nlb-6E-hO0" customClass="PixelStyleHandwritingRecognitionView">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="view" destination="Nlb-6E-hO0" id="GR7-pI-gZw"/>
                         <segue destination="mxG-qC-kH9" kind="modal" identifier="soloSegue" id="7Pe-nP-5YX"/>
@@ -34,27 +36,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hHE-if-1KJ" customClass="MessagesTableView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="464"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPX-yn-u3C" customClass="MessageInputView">
+                                <rect key="frame" x="0.0" y="464" width="320" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" type="user" id="ZLB-ry-GIs"/>
+                                    <constraint firstAttribute="height" constant="40" id="ZLB-ry-GIs"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dPX-yn-u3C" firstAttribute="width" secondItem="hHE-if-1KJ" secondAttribute="width" type="user" id="98d-by-iqh"/>
-                            <constraint firstItem="hHE-if-1KJ" firstAttribute="trailing" secondItem="90S-00-gjL" secondAttribute="trailing" type="user" id="LKe-me-3TO"/>
-                            <constraint firstItem="dPX-yn-u3C" firstAttribute="bottom" secondItem="90S-00-gjL" secondAttribute="bottom" type="user" id="NGc-F6-bCN"/>
-                            <constraint firstItem="dPX-yn-u3C" firstAttribute="trailing" secondItem="90S-00-gjL" secondAttribute="trailing" type="user" id="dfh-eF-tZf"/>
-                            <constraint firstItem="hHE-if-1KJ" firstAttribute="top" secondItem="90S-00-gjL" secondAttribute="top" type="user" id="gya-TG-lNn"/>
-                            <constraint firstItem="dPX-yn-u3C" firstAttribute="leading" secondItem="90S-00-gjL" secondAttribute="leading" type="user" id="m50-5l-K15"/>
-                            <constraint firstItem="dPX-yn-u3C" firstAttribute="top" secondItem="hHE-if-1KJ" secondAttribute="bottom" type="user" id="nNR-0w-JET"/>
-                            <constraint firstItem="hHE-if-1KJ" firstAttribute="leading" secondItem="90S-00-gjL" secondAttribute="leading" type="user" id="s39-1X-goS"/>
+                            <constraint firstItem="dPX-yn-u3C" firstAttribute="width" secondItem="hHE-if-1KJ" secondAttribute="width" id="98d-by-iqh"/>
+                            <constraint firstItem="hHE-if-1KJ" firstAttribute="trailing" secondItem="90S-00-gjL" secondAttribute="trailing" id="LKe-me-3TO"/>
+                            <constraint firstItem="dPX-yn-u3C" firstAttribute="bottom" secondItem="90S-00-gjL" secondAttribute="bottom" id="NGc-F6-bCN"/>
+                            <constraint firstItem="dPX-yn-u3C" firstAttribute="trailing" secondItem="90S-00-gjL" secondAttribute="trailing" id="dfh-eF-tZf"/>
+                            <constraint firstItem="hHE-if-1KJ" firstAttribute="top" secondItem="90S-00-gjL" secondAttribute="top" id="gya-TG-lNn"/>
+                            <constraint firstItem="dPX-yn-u3C" firstAttribute="leading" secondItem="90S-00-gjL" secondAttribute="leading" id="m50-5l-K15"/>
+                            <constraint firstItem="dPX-yn-u3C" firstAttribute="top" secondItem="hHE-if-1KJ" secondAttribute="bottom" id="nNR-0w-JET"/>
+                            <constraint firstItem="hHE-if-1KJ" firstAttribute="leading" secondItem="90S-00-gjL" secondAttribute="leading" id="s39-1X-goS"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="yNn-Qh-KvQ">
                         <nil key="title"/>
                         <view key="titleView" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="26D-T9-aR6" customClass="SenderSwitch">
@@ -83,6 +88,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBI-h2-tFh">
+                                <rect key="frame" x="10" y="206" width="300" height="92"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="RQh-oQ-KeJ"/>
                                 </constraints>
@@ -91,6 +97,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wS2-Kd-Qgr">
+                                <rect key="frame" x="70" y="455" width="180" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="10D-Za-cHi"/>
                                     <constraint firstAttribute="height" constant="29" id="lKf-LY-MmU"/>
@@ -108,6 +115,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="touch to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pyp-Di-dXR">
+                                <rect key="frame" x="130" y="442" width="61" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="61" id="VUG-KE-gT1"/>
                                 </constraints>
@@ -118,14 +126,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Pyp-Di-dXR" firstAttribute="centerX" secondItem="QHA-Wi-pS6" secondAttribute="centerX" type="default" id="1yH-V1-OGB"/>
-                            <constraint firstAttribute="bottom" secondItem="wS2-Kd-Qgr" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="209-pq-4xz"/>
-                            <constraint firstItem="Pyp-Di-dXR" firstAttribute="centerX" secondItem="wS2-Kd-Qgr" secondAttribute="centerX" type="default" id="6ha-F5-x7w"/>
-                            <constraint firstItem="fBI-h2-tFh" firstAttribute="centerY" secondItem="QHA-Wi-pS6" secondAttribute="centerY" type="default" id="N8N-2C-AxW"/>
+                            <constraint firstItem="Pyp-Di-dXR" firstAttribute="centerX" secondItem="QHA-Wi-pS6" secondAttribute="centerX" id="1yH-V1-OGB"/>
+                            <constraint firstAttribute="bottom" secondItem="wS2-Kd-Qgr" secondAttribute="bottom" constant="20" symbolic="YES" id="209-pq-4xz"/>
+                            <constraint firstItem="Pyp-Di-dXR" firstAttribute="centerX" secondItem="wS2-Kd-Qgr" secondAttribute="centerX" id="6ha-F5-x7w"/>
+                            <constraint firstItem="fBI-h2-tFh" firstAttribute="centerY" secondItem="QHA-Wi-pS6" secondAttribute="centerY" id="N8N-2C-AxW"/>
                             <constraint firstAttribute="bottom" secondItem="Pyp-Di-dXR" secondAttribute="bottom" constant="42" id="SfF-7a-g2L"/>
-                            <constraint firstItem="Pyp-Di-dXR" firstAttribute="centerX" secondItem="fBI-h2-tFh" secondAttribute="centerX" type="default" id="cL4-R8-Nxv"/>
+                            <constraint firstItem="Pyp-Di-dXR" firstAttribute="centerX" secondItem="fBI-h2-tFh" secondAttribute="centerX" id="cL4-R8-Nxv"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="mzH-xY-40a"/>
                     <connections>
                         <outlet property="status" destination="fBI-h2-tFh" id="V3J-dJ-Aqr"/>
@@ -144,29 +153,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="FGz-Ae-Mlk" customClass="MessagesTableView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="464"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="464" id="vWZ-9e-TnD"/>
                                 </constraints>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yI-KP-03P" customClass="MessageInputView">
+                                <rect key="frame" x="0.0" y="464" width="320" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" type="user" id="3lE-fW-IXW"/>
+                                    <constraint firstAttribute="height" constant="40" id="3lE-fW-IXW"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FGz-Ae-Mlk" firstAttribute="width" secondItem="0yI-KP-03P" secondAttribute="width" type="user" id="A8d-N3-a7k"/>
-                            <constraint firstItem="0yI-KP-03P" firstAttribute="leading" secondItem="xfx-ED-kfC" secondAttribute="leading" type="user" id="HPb-6x-KJ4"/>
-                            <constraint firstItem="FGz-Ae-Mlk" firstAttribute="leading" secondItem="xfx-ED-kfC" secondAttribute="leading" type="user" id="NZY-By-aG8"/>
-                            <constraint firstItem="0yI-KP-03P" firstAttribute="trailing" secondItem="xfx-ED-kfC" secondAttribute="trailing" type="user" id="Sd6-VW-CUB"/>
-                            <constraint firstItem="FGz-Ae-Mlk" firstAttribute="trailing" secondItem="xfx-ED-kfC" secondAttribute="trailing" type="user" id="gti-0j-k06"/>
-                            <constraint firstItem="FGz-Ae-Mlk" firstAttribute="top" secondItem="xfx-ED-kfC" secondAttribute="top" type="default" id="moT-pm-nbF"/>
-                            <constraint firstItem="0yI-KP-03P" firstAttribute="bottom" secondItem="xfx-ED-kfC" secondAttribute="bottom" type="default" id="r8I-G3-Z48"/>
+                            <constraint firstItem="FGz-Ae-Mlk" firstAttribute="width" secondItem="0yI-KP-03P" secondAttribute="width" id="A8d-N3-a7k"/>
+                            <constraint firstItem="0yI-KP-03P" firstAttribute="leading" secondItem="xfx-ED-kfC" secondAttribute="leading" id="HPb-6x-KJ4"/>
+                            <constraint firstItem="FGz-Ae-Mlk" firstAttribute="leading" secondItem="xfx-ED-kfC" secondAttribute="leading" id="NZY-By-aG8"/>
+                            <constraint firstItem="0yI-KP-03P" firstAttribute="trailing" secondItem="xfx-ED-kfC" secondAttribute="trailing" id="Sd6-VW-CUB"/>
+                            <constraint firstItem="FGz-Ae-Mlk" firstAttribute="trailing" secondItem="xfx-ED-kfC" secondAttribute="trailing" id="gti-0j-k06"/>
+                            <constraint firstItem="FGz-Ae-Mlk" firstAttribute="top" secondItem="xfx-ED-kfC" secondAttribute="top" id="moT-pm-nbF"/>
+                            <constraint firstItem="0yI-KP-03P" firstAttribute="bottom" secondItem="xfx-ED-kfC" secondAttribute="bottom" id="r8I-G3-Z48"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems>
                         <barButtonItem title="Back" id="R9C-W5-jpX">
                             <connections>
@@ -194,37 +206,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5o4-In-ddi" customClass="MessagesTableView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="464"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJl-kn-ClX" customClass="MessageInputView">
+                                <rect key="frame" x="0.0" y="464" width="320" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" type="user" id="qKJ-SU-Dsp"/>
+                                    <constraint firstAttribute="height" constant="40" id="qKJ-SU-Dsp"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZ8-Wx-CdP" customClass="HintView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="24"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="24" type="user" id="GFz-Ho-9Sy"/>
+                                    <constraint firstAttribute="height" constant="24" id="GFz-Ho-9Sy"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="UJl-kn-ClX" firstAttribute="top" secondItem="5o4-In-ddi" secondAttribute="bottom" type="user" id="0tB-2s-Jcq"/>
-                            <constraint firstItem="CZ8-Wx-CdP" firstAttribute="trailing" secondItem="p9L-Cb-G3b" secondAttribute="trailing" type="user" id="1xg-lr-fjV"/>
-                            <constraint firstItem="CZ8-Wx-CdP" firstAttribute="top" secondItem="p9L-Cb-G3b" secondAttribute="top" type="user" id="4WL-Cn-ctU"/>
-                            <constraint firstItem="5o4-In-ddi" firstAttribute="width" secondItem="UJl-kn-ClX" secondAttribute="width" type="user" id="9OF-SU-Tzq"/>
-                            <constraint firstItem="5o4-In-ddi" firstAttribute="top" secondItem="p9L-Cb-G3b" secondAttribute="top" type="user" id="9ZJ-8f-Rvq"/>
-                            <constraint firstItem="5o4-In-ddi" firstAttribute="trailing" secondItem="p9L-Cb-G3b" secondAttribute="trailing" type="user" id="Aci-yt-hLD"/>
-                            <constraint firstItem="CZ8-Wx-CdP" firstAttribute="leading" secondItem="p9L-Cb-G3b" secondAttribute="leading" type="user" id="DFK-iW-3Kr"/>
-                            <constraint firstItem="UJl-kn-ClX" firstAttribute="leading" secondItem="p9L-Cb-G3b" secondAttribute="leading" type="user" id="YFh-na-zkM"/>
-                            <constraint firstItem="5o4-In-ddi" firstAttribute="width" secondItem="CZ8-Wx-CdP" secondAttribute="width" type="user" id="bkD-FI-ofm"/>
-                            <constraint firstItem="UJl-kn-ClX" firstAttribute="trailing" secondItem="p9L-Cb-G3b" secondAttribute="trailing" type="user" id="fBJ-JB-eUs"/>
-                            <constraint firstItem="5o4-In-ddi" firstAttribute="leading" secondItem="p9L-Cb-G3b" secondAttribute="leading" type="user" id="fie-Ft-umJ"/>
-                            <constraint firstItem="UJl-kn-ClX" firstAttribute="bottom" secondItem="p9L-Cb-G3b" secondAttribute="bottom" type="user" id="oTo-XH-Mae"/>
+                            <constraint firstItem="UJl-kn-ClX" firstAttribute="top" secondItem="5o4-In-ddi" secondAttribute="bottom" id="0tB-2s-Jcq"/>
+                            <constraint firstItem="CZ8-Wx-CdP" firstAttribute="trailing" secondItem="p9L-Cb-G3b" secondAttribute="trailing" id="1xg-lr-fjV"/>
+                            <constraint firstItem="CZ8-Wx-CdP" firstAttribute="top" secondItem="p9L-Cb-G3b" secondAttribute="top" id="4WL-Cn-ctU"/>
+                            <constraint firstItem="5o4-In-ddi" firstAttribute="width" secondItem="UJl-kn-ClX" secondAttribute="width" id="9OF-SU-Tzq"/>
+                            <constraint firstItem="5o4-In-ddi" firstAttribute="top" secondItem="p9L-Cb-G3b" secondAttribute="top" id="9ZJ-8f-Rvq"/>
+                            <constraint firstItem="5o4-In-ddi" firstAttribute="trailing" secondItem="p9L-Cb-G3b" secondAttribute="trailing" id="Aci-yt-hLD"/>
+                            <constraint firstItem="CZ8-Wx-CdP" firstAttribute="leading" secondItem="p9L-Cb-G3b" secondAttribute="leading" id="DFK-iW-3Kr"/>
+                            <constraint firstItem="UJl-kn-ClX" firstAttribute="leading" secondItem="p9L-Cb-G3b" secondAttribute="leading" id="YFh-na-zkM"/>
+                            <constraint firstItem="5o4-In-ddi" firstAttribute="width" secondItem="CZ8-Wx-CdP" secondAttribute="width" id="bkD-FI-ofm"/>
+                            <constraint firstItem="UJl-kn-ClX" firstAttribute="trailing" secondItem="p9L-Cb-G3b" secondAttribute="trailing" id="fBJ-JB-eUs"/>
+                            <constraint firstItem="5o4-In-ddi" firstAttribute="leading" secondItem="p9L-Cb-G3b" secondAttribute="leading" id="fie-Ft-umJ"/>
+                            <constraint firstItem="UJl-kn-ClX" firstAttribute="bottom" secondItem="p9L-Cb-G3b" secondAttribute="bottom" id="oTo-XH-Mae"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="kirapika" id="IFX-e5-d9j"/>
                     <connections>
                         <outlet property="hint" destination="CZ8-Wx-CdP" id="O85-mr-j2p"/>
@@ -241,6 +257,7 @@
         <scene sceneID="Hry-Zu-u8d">
             <objects>
                 <navigationController id="GKS-6B-NkF" customClass="MessagesNavigationViewController" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kTb-B5-K15" customClass="GestureNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -262,6 +279,7 @@
         <scene sceneID="XHF-Be-Bo5">
             <objects>
                 <navigationController id="6AJ-JD-3gN" customClass="MessagesNavigationViewController" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="B1x-qv-Fa4" customClass="GestureNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -283,6 +301,7 @@
         <scene sceneID="kbH-vm-Uro">
             <objects>
                 <navigationController id="mxG-qC-kH9" customClass="MessagesNavigationViewController" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="h7w-bz-IzY" customClass="GestureNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -304,6 +323,7 @@
         <scene sceneID="cOj-V2-703">
             <objects>
                 <navigationController id="6rz-tQ-pAE" customClass="GestureNavigationViewController" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TtR-Rh-32o" customClass="GestureNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
