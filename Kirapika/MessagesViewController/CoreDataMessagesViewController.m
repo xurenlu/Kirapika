@@ -110,10 +110,7 @@
 
 - (void)endBackgroundTask:(UIBackgroundTaskIdentifier)bgTask
 {
-    if (bgTask != UIBackgroundTaskInvalid) {
-        [[UIApplication sharedApplication] endBackgroundTask:bgTask];
-        bgTask = UIBackgroundTaskInvalid;
-    }
+    if (bgTask != UIBackgroundTaskInvalid) [[UIApplication sharedApplication] endBackgroundTask:bgTask];
 }
 
 @end

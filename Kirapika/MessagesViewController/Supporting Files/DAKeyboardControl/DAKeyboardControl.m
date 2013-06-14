@@ -411,8 +411,8 @@ static char UIViewKeyboardPanRecognizer;
             CGRect newKeyboardViewFrame = self.keyboardActiveView.frame;
             newKeyboardViewFrame.origin.y = touchLocationInKeyboardWindow.y + self.keyboardTriggerOffset;
             // Bound the keyboard to the bottom of the screen
-            newKeyboardViewFrame.origin.y = MIN(newKeyboardViewFrame.origin.y, keyboardWindowHeight);
-            newKeyboardViewFrame.origin.y = MAX(newKeyboardViewFrame.origin.y, keyboardWindowHeight - keyboardViewHeight);
+            newKeyboardViewFrame.origin.y = fmin(newKeyboardViewFrame.origin.y, keyboardWindowHeight);
+            newKeyboardViewFrame.origin.y = fmax(newKeyboardViewFrame.origin.y, keyboardWindowHeight - keyboardViewHeight);
             
             // Only update if the frame has actually changed
             if (newKeyboardViewFrame.origin.y != self.keyboardActiveView.frame.origin.y)

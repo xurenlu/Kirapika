@@ -17,7 +17,7 @@
     NSMutableArray *arr = [[self checkSynoyms:self.mutableCopy].arrayWithWordTokenize mutableCopy];
     [arr removeObject:@":"];
     
-    for (int i=0; i<arr.count; i++) {
+    for (NSUInteger i=0; i<arr.count; i++) {
         NSString *org = [arr objectAtIndex:i];
         NSArray *matches = [[[context ofType:WORD] where:@"%K = %@", WORD_ORG, org] toArray];
         if (matches.count) {
@@ -47,7 +47,7 @@
     NSMutableArray *sPool = [NSMutableArray new];
     for (NSString *str in [sStr componentsSeparatedByString:@";;\n"]) [sPool addObject:[str componentsSeparatedByString:@"::"]];
     
-    for (int i=0; i<sPool.count; i++)
+    for (NSUInteger i=0; i<sPool.count; i++)
         for (NSString *syns in [sPool objectAtIndex:i])
             [str replaceOccurrencesOfString:syns withString:[NSString stringWithFormat:@"%d:", 10000000+i] options:NSWidthInsensitiveSearch range:NSMakeRange(0, str.length)];
     return str;

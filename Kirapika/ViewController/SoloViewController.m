@@ -17,7 +17,7 @@
 
 @interface SoloViewController ()
 
-@property (nonatomic) int currentSectionIndex;
+@property (nonatomic) NSUInteger currentSectionIndex;
 @property (nonatomic, strong) NSArray *sections;
 - (void)nextSection;
 - (void)finalSection;

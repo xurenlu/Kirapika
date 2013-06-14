@@ -41,7 +41,7 @@
             int above = matrix[i-1][j]+1;
             int left = matrix[i][j-1]+1;
             int diag = matrix[i-1][j-1]+cost;
-            int value = MIN(above,MIN(left,diag));
+            int value = fmin(above,fmin(left,diag));
             matrix[i][j]=value;
         }
     }

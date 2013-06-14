@@ -291,7 +291,7 @@
 
 - (NSFetchRequest *)getFetchRequest
 {
-    int skip = MAX(self.skipCount, 0);
+    int skip = fmax(self.skipCount, 0);
     
     NSEntityDescription *entityDescription = [NSEntityDescription
                                               entityForName:self.type

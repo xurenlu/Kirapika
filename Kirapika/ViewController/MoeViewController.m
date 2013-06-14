@@ -73,6 +73,7 @@
 #pragma mark - Unload
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:OPEN_URL_NOTIFICATION object:nil];
 }
 
