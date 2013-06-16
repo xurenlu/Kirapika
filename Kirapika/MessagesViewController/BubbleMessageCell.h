@@ -31,7 +31,6 @@
 //  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
 #import "BubbleView.h"
 
 @interface BubbleMessageCell : UITableViewCell

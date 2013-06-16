@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Justin Jia. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 #define DATABASE_TYPE @"kpdatabase"
 #define PLIST_TYPE @"kplist"
 

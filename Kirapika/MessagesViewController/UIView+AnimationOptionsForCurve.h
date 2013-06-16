@@ -24,8 +24,6 @@
 //  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface UIView (AnimationOptionsForCurve)
 
 + (UIViewAnimationOptions)animationOptionsForCurve:(UIViewAnimationCurve)curve;

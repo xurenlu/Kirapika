@@ -6,9 +6,6 @@
 //  Copyright (c) 2012 somtd.com. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-
 typedef enum{
     ToggleBaseTypeDefault,
     ToggleBaseTypeChangeImage,

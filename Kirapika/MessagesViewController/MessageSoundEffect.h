@@ -24,8 +24,7 @@
 //  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-#import <AudioToolbox/AudioToolbox.h>
+@import AudioToolbox;
 
 @interface MessageSoundEffect : NSObject
 

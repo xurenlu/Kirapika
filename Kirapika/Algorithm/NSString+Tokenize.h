@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 Lancy. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface NSString (Tokenize)
 
 - (NSMutableArray *)arrayWithWordTokenize;

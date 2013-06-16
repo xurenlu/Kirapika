@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Justin Jia. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "UserDefaultsKeys.h"
 #import "MessagesNavigationViewController.h"
 #import "MessagesTableView.h"

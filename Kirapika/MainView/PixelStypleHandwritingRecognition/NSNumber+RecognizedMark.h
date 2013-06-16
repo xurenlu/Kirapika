@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Justin Jia. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 typedef enum{
     LetterC = 0,
     LetterS = 1,

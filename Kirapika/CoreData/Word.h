@@ -6,8 +6,7 @@
 //  Copyright (c) 2013 Justin Jia. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+@import CoreData;
 
 @interface Word : NSManagedObject
 

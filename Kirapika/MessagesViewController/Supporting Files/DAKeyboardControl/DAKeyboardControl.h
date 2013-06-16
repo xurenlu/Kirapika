@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 Daniel Amitay. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 typedef void (^DAKeyboardDidMoveBlock)(CGRect keyboardFrameInView);
 
 @interface UIView (DAKeyboardControl)

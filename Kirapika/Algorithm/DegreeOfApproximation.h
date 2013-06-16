@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Justin Jia. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface DegreeOfApproximation : NSObject
 
 + (int)extraCost:(NSMutableString *)x;

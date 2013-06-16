@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "GNInteractiveTransition.h"
 
 @interface ViewController ()
 
@@ -21,6 +22,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     [UIView animateWithDuration:0.5 animations:^{
         self.view.alpha = 1;
     }];
@@ -76,6 +78,9 @@
         self.view.frame = [UIScreen mainScreen].applicationFrame;
     }];
 }
+
+#pragma mark - UIViewControllerInteractiveTransitioning
+
 
 #pragma mark - View Rotation
 - (BOOL)shouldAutorotate

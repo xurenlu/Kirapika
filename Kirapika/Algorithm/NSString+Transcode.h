@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Justin Jia. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "EightDigitNumberPool.h"
 
 #define NOSIMIWO @"NOSIMIWO"

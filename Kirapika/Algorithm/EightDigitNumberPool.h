@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Justin Jia. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface EightDigitNumberPool : NSObject
 
 @property (nonatomic) int number;

@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Justin Jia. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "GuideView.h"
 #import "NSNumber+RecognizedMark.h"
 

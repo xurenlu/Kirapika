@@ -7,8 +7,7 @@
 //
 
 #import "DAKeyboardControl.h"
-#import <objc/runtime.h>
-
+@import ObjectiveC;
 
 static inline UIViewAnimationOptions AnimationOptionsForCurve(UIViewAnimationCurve curve)
 {

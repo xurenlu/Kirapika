@@ -9,7 +9,7 @@
 #ifndef Kirapika_CoreDataConstants_h
 #define Kirapika_CoreDataConstants_h
 
-#import <CoreData/CoreData.h>
+@import CoreData;
 
 #import "Word+Create.h"
 #import "Sender+Create.h"
