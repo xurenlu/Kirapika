@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "GNInteractiveTransition.h"
+#import "GNTransitionController.h"
 
 @interface ViewController ()
 
@@ -18,6 +18,7 @@
 - (void)viewDidLoad
 {
     self.view.pixelStyleHandwritingRecognitionViewDelegate = self;
+    self.transitioningDelegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -56,6 +57,8 @@
     } else if (mark == LetterS) {
         [self performSegueWithIdentifier:@"soloSegue" sender:self];
     }
+//    [self presentViewController:<#(UIViewController *)#> animated:<#(BOOL)#> completion:<#^(void)completion#>]
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -79,7 +82,16 @@
     }];
 }
 
-#pragma mark - UIViewControllerInteractiveTransitioning
+#pragma mark - UIViewControllerTransitioningDelegate
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+{
+
+}
 
 
 #pragma mark - View Rotation

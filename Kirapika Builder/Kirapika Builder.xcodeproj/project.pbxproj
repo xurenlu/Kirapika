@@ -13,7 +13,7 @@
 		077D47CA174CE31600443B8B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 077D47C8174CE31600443B8B /* InfoPlist.strings */; };
 		077D47CC174CE31600443B8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D47CB174CE31600443B8B /* main.m */; };
 		077D47D0174CE31600443B8B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 077D47CE174CE31600443B8B /* Credits.rtf */; };
-		077D47D3174CE31600443B8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D47D2174CE31600443B8B /* AppDelegate.m */; };
+		077D47D3174CE31600443B8B /* KBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D47D2174CE31600443B8B /* KBAppDelegate.m */; };
 		077D47D6174CE31600443B8B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 077D47D4174CE31600443B8B /* MainMenu.xib */; };
 		077D4816174CE33200443B8B /* Synonyms.txt in Resources */ = {isa = PBXBuildFile; fileRef = 077D47FC174CE33200443B8B /* Synonyms.txt */; };
 		077D481B174CE66100443B8B /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D481A174CE66100443B8B /* TBXML.m */; };
@@ -29,7 +29,6 @@
 		077D4825174DA40D00443B8B /* NSString+Tokenize.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D47F7174CE33200443B8B /* NSString+Tokenize.m */; };
 		077D4826174DA40D00443B8B /* NSString+Transcode.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D47F9174CE33200443B8B /* NSString+Transcode.m */; };
 		077D4827174DA40D00443B8B /* ReplyText.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D47FB174CE33200443B8B /* ReplyText.m */; };
-		07E3EC7F176A06C80067F6B7 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07E3EC7E176A06C80067F6B7 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,8 +45,8 @@
 		077D47CB174CE31600443B8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		077D47CD174CE31600443B8B /* Kirapika Builder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kirapika Builder-Prefix.pch"; sourceTree = "<group>"; };
 		077D47CF174CE31600443B8B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		077D47D1174CE31600443B8B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		077D47D2174CE31600443B8B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		077D47D1174CE31600443B8B /* KBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KBAppDelegate.h; sourceTree = "<group>"; };
+		077D47D2174CE31600443B8B /* KBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KBAppDelegate.m; sourceTree = "<group>"; };
 		077D47D5174CE31600443B8B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		077D47E2174CE33200443B8B /* CoreDataConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataConstants.h; sourceTree = "<group>"; };
 		077D47E5174CE33200443B8B /* NSManagedObjectContext+Queryable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Queryable.h"; sourceTree = "<group>"; };
@@ -75,7 +74,6 @@
 		077D47FC174CE33200443B8B /* Synonyms.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Synonyms.txt; sourceTree = "<group>"; };
 		077D4819174CE66100443B8B /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
 		077D481A174CE66100443B8B /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
-		07E3EC7E176A06C80067F6B7 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = "Kirapika Builder/Media.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +92,6 @@
 		077D47B3174CE31600443B8B = {
 			isa = PBXGroup;
 			children = (
-				07E3EC7E176A06C80067F6B7 /* Media.xcassets */,
 				077D47C5174CE31600443B8B /* Kirapika Builder */,
 				077D47BE174CE31600443B8B /* Frameworks */,
 				077D47BD174CE31600443B8B /* Products */,
@@ -131,8 +128,8 @@
 		077D47C5174CE31600443B8B /* Kirapika Builder */ = {
 			isa = PBXGroup;
 			children = (
-				077D47D1174CE31600443B8B /* AppDelegate.h */,
-				077D47D2174CE31600443B8B /* AppDelegate.m */,
+				077D47D1174CE31600443B8B /* KBAppDelegate.h */,
+				077D47D2174CE31600443B8B /* KBAppDelegate.m */,
 				077D47D4174CE31600443B8B /* MainMenu.xib */,
 				077D47F3174CE33200443B8B /* CoreData */,
 				077D47FD174CE33200443B8B /* Algorithm */,
@@ -270,7 +267,6 @@
 				077D47CA174CE31600443B8B /* InfoPlist.strings in Resources */,
 				077D47D0174CE31600443B8B /* Credits.rtf in Resources */,
 				077D47D6174CE31600443B8B /* MainMenu.xib in Resources */,
-				07E3EC7F176A06C80067F6B7 /* Media.xcassets in Resources */,
 				077D4816174CE33200443B8B /* Synonyms.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,7 +306,7 @@
 				077D4826174DA40D00443B8B /* NSString+Transcode.m in Sources */,
 				077D4827174DA40D00443B8B /* ReplyText.m in Sources */,
 				077D47CC174CE31600443B8B /* main.m in Sources */,
-				077D47D3174CE31600443B8B /* AppDelegate.m in Sources */,
+				077D47D3174CE31600443B8B /* KBAppDelegate.m in Sources */,
 				077D481B174CE66100443B8B /* TBXML.m in Sources */,
 				075D1534174F443200D64358 /* EightDigitNumberPool.m in Sources */,
 			);
@@ -408,7 +404,6 @@
 		077D47DA174CE31600443B8B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -422,7 +417,6 @@
 		077D47DB174CE31600443B8B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

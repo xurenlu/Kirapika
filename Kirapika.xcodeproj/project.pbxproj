@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		070FCDF5176B2E3800011FEE /* GNInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 070FCDF4176B2E3800011FEE /* GNInteractiveTransition.m */; };
 		077105B71744EBAA008A27BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077105B61744EBAA008A27BC /* UIKit.framework */; };
 		077105B91744EBAA008A27BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077105B81744EBAA008A27BC /* Foundation.framework */; };
 		077105BB1744EBAA008A27BC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077105BA1744EBAA008A27BC /* CoreGraphics.framework */; };
@@ -60,6 +59,7 @@
 		077106BF1744EC9F008A27BC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077106BE1744EC9F008A27BC /* CoreData.framework */; };
 		077106C11744ECA7008A27BC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077106C01744ECA7008A27BC /* AudioToolbox.framework */; };
 		07775CE5175DC7530075BADF /* SenderSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 07775CE4175DC7530075BADF /* SenderSwitch.m */; };
+		079E789F176F2BAA00E1800A /* GNTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 079E789E176F2BAA00E1800A /* GNTransitionController.m */; };
 		07A8B78B1749EC5400E3227C /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A8B78A1749EC5400E3227C /* Message.m */; };
 		07CA8AED17583A2800A41C84 /* BubbleTypingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07CA8AEC17583A2800A41C84 /* BubbleTypingCell.m */; };
 		07CFC834174B528400417D68 /* NSString+Transcode.m in Sources */ = {isa = PBXBuildFile; fileRef = 07CFC833174B528400417D68 /* NSString+Transcode.m */; };
@@ -80,8 +80,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		070FCDF3176B2E3800011FEE /* GNInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNInteractiveTransition.h; sourceTree = "<group>"; };
-		070FCDF4176B2E3800011FEE /* GNInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNInteractiveTransition.m; sourceTree = "<group>"; };
 		077105B31744EBAA008A27BC /* Kirapika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kirapika.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		077105B61744EBAA008A27BC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		077105B81744EBAA008A27BC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -184,6 +182,8 @@
 		07775CE3175DC7530075BADF /* SenderSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenderSwitch.h; sourceTree = "<group>"; };
 		07775CE4175DC7530075BADF /* SenderSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenderSwitch.m; sourceTree = "<group>"; };
 		077D47DC174CE31600443B8B /* Kirapika Builder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Kirapika Builder.xcodeproj"; path = "Kirapika Builder/Kirapika Builder.xcodeproj"; sourceTree = "<group>"; };
+		079E789D176F2BAA00E1800A /* GNTransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNTransitionController.h; sourceTree = "<group>"; };
+		079E789E176F2BAA00E1800A /* GNTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNTransitionController.m; sourceTree = "<group>"; };
 		07A8B7891749EC5400E3227C /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		07A8B78A1749EC5400E3227C /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		07A8B790174A657500E3227C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
@@ -349,6 +349,8 @@
 			children = (
 				077105FF1744EC1B008A27BC /* GestureNavigationBar.h */,
 				077106001744EC1B008A27BC /* GestureNavigationBar.m */,
+				079E789D176F2BAA00E1800A /* GNTransitionController.h */,
+				079E789E176F2BAA00E1800A /* GNTransitionController.m */,
 				077106011744EC1B008A27BC /* GestureNavigationViewController.h */,
 				077106021744EC1B008A27BC /* GestureNavigationViewController.m */,
 			);
@@ -359,8 +361,6 @@
 			isa = PBXGroup;
 			children = (
 				077106041744EC1B008A27BC /* PixelStypleHandwritingRecognition */,
-				070FCDF3176B2E3800011FEE /* GNInteractiveTransition.h */,
-				070FCDF4176B2E3800011FEE /* GNInteractiveTransition.m */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -553,6 +553,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Justin Jia";
+				TargetAttributes = {
+					077105B21744EBAA008A27BC = {
+						DevelopmentTeam = S5K2BLKUMU;
+					};
+				};
 			};
 			buildConfigurationList = 077105AE1744EBAA008A27BC /* Build configuration list for PBXProject "Kirapika" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -627,7 +632,6 @@
 			files = (
 				077105C31744EBAA008A27BC /* main.m in Sources */,
 				077105C71744EBAA008A27BC /* AppDelegate.m in Sources */,
-				070FCDF5176B2E3800011FEE /* GNInteractiveTransition.m in Sources */,
 				077106671744EC1B008A27BC /* DegreeOfApproximation.m in Sources */,
 				077106681744EC1B008A27BC /* NSString+Tokenize.m in Sources */,
 				077106691744EC1B008A27BC /* ReplyText.m in Sources */,
@@ -655,6 +659,7 @@
 				077106911744EC1B008A27BC /* MessagesTableView.m in Sources */,
 				077106921744EC1B008A27BC /* MessagesViewController.m in Sources */,
 				077106931744EC1B008A27BC /* NSString+MessagesView.m in Sources */,
+				079E789F176F2BAA00E1800A /* GNTransitionController.m in Sources */,
 				077106941744EC1B008A27BC /* DAKeyboardControl.m in Sources */,
 				077106951744EC1B008A27BC /* HPGrowingTextView.m in Sources */,
 				077106961744EC1B008A27BC /* HPTextViewInternal.m in Sources */,
@@ -754,6 +759,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kirapika/Kirapika-Prefix.pch";
 				GCC_WARN_PEDANTIC = NO;
@@ -772,6 +778,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kirapika/Kirapika-Prefix.pch";
 				GCC_WARN_PEDANTIC = NO;

@@ -8,7 +8,7 @@
 
 #import "PixelStyleHandwritingRecognitionView.h"
 
-@interface ViewController : UIViewController <PixelStyleHandwritingRecognitionViewDelegate>
+@interface ViewController : UIViewController <PixelStyleHandwritingRecognitionViewDelegate, UIViewControllerTransitioningDelegate>
 
 @property (strong, nonatomic) IBOutlet PixelStyleHandwritingRecognitionView *view;
 

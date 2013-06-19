@@ -6,19 +6,19 @@
 //  Copyright (c) 2013 Justin Jia. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "KBAppDelegate.h"
 #import "CoreDataConstants.h"
 #import "TBXML.h"
 #import "NSString+Transcode.h"
 
-@interface AppDelegate()
+@interface KBAppDelegate()
 
 @property (nonatomic) int rowID;
 - (void)load;
 
 @end
 
-@implementation AppDelegate
+@implementation KBAppDelegate
 
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize managedObjectModel = _managedObjectModel;

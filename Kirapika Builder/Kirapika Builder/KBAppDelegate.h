@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Justin Jia. All rights reserved.
 //
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface KBAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
