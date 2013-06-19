@@ -197,6 +197,7 @@
 		07CFC845174BA4B400417D68 /* Word+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Word+Create.m"; sourceTree = "<group>"; };
 		07CFC847174BA61F00417D68 /* Sender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sender.h; sourceTree = "<group>"; };
 		07CFC848174BA61F00417D68 /* Sender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sender.m; sourceTree = "<group>"; };
+		07D83BCD17712D2E007D2233 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		07E3EC7B176A06740067F6B7 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -277,6 +278,7 @@
 				077105BF1744EBAA008A27BC /* InfoPlist.strings */,
 				077105C21744EBAA008A27BC /* main.m */,
 				077105C41744EBAA008A27BC /* Kirapika-Prefix.pch */,
+				07D83BCD17712D2E007D2233 /* README.md */,
 				07A8B790174A657500E3227C /* .gitignore */,
 			);
 			name = "Supporting Files";
@@ -553,11 +555,6 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Justin Jia";
-				TargetAttributes = {
-					077105B21744EBAA008A27BC = {
-						DevelopmentTeam = S5K2BLKUMU;
-					};
-				};
 			};
 			buildConfigurationList = 077105AE1744EBAA008A27BC /* Build configuration list for PBXProject "Kirapika" */;
 			compatibilityVersion = "Xcode 3.2";
