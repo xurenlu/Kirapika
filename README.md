@@ -1,6 +1,7 @@
 Kirapika
 ===========================
 Kirapika is a mobile 'chatting robot' based on your chat records.
+Video Demo: http://v.youku.com/v_show/id_XNTUzOTM1NDQw.html
 
 ##Features
 
