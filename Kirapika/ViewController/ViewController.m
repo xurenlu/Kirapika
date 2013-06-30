@@ -7,9 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "GNTransitionController.h"
+#import "GNTransition.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong) GNTransition *gnTransition;
 
 @end
 
@@ -48,6 +50,10 @@
 
 - (void)finalRecognizedMark:(RecognizedMarkType)mark
 {
+//    UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ChatNavigationController"];
+//
+//    [self animationControllerForPresentedController:controller presentingController:self sourceController:self];
+
     if (mark == LetterC) {
         [self performSegueWithIdentifier:@"chatSegue" sender:self];
     } else if (mark == LetterM) {
@@ -57,7 +63,6 @@
     } else if (mark == LetterS) {
         [self performSegueWithIdentifier:@"soloSegue" sender:self];
     }
-//    [self presentViewController:<#(UIViewController *)#> animated:<#(BOOL)#> completion:<#^(void)completion#>]
 
 }
 
@@ -90,7 +95,7 @@
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
 {
-
+    
 }
 
 

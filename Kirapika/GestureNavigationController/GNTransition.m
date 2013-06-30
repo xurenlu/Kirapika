@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Justin Jia. All rights reserved.
 //
 
-#import "GNTransitionController.h"
+#import "GNTransition.h"
 
-@implementation GNTransitionController
+@implementation GNTransition
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {

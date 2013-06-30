@@ -7,6 +7,6 @@
 //
 
 
-@interface GNTransitionController : NSObject <UIViewControllerInteractiveTransitioning, UIViewControllerAnimatedTransitioning>
+@interface GNTransition : NSObject <UIViewControllerInteractiveTransitioning, UIViewControllerAnimatedTransitioning>
 
 @end

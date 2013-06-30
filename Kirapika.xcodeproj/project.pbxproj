@@ -59,7 +59,7 @@
 		077106BF1744EC9F008A27BC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077106BE1744EC9F008A27BC /* CoreData.framework */; };
 		077106C11744ECA7008A27BC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077106C01744ECA7008A27BC /* AudioToolbox.framework */; };
 		07775CE5175DC7530075BADF /* SenderSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 07775CE4175DC7530075BADF /* SenderSwitch.m */; };
-		079E789F176F2BAA00E1800A /* GNTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 079E789E176F2BAA00E1800A /* GNTransitionController.m */; };
+		079E789F176F2BAA00E1800A /* GNTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 079E789E176F2BAA00E1800A /* GNTransition.m */; };
 		07A8B78B1749EC5400E3227C /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A8B78A1749EC5400E3227C /* Message.m */; };
 		07CA8AED17583A2800A41C84 /* BubbleTypingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07CA8AEC17583A2800A41C84 /* BubbleTypingCell.m */; };
 		07CFC834174B528400417D68 /* NSString+Transcode.m in Sources */ = {isa = PBXBuildFile; fileRef = 07CFC833174B528400417D68 /* NSString+Transcode.m */; };
@@ -182,8 +182,8 @@
 		07775CE3175DC7530075BADF /* SenderSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenderSwitch.h; sourceTree = "<group>"; };
 		07775CE4175DC7530075BADF /* SenderSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenderSwitch.m; sourceTree = "<group>"; };
 		077D47DC174CE31600443B8B /* Kirapika Builder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Kirapika Builder.xcodeproj"; path = "Kirapika Builder/Kirapika Builder.xcodeproj"; sourceTree = "<group>"; };
-		079E789D176F2BAA00E1800A /* GNTransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNTransitionController.h; sourceTree = "<group>"; };
-		079E789E176F2BAA00E1800A /* GNTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNTransitionController.m; sourceTree = "<group>"; };
+		079E789D176F2BAA00E1800A /* GNTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNTransition.h; sourceTree = "<group>"; };
+		079E789E176F2BAA00E1800A /* GNTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNTransition.m; sourceTree = "<group>"; };
 		07A8B7891749EC5400E3227C /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		07A8B78A1749EC5400E3227C /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		07A8B790174A657500E3227C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
@@ -351,8 +351,8 @@
 			children = (
 				077105FF1744EC1B008A27BC /* GestureNavigationBar.h */,
 				077106001744EC1B008A27BC /* GestureNavigationBar.m */,
-				079E789D176F2BAA00E1800A /* GNTransitionController.h */,
-				079E789E176F2BAA00E1800A /* GNTransitionController.m */,
+				079E789D176F2BAA00E1800A /* GNTransition.h */,
+				079E789E176F2BAA00E1800A /* GNTransition.m */,
 				077106011744EC1B008A27BC /* GestureNavigationViewController.h */,
 				077106021744EC1B008A27BC /* GestureNavigationViewController.m */,
 			);
@@ -656,7 +656,7 @@
 				077106911744EC1B008A27BC /* MessagesTableView.m in Sources */,
 				077106921744EC1B008A27BC /* MessagesViewController.m in Sources */,
 				077106931744EC1B008A27BC /* NSString+MessagesView.m in Sources */,
-				079E789F176F2BAA00E1800A /* GNTransitionController.m in Sources */,
+				079E789F176F2BAA00E1800A /* GNTransition.m in Sources */,
 				077106941744EC1B008A27BC /* DAKeyboardControl.m in Sources */,
 				077106951744EC1B008A27BC /* HPGrowingTextView.m in Sources */,
 				077106961744EC1B008A27BC /* HPTextViewInternal.m in Sources */,
