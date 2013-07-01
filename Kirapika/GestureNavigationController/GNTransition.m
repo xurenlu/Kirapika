@@ -13,20 +13,46 @@
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     UIView *fromView = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey].view;
-    //    UIView *toView = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey].view;
-    //    UIView *inView = [transitionContext containerView];
+    UIView *toView = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey].view;
+    UIView *inView = [transitionContext containerView];
+
+    CGRect toViewFinalFrame = inView.frame;
     
-    CGRect frame = [UIScreen mainScreen].bounds;
-    float dis = frame.size.height;
+    CGRect toViewInitFrame = inView.frame;
+    toViewInitFrame.origin.y += inView.bounds.size.height;
     
-    frame.origin.x += dis / 20;
-    frame.size.width -= dis / 20 * 2;
-    frame.origin.y += dis / 20;
-    frame.size.height -= dis / 20 * 2;
+    [inView addSubview:toView];
     
-    [UIView animateWithDuration:0.35f animations:^{
-        fromView.frame = frame;
-        fromView.alpha = 0;
+    CGRect fromViewInitFrame = inView.frame;
+    
+    CGRect fromViewFinalFrame = inView.frame;
+    float dis = fromViewFinalFrame.size.height;
+    fromViewFinalFrame.origin.x += dis / 20;
+    fromViewFinalFrame.size.width -= dis / 20 * 2;
+    fromViewFinalFrame.origin.y += dis / 20;
+    fromViewFinalFrame.size.height -= dis / 20 * 2;
+    
+    if (!self.isPresented) {
+        toView.frame = toViewInitFrame;
+        fromView.frame = fromViewInitFrame;
+        [inView bringSubviewToFront:toView];
+    } else {
+        fromView.frame = toViewFinalFrame;
+        toView.frame = fromViewFinalFrame;
+        [inView bringSubviewToFront:fromView];
+    }
+    
+    [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+        if (!self.isPresented) {
+            toView.frame = toViewFinalFrame;
+            fromView.frame = fromViewFinalFrame;
+        } else {
+            fromView.frame = toViewInitFrame;
+            toView.frame = fromViewInitFrame;
+        }
+
+    } completion:^(BOOL finished) {
+        [transitionContext completeTransition:YES];
     }];
 }
 

@@ -18,13 +18,13 @@
     [arr removeObject:@":"];
     
     for (NSUInteger i=0; i<arr.count; i++) {
-        NSString *org = [arr objectAtIndex:i];
+        NSString *org = arr[i];
         NSArray *matches = [[[context ofType:WORD] where:@"%K = %@", WORD_ORG, org] toArray];
         if (matches.count) {
-            [arr replaceObjectAtIndex:i withObject:[(Word *)matches.lastObject trans]];
+            arr[i] = [(Word *)matches.lastObject trans];
         } else if (org.intValue <= 10000000 || org.intValue >= 99999999 || org.length != NOSIMIWO.length) {
             Word *word = saved ? [Word wordWithData:[self dictionaryForWord:org inContext:context withEightDigitNumberPool:pool] inManagedObjectContext:context] : nil;
-            [arr replaceObjectAtIndex:i withObject:saved ? word.trans : NOSIMIWO];
+            arr[i] = saved ? word.trans : NOSIMIWO;
         }
     }
         
@@ -33,12 +33,12 @@
 
 - (NSDictionary *)dictionaryForWord:(NSString *)str inContext:(NSManagedObjectContext *)context withEightDigitNumberPool:(EightDigitNumberPool *)pool
 {
-    NSString *trans = pool ? [[NSNumber numberWithInt:pool.number] stringValue] : nil;
+    NSString *trans = pool ? [@(pool.number) stringValue] : nil;
     if (!trans)
         do {
-            trans = [[NSNumber numberWithInt:(20000000 + rand() % 79999999)] stringValue];
+            trans = [@(20000000 + rand() % 79999999) stringValue];
         } while ([[[[context ofType:WORD] where:@"%K = %@", WORD_TRANS, trans] toArray] count]);
-    return [NSDictionary dictionaryWithObjectsAndKeys:str, WORD_ORG, trans, WORD_TRANS, nil];
+    return @{WORD_ORG: str, WORD_TRANS: trans};
 }
 
 - (NSString *)checkSynoyms:(NSMutableString *)str
@@ -48,7 +48,7 @@
     for (NSString *str in [sStr componentsSeparatedByString:@";;\n"]) [sPool addObject:[str componentsSeparatedByString:@"::"]];
     
     for (NSUInteger i=0; i<sPool.count; i++)
-        for (NSString *syns in [sPool objectAtIndex:i])
+        for (NSString *syns in sPool[i])
             [str replaceOccurrencesOfString:syns withString:[NSString stringWithFormat:@"%d:", 10000000+i] options:NSWidthInsensitiveSearch range:NSMakeRange(0, str.length)];
     return str;
 }

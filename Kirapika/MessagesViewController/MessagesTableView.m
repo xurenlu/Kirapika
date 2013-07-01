@@ -54,7 +54,7 @@
 
 - (void)insertRowAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation
 {
-    [super insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:animation];
+    [super insertRowsAtIndexPaths:@[indexPath] withRowAnimation:animation];
     [self scrollToBottomAnimated:YES];
 }
 
@@ -66,7 +66,7 @@
 
 - (void)deleteRowAtIndexPath:(NSArray *)indexPath withRowAnimation:(UITableViewRowAnimation)animation
 {
-    [super deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:animation];
+    [super deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:animation];
     [self scrollToBottomAnimated:YES];
 }
 

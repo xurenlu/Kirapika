@@ -12,7 +12,7 @@
 
 @interface MoeViewController ()
 
-@property (nonatomic, strong) NSUserDefaults *userDefaults;
+@property (strong, nonatomic) NSUserDefaults *userDefaults;
 - (void)removePlist;
 - (void)removeDatabase;
 
@@ -80,7 +80,7 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    _userDefaults = nil;
+    [self setUserDefaults:nil];
 }
 
 @end

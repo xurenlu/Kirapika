@@ -560,7 +560,7 @@ static char UIViewKeyboardPanRecognizer;
     [self willChangeValueForKey:@"keyboardTriggerOffset"];
     objc_setAssociatedObject(self,
                              &UIViewKeyboardTriggerOffset,
-                             [NSNumber numberWithFloat:keyboardTriggerOffset],
+                             @(keyboardTriggerOffset),
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     [self didChangeValueForKey:@"keyboardTriggerOffset"];
 }

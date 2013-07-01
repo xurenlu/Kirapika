@@ -191,7 +191,7 @@
     
     NSArray *results = [q toArray];
     if(results.count > 0)
-        return [results objectAtIndex:0];
+        return results[0];
     else
         return nil;
 }
@@ -226,7 +226,7 @@
     if (results.count == 0)
         return nil;
     else if (results.count == 1)
-        return [results objectAtIndex:0];
+        return results[0];
     else
         [NSException raise:@"The source sequence contains more than one element" format:@""];
     
@@ -267,7 +267,7 @@
 - (double)getExpressionValue:(NSString *)property function:(NSString *)function
 {
     NSExpression *keyPathExpression = [NSExpression expressionForKeyPath:property];
-    NSExpression *exp = [NSExpression expressionForFunction:function arguments:[NSArray arrayWithObject:keyPathExpression]];
+    NSExpression *exp = [NSExpression expressionForFunction:function arguments:@[keyPathExpression]];
 
     NSExpressionDescription *expressionDescription = [[NSExpressionDescription alloc] init];
     [expressionDescription setName:@"expressionValue"];
@@ -276,10 +276,10 @@
 
     NSFetchRequest *request = [self getFetchRequest];
     [request setResultType:NSDictionaryResultType];
-    [request setPropertiesToFetch:[NSArray arrayWithObject:expressionDescription]];
+    [request setPropertiesToFetch:@[expressionDescription]];
     NSArray *fetchResultsArray = [self.context executeFetchRequest:request error:nil];
-    NSDictionary *fetchResultsDictionary = [fetchResultsArray objectAtIndex:0];
-    return [[fetchResultsDictionary objectForKey:@"expressionValue"] floatValue];
+    NSDictionary *fetchResultsDictionary = fetchResultsArray[0];
+    return [fetchResultsDictionary[@"expressionValue"] floatValue];
 }
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained []) stackbuf count:(NSUInteger)len

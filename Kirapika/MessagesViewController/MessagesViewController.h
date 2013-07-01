@@ -17,9 +17,9 @@
 @interface MessagesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, HPGrowingTextViewDelegate, MessagesNavigationViewControllerDelegate>
 
 #pragma mark - TableView and InputView
-@property (strong, nonatomic) IBOutlet MessagesTableView *tableView;
-@property (strong, nonatomic) IBOutlet MessageInputView *inputView;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *inputViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet MessagesTableView *tableView;
+@property (weak, nonatomic) IBOutlet MessageInputView *inputView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *inputViewHeightConstraint;
 
 #pragma mark - Data
 @property (strong, nonatomic) NSUserDefaults *userDefaults;

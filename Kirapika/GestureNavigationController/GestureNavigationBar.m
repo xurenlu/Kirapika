@@ -42,38 +42,36 @@
     
     [self.delegate touchBegan:window];
     
-    CGPoint loaction = [touch locationInView:window];
-    float distance = window.bounds.size.height - loaction.y;
-    [self.delegate setBackgroundViewWith:distance];
+//    CGPoint loaction = [touch locationInView:window];
+//    float distance = window.bounds.size.height - loaction.y;
 }
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch *touch = touches.anyObject;
-    UIWindow *window = touch.window;
-
-    CGPoint loaction = [touch locationInView:window];
-    CGPoint oldLocation = [touch previousLocationInView:window];
-    
-    float distance = window.bounds.size.height - loaction.y;
-        
-    [self.delegate setBackgroundViewWith:distance];
-    [self.delegate moveView:loaction.y - oldLocation.y];
-}
-
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [self.delegate touchFailed];
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch *touch = touches.anyObject;
-    UIWindow *window = touch.window;
-
-    CGPoint location = [touch locationInView:window];
-    CGPoint oldLocation = [touch previousLocationInView:window];
-    (location.y > oldLocation.y) ? [self.delegate touchSucceed] : [self.delegate touchFailed];
-}
+//
+//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    UITouch *touch = touches.anyObject;
+//    UIWindow *window = touch.window;
+//
+//    CGPoint loaction = [touch locationInView:window];
+//    CGPoint oldLocation = [touch previousLocationInView:window];
+//    
+//    float distance = window.bounds.size.height - loaction.y;
+//        
+//    [self.delegate moveView:loaction.y - oldLocation.y];
+//}
+//
+//- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    [self.delegate touchFailed];
+//}
+//
+//- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    UITouch *touch = touches.anyObject;
+//    UIWindow *window = touch.window;
+//
+//    CGPoint location = [touch locationInView:window];
+//    CGPoint oldLocation = [touch previousLocationInView:window];
+//    (location.y > oldLocation.y) ? [self.delegate touchSucceed] : [self.delegate touchFailed];
+//}
 
 @end

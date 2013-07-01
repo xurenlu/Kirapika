@@ -29,7 +29,7 @@
 {
     [aCoder encodeObject:_bubbleContext forKey:@"contextCoder"];
     [aCoder encodeObject:_bubbleDate forKey:@"dateCoder"];
-    [aCoder encodeObject:[NSNumber numberWithBool:_bubbleCurrentSender] forKey:@"whoSentCoder"];
+    [aCoder encodeObject:@(_bubbleCurrentSender) forKey:@"whoSentCoder"];
 }
 
 @end

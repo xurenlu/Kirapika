@@ -12,7 +12,7 @@
 
 + (NSURL *)documentDirectory
 {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] objectAtIndex:0];
+    return [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][0];
 }
 
 + (NSArray *)fileURLsInDocumentDirectory

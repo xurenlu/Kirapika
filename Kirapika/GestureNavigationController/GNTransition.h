@@ -9,4 +9,6 @@
 
 @interface GNTransition : NSObject <UIViewControllerInteractiveTransitioning, UIViewControllerAnimatedTransitioning>
 
+@property (nonatomic) BOOL isPresented;
+
 @end

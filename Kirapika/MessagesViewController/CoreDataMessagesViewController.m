@@ -113,4 +113,11 @@
     if (bgTask != UIBackgroundTaskInvalid) [[UIApplication sharedApplication] endBackgroundTask:bgTask];
 }
 
+#pragma mark - Unload
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self setManagedObjectContext:nil];
+    [self setDocument:nil];
+}
 @end

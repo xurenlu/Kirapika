@@ -131,13 +131,14 @@
 {
     [super viewWillDisappear:animated];
     [self endBackgroundTask:self.replyingMessagesTask];
+    [self setReplyText:nil];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     [self endBackgroundTask:self.replyingMessagesTask];
-    _replyText = nil;
+    [self setReplyText:nil];
 }
 
 @end

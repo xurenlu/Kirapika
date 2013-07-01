@@ -66,9 +66,9 @@
     if (!replys.count) return nil;
 
     if (self.replyTextPreference == NormalReply) {
-        return [replys objectAtIndex:arc4random() % replys.count];
+        return replys[arc4random() % replys.count];
     } else if (self.replyTextPreference == SingleReply) {
-        return [[replys objectAtIndex:arc4random() % replys.count] objectAtIndex:0];
+        return replys[arc4random() % replys.count][0];
     } else if (self.replyTextPreference == AllPossibleReply) {
         NSMutableArray *tmp = [NSMutableArray new];
         for (NSArray *array in replys) for (Message *message in array) [tmp addObject:message];
@@ -85,7 +85,7 @@
 
 - (id)anyObject:(NSArray *)array
 {
-    return [array objectAtIndex:arc4random() % array.count];
+    return array[arc4random() % array.count];
 }
 
 @end

@@ -56,8 +56,8 @@
 
 - (void)nextSection
 {
-    [self displayContexts:[self.currentSection objectForKey:CONTEXTS_ARRAY_KEY]];
-    [self displayHint:[self.currentSection objectForKey:HINT_KEY]];
+    [self displayContexts:(self.currentSection)[CONTEXTS_ARRAY_KEY]];
+    [self displayHint:(self.currentSection)[HINT_KEY]];
 }
 
 - (void)finalSection
@@ -86,7 +86,7 @@
 
 - (void)checkCondition:(NSString *)text
 {
-    self.currentSectionIndex = [text isEqualToString:[self.currentSection objectForKey:CONDITION_KEY]] ? [[self.currentSection objectForKey:PASSED_CONDITION_KEY] intValue] : [[self.currentSection objectForKey:FAILED_CONDITION_KEY] intValue];
+    self.currentSectionIndex = [text isEqualToString:(self.currentSection)[CONDITION_KEY]] ? [(self.currentSection)[PASSED_CONDITION_KEY] intValue] : [(self.currentSection)[FAILED_CONDITION_KEY] intValue];
     
     self.currentSectionIndex >= self.sections.count ? [self finalSection] : [self nextSection];
 }
@@ -105,7 +105,14 @@
 #pragma mark - Data
 - (NSDictionary *)currentSection
 {
-    return [self.sections objectAtIndex:self.currentSectionIndex];
+    return (self.sections)[self.currentSectionIndex];
+}
+
+#pragma mark - Unload
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self setSections:nil];
 }
 
 @end

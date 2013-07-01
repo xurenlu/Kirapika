@@ -135,7 +135,7 @@
 
 - (void)shadeWithCenter:(int)tag
 {
-    self.stateLightViewCount = [NSNumber numberWithInt:0];
+    self.stateLightViewCount = @0;
     
     for (PixelView *pixelView in self.subviews) {
         BOOL mostLeft = !((tag - 0) % (int)(self.bounds.size.width / WIDTH_VIEW));
@@ -172,7 +172,7 @@
         }
         
         if (pixelView.state == PixelShadeStateCenter) {
-            self.stateLightViewCount = [NSNumber numberWithInt:self.stateLightViewCount.intValue + 1];
+            self.stateLightViewCount = @(self.stateLightViewCount.intValue + 1);
         }
     }
     

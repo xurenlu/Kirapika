@@ -202,12 +202,12 @@
 #pragma mark - Messages View Controller
 - (BubbleMessageStyle)messageStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [[self.messages objectAtIndex:indexPath.row] bubbleCurrentSender];
+    return [(self.messages)[indexPath.row] bubbleCurrentSender];
 }
 
 - (NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [[self.messages objectAtIndex:indexPath.row] bubbleContext];
+    return [(self.messages)[indexPath.row] bubbleContext];
 }
 
 - (void)setBackgroundColor:(UIColor *)color
@@ -298,10 +298,18 @@
 }
 
 #pragma mark - Unload
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self setUserDefaults:nil];
+    _messages = nil;
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    _userDefaults = nil;
+    [self setUserDefaults:nil];
     _messages = nil;
 }
 

@@ -50,52 +50,37 @@
 
 - (void)finalRecognizedMark:(RecognizedMarkType)mark
 {
-//    UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ChatNavigationController"];
+    UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ChatNavigationController"];
+    [controller setTransitioningDelegate:self];
+    [controller setModalPresentationStyle:UIModalPresentationCustom];
+    [self presentViewController:controller animated:YES completion:nil];
+    
 //
-//    [self animationControllerForPresentedController:controller presentingController:self sourceController:self];
-
-    if (mark == LetterC) {
-        [self performSegueWithIdentifier:@"chatSegue" sender:self];
-    } else if (mark == LetterM) {
-        [self performSegueWithIdentifier:@"moeSegue" sender:self];
-    } else if (mark == LetterR) {
-        [self performSegueWithIdentifier:@"recallSegue" sender:self];
-    } else if (mark == LetterS) {
-        [self performSegueWithIdentifier:@"soloSegue" sender:self];
-    }
-
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    [UIView animateWithDuration:0.35 animations:^{
-        self.view.guideView.alpha = 0;
-        self.view.alpha = 0;
-        
-        CGRect frame = [UIScreen mainScreen].applicationFrame;
-        float dis = frame.size.height;
-        
-        frame.origin.x += dis / 20;
-        frame.size.width -= dis / 20 * 2;
-        frame.origin.y += dis / 20;
-        frame.size.height -= dis / 20 * 2;
-        
-        self.view.frame = frame;
-    } completion:^(BOOL finished) {
-        self.view.alpha = 1;
-        self.view.frame = [UIScreen mainScreen].applicationFrame;
-    }];
+//    if (mark == LetterC) {
+//        [self performSegueWithIdentifier:@"chatSegue" sender:self];
+//    } else if (mark == LetterM) {
+//        [self performSegueWithIdentifier:@"moeSegue" sender:self];
+//    } else if (mark == LetterR) {
+//        [self performSegueWithIdentifier:@"recallSegue" sender:self];
+//    } else if (mark == LetterS) {
+//        [self performSegueWithIdentifier:@"soloSegue" sender:self];
+//    }
+//
 }
 
 #pragma mark - UIViewControllerTransitioningDelegate
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
 {
-
+    GNTransition *trans = [GNTransition new];
+    trans.isPresented = YES;
+    return trans;
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
 {
-    
+    GNTransition *trans = [GNTransition new];
+    trans.isPresented = NO;
+    return trans;
 }
 
 

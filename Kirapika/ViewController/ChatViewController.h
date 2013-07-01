@@ -11,6 +11,6 @@
 
 @interface ChatViewController : CoreDataMessagesViewController <ToggleViewDelegate>
 
-@property (strong, nonatomic) IBOutlet SenderSwitch *senderSwitch;
+@property (weak, nonatomic) IBOutlet SenderSwitch *senderSwitch;
 
 @end
