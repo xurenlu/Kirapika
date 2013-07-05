@@ -87,23 +87,23 @@
 - (void)drawRect:(CGRect)frame
 {
     self.autoresizingMask = (self.style == BubbleMessageStyleLeftSender) ? UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight : UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;
-	UIImage *image = (self.style == BubbleMessageStyleLeftSender) ? self.incomingBackground : self.outgoingBackground;
+    UIImage *image = (self.style == BubbleMessageStyleLeftSender) ? self.incomingBackground : self.outgoingBackground;
     CGSize bubbleSize = [BubbleView bubbleSizeForText:self.text];
-	CGRect bubbleFrame = CGRectMake(((self.style == BubbleMessageStyleRightSender) ? self.frame.size.width - bubbleSize.width : 0.0f),
+    CGRect bubbleFrame = CGRectMake(((self.style == BubbleMessageStyleRightSender) ? self.frame.size.width - bubbleSize.width : 0.0f),
                                     kMarginTop,
                                     bubbleSize.width,
                                     bubbleSize.height);
     
-	[image drawInRect:bubbleFrame];
-	
-	CGSize textSize = [BubbleView textSizeForText:self.text];
-	CGFloat textX = (CGFloat)image.leftCapWidth - 3.0f + ((self.style == BubbleMessageStyleRightSender) ? bubbleFrame.origin.x : 0.0f);
+    [image drawInRect:bubbleFrame];
+    
+    CGSize textSize = [BubbleView textSizeForText:self.text];
+    CGFloat textX = (CGFloat)image.leftCapWidth - 3.0f + ((self.style == BubbleMessageStyleRightSender) ? bubbleFrame.origin.x : 0.0f);
     CGRect textFrame = CGRectMake(textX,
                                   kPaddingTop + kMarginTop,
                                   textSize.width,
                                   textSize.height);
     
-	[self.text drawInRect:textFrame
+    [self.text drawInRect:textFrame
                  withFont:[BubbleView font]
             lineBreakMode:NSLineBreakByWordWrapping
                 alignment:(self.style == BubbleMessageStyleRightSender) ? NSTextAlignmentRight : NSTextAlignmentLeft];
@@ -123,8 +123,8 @@
 
 + (CGSize)bubbleSizeForText:(NSString *)txt
 {
-	CGSize textSize = [BubbleView textSizeForText:txt];
-	return CGSizeMake(textSize.width + kBubblePaddingRight, textSize.height + kPaddingTop + kPaddingBottom);
+    CGSize textSize = [BubbleView textSizeForText:txt];
+    return CGSizeMake(textSize.width + kBubblePaddingRight, textSize.height + kPaddingTop + kPaddingBottom);
 }
 
 + (CGFloat)cellHeightForText:(NSString *)txt

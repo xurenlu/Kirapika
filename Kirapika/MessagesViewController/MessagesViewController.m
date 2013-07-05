@@ -184,10 +184,10 @@
 {
     float diff = (growingTextView.frame.size.height - height);
     
-	CGRect r = self.inputView.frame;
+    CGRect r = self.inputView.frame;
     r.size.height -= diff;
     r.origin.y += diff;
-	self.inputView.frame = r;
+    self.inputView.frame = r;
     
     UIEdgeInsets tableViewInsets = self.tableView.contentInset;
     tableViewInsets.bottom -= diff;

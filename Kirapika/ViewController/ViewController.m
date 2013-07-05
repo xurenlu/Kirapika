@@ -50,22 +50,24 @@
 
 - (void)finalRecognizedMark:(RecognizedMarkType)mark
 {
-    UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ChatNavigationController"];
+    [UIView animateWithDuration:0.5 animations:^{
+        self.view.guideView.alpha = 0;
+    }];
+
+    UIViewController *controller;
+    if (mark == LetterC) {
+        controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ChatNavigationController"];
+    } else if (mark == LetterM) {
+        controller = [self.storyboard instantiateViewControllerWithIdentifier:@"MoeNavigationController"];
+    } else if (mark == LetterR) {
+        controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RecallNavigationController"];
+    } else if (mark == LetterS) {
+        controller = [self.storyboard instantiateViewControllerWithIdentifier:@"SoloNavigationController"];
+    }
+    
     [controller setTransitioningDelegate:self];
     [controller setModalPresentationStyle:UIModalPresentationCustom];
     [self presentViewController:controller animated:YES completion:nil];
-    
-//
-//    if (mark == LetterC) {
-//        [self performSegueWithIdentifier:@"chatSegue" sender:self];
-//    } else if (mark == LetterM) {
-//        [self performSegueWithIdentifier:@"moeSegue" sender:self];
-//    } else if (mark == LetterR) {
-//        [self performSegueWithIdentifier:@"recallSegue" sender:self];
-//    } else if (mark == LetterS) {
-//        [self performSegueWithIdentifier:@"soloSegue" sender:self];
-//    }
-//
 }
 
 #pragma mark - UIViewControllerTransitioningDelegate

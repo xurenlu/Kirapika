@@ -11,24 +11,24 @@
 
 static inline UIViewAnimationOptions AnimationOptionsForCurve(UIViewAnimationCurve curve)
 {
-	switch (curve) {
-		case UIViewAnimationCurveEaseInOut:
-			return UIViewAnimationOptionCurveEaseInOut;
-			break;
-		case UIViewAnimationCurveEaseIn:
-			return UIViewAnimationOptionCurveEaseIn;
-			break;
-		case UIViewAnimationCurveEaseOut:
-			return UIViewAnimationOptionCurveEaseOut;
-			break;
-		case UIViewAnimationCurveLinear:
-			return UIViewAnimationOptionCurveLinear;
-			break;
-			
-		default:
-			return UIViewAnimationOptionCurveEaseInOut;
-			break;
-	}
+    switch (curve) {
+        case UIViewAnimationCurveEaseInOut:
+            return UIViewAnimationOptionCurveEaseInOut;
+            break;
+        case UIViewAnimationCurveEaseIn:
+            return UIViewAnimationOptionCurveEaseIn;
+            break;
+        case UIViewAnimationCurveEaseOut:
+            return UIViewAnimationOptionCurveEaseOut;
+            break;
+        case UIViewAnimationCurveLinear:
+            return UIViewAnimationOptionCurveLinear;
+            break;
+            
+        default:
+            return UIViewAnimationOptionCurveEaseInOut;
+            break;
+    }
 }
 
 static char UIViewKeyboardTriggerOffset;
@@ -58,13 +58,13 @@ static char UIViewKeyboardPanRecognizer;
     Method originalMethod = class_getInstanceMethod(self, originalSelector);
     Method swizzledMethod = class_getInstanceMethod(self, swizzledSelector);
     class_addMethod(self,
-					originalSelector,
-					class_getMethodImplementation(self, originalSelector),
-					method_getTypeEncoding(originalMethod));
-	class_addMethod(self,
-					swizzledSelector,
-					class_getMethodImplementation(self, swizzledSelector),
-					method_getTypeEncoding(swizzledMethod));
+                    originalSelector,
+                    class_getMethodImplementation(self, originalSelector),
+                    method_getTypeEncoding(originalMethod));
+    class_addMethod(self,
+                    swizzledSelector,
+                    class_getMethodImplementation(self, swizzledSelector),
+                    method_getTypeEncoding(swizzledMethod));
     method_exchangeImplementations(originalMethod, swizzledMethod);
 }
 

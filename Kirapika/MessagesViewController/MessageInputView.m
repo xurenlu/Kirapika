@@ -78,15 +78,15 @@
     self.textView = [[HPGrowingTextView alloc] initWithFrame:CGRectMake(6.0f, 3.0f, width, self.bounds.size.height)];
     self.textView.contentInset = UIEdgeInsetsMake(0, 5, 0, 5);
     
-	self.textView.minNumberOfLines = 1;
-	self.textView.maxNumberOfLines = 6;
+    self.textView.minNumberOfLines = 1;
+    self.textView.maxNumberOfLines = 6;
     self.textView.returnKeyType = UIReturnKeyDefault;
-	self.textView.font = [UIFont systemFontOfSize:15.0f];
+    self.textView.font = [UIFont systemFontOfSize:15.0f];
     self.textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
     self.textView.backgroundColor = [UIColor whiteColor];
 
     [self addSubview:self.textView];
-	
+    
     self.inputFieldBack = [[UIImageView alloc] initWithFrame:CGRectMake(self.textView.frame.origin.x - 1.0f,
                                                                                 0.0f,
                                                                                 self.textView.frame.size.width + 2.0f,

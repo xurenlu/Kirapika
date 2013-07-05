@@ -9,8 +9,8 @@
 @interface BubbleMessageData : NSObject <NSCoding>
 
 typedef enum {
-	BubbleMessageStyleRightSender = 0,
-	BubbleMessageStyleLeftSender = 1
+    BubbleMessageStyleRightSender = 0,
+    BubbleMessageStyleLeftSender = 1
 } BubbleMessageStyle;
 
 @property (nonatomic, strong) NSString *bubbleContext;
