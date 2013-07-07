@@ -12,7 +12,6 @@
 @interface ChatViewController ()
 
 @property (nonatomic, strong) ReplyText *replyText;
-@property (nonatomic) UIBackgroundTaskIdentifier replyingMessagesTask;
 - (void)replyWithText:(NSString *)text;
 - (NSString *)checkSpecialCommandWithText:(NSString *)text;
 - (ToggleButtonSelected)toggleButtonSelected;
@@ -48,8 +47,6 @@
 - (void)replyWithText:(NSString *)text
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        self.replyingMessagesTask = [self startBackgroundTask];
-
         [self setIsReplying:YES];
 
         NSString *check = [self checkSpecialCommandWithText:text];
@@ -62,8 +59,6 @@
         [self replyRecievedWithMessages:replys];
 
         [self setEditingEnabled:YES];
-        
-        [self endBackgroundTask:self.replyingMessagesTask];
     });
 }
 
@@ -74,7 +69,7 @@
             long int number = [[text substringFromIndex:11] intValue];
             if (number > 0) {
                 [self.replyText loadWithManagedObjectContext:self.managedObjectContext andLimit:number];
-                [self.userDefaults setInteger:number forKey:DATA_LIMIT_NUMBER_KEY];
+                [[NSUserDefaults standardUserDefaults] setInteger:number forKey:DATA_LIMIT_NUMBER_KEY];
                 return [NSString stringWithFormat:@"%@%ld", NSLocalizedString(@"have set limitation to:", @"special command return value"), number];
             } else {
                 return NSLocalizedString(@"limitation cannot be 0.", @"special command return value");
@@ -110,7 +105,7 @@
     if (_replyText == nil) {
         _replyText = [ReplyText new];
         _replyText.replyTextPreference = NormalReply;
-        int limit = [self.userDefaults integerForKey:DATA_LIMIT_NUMBER_KEY];
+        int limit = [[NSUserDefaults standardUserDefaults] integerForKey:DATA_LIMIT_NUMBER_KEY];
         [_replyText loadWithManagedObjectContext:self.managedObjectContext andLimit:limit ? limit : DATA_LIMIT_NUMBER_DEFAULT];
     }
     return _replyText;
@@ -124,21 +119,6 @@
 - (ReplyTextSender)replyTextSender
 {
     return (ReplyTextSender)self.currentSender;
-}
-
-#pragma mark - Unload
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [self endBackgroundTask:self.replyingMessagesTask];
-    [self setReplyText:nil];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    [self endBackgroundTask:self.replyingMessagesTask];
-    [self setReplyText:nil];
 }
 
 @end

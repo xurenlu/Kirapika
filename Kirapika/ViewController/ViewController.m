@@ -66,7 +66,6 @@
     }
     
     [controller setTransitioningDelegate:self];
-    [controller setModalPresentationStyle:UIModalPresentationCustom];
     [self presentViewController:controller animated:YES completion:nil];
 }
 
@@ -74,14 +73,14 @@
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
 {
     GNTransition *trans = [GNTransition new];
-    trans.isPresented = YES;
+    trans.isPresented = NO;
     return trans;
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
 {
     GNTransition *trans = [GNTransition new];
-    trans.isPresented = NO;
+    trans.isPresented = YES;
     return trans;
 }
 

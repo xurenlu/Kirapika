@@ -11,6 +11,6 @@
 
 @interface SoloViewController : MessagesViewController
 
-@property (weak, nonatomic) IBOutlet HintView *hint;
+@property (nonatomic, weak) IBOutlet HintView *hint;
 
 @end

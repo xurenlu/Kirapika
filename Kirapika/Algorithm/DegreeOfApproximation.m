@@ -13,7 +13,7 @@
 
 + (int)extraCost:(NSMutableString *)x
 {
-    return (int)[x replaceOccurrencesOfString:NOSIMIWO withString:@"" options:NSWidthInsensitiveSearch range:NSMakeRange(0, [x length])];
+    return (int)[x replaceOccurrencesOfString:NOSIMIWO withString:@"" options:NSWidthInsensitiveSearch range:NSMakeRange(0, x.length)];
 }
 
 + (double)degreeOfApproximation:(NSString *)x :(NSString *)y withExtra:(int)extra

@@ -191,6 +191,7 @@ static char UIViewKeyboardPanRecognizer;
     [self removeGestureRecognizer:self.keyboardPanRecognizer];
     
     // Release a few properties
+#warning
     self.keyboardDidMoveBlock = nil;
     self.keyboardActiveInput = nil;
     self.keyboardActiveView = nil;

@@ -32,7 +32,7 @@
     fromViewFinalFrame.origin.y += dis / 20;
     fromViewFinalFrame.size.height -= dis / 20 * 2;
     
-    if (!self.isPresented) {
+    if (self.isPresented) {
         toView.frame = toViewInitFrame;
         fromView.frame = fromViewInitFrame;
         [inView bringSubviewToFront:toView];
@@ -43,7 +43,7 @@
     }
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-        if (!self.isPresented) {
+        if (self.isPresented) {
             toView.frame = toViewFinalFrame;
             fromView.frame = fromViewFinalFrame;
         } else {

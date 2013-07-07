@@ -11,7 +11,7 @@
 @interface BubbleTypingCell()
 
 - (void)setup;
-@property (nonatomic, retain) UIImageView *typingImageView;
+@property (nonatomic, strong) UIImageView *typingImageView;
 
 @end
 

@@ -8,6 +8,6 @@
 
 @interface HintView : UIImageView
 
-@property (strong, nonatomic) UILabel *label;
+@property (nonatomic, strong) UILabel *label;
 
 @end

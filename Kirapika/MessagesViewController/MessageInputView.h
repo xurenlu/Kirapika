@@ -35,7 +35,7 @@
 
 @interface MessageInputView : UIImageView
 
-@property (strong, nonatomic) HPGrowingTextView *textView;
-@property (strong, nonatomic) UIButton *sendButton;
+@property (nonatomic, strong) HPGrowingTextView *textView;
+@property (nonatomic, strong) UIButton *sendButton;
 
 @end

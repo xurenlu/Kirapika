@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 Daniel Amitay. All rights reserved.
 //
 
+#warning wait to add until final release of iOS 7
+
 typedef void (^DAKeyboardDidMoveBlock)(CGRect keyboardFrameInView);
 
 @interface UIView (DAKeyboardControl)

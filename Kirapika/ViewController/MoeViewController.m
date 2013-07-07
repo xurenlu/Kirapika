@@ -12,7 +12,6 @@
 
 @interface MoeViewController ()
 
-@property (strong, nonatomic) NSUserDefaults *userDefaults;
 - (void)removePlist;
 - (void)removeDatabase;
 
@@ -31,11 +30,11 @@
     if ([url.pathExtension isEqualToString:PLIST_TYPE]) {
         [self removePlist];
         [FilesManagement importPlist:url];
-        [self.userDefaults setValue:[[[url URLByDeletingPathExtension] URLByAppendingPathExtension:@"plist"] lastPathComponent] forKey:CURRENT_PLIST_NAME];
+        [[NSUserDefaults standardUserDefaults] setValue:[[[url URLByDeletingPathExtension] URLByAppendingPathExtension:@"plist"] lastPathComponent] forKey:CURRENT_PLIST_NAME];
     } else if ([url.pathExtension isEqualToString:DATABASE_TYPE]) {
         [self removeDatabase];
         [FilesManagement importDatabase:url];
-        [self.userDefaults setValue:[[url URLByDeletingPathExtension] lastPathComponent] forKey:CURRENT_DATABASE_NAME];
+        [[NSUserDefaults standardUserDefaults] setValue:[[url URLByDeletingPathExtension] lastPathComponent] forKey:CURRENT_DATABASE_NAME];
     }
     self.status.text = NSLocalizedString(@"imported", @"setting view status");
 }
@@ -55,32 +54,20 @@
 - (void)removePlist
 {
     [FilesManagement removeFileFromDocumentDirectory:CURRENT_PLIST_NAME];
-    [self.userDefaults setValue:nil forKey:CURRENT_PLIST_NAME];
+    [[NSUserDefaults standardUserDefaults] setValue:nil forKey:CURRENT_PLIST_NAME];
 }
 
 - (void)removeDatabase
 {
     [FilesManagement removeFileFromDocumentDirectory:CURRENT_DATABASE_NAME];
-    [self.userDefaults setValue:nil forKey:CURRENT_DATABASE_NAME];
-}
-
-- (NSUserDefaults *)userDefaults
-{
-    if (!_userDefaults) _userDefaults = [NSUserDefaults standardUserDefaults];
-    return _userDefaults;
+    [[NSUserDefaults standardUserDefaults] setValue:nil forKey:CURRENT_DATABASE_NAME];
 }
 
 #pragma mark - Unload
-- (void)viewWillDisappear:(BOOL)animated
+- (void)viewDidDisappear:(BOOL)animated
 {
-    [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:OPEN_URL_NOTIFICATION object:nil];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    [self setUserDefaults:nil];
+    [super viewDidDisappear:animated];
 }
 
 @end

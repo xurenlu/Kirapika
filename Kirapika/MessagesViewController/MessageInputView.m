@@ -134,7 +134,7 @@
 - (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled
 {
     [super setUserInteractionEnabled:userInteractionEnabled];
-    
+
     UIImage *image = [UIImage imageNamed:userInteractionEnabled ? @"input-field" : @"input-field-disable"];
     self.inputFieldBack.image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(20.0f, 12.0f, 18.0f, 18.0f)];
 }

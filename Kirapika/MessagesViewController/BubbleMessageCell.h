@@ -35,7 +35,7 @@
 
 @interface BubbleMessageCell : UITableViewCell
 
-@property (strong, nonatomic) BubbleView *bubbleView;
+@property (nonatomic, strong) BubbleView *bubbleView;
 
 - (id)initWithBubbleStyle:(BubbleMessageStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 

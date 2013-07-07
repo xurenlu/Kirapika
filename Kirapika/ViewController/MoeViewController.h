@@ -12,7 +12,7 @@
 
 @interface MoeViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *status;
+@property (nonatomic, weak) IBOutlet UILabel *status;
 - (IBAction)clearButtonTapped:(id)sender;
 - (void)openURL:(NSNotification *)aNotification;
 

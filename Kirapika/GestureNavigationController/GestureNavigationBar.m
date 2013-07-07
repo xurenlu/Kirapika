@@ -37,10 +37,10 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {    
-    UITouch *touch = touches.anyObject;
-    UIWindow *window = touch.window;
-    
-    [self.delegate touchBegan:window];
+//    UITouch *touch = touches.anyObject;
+//    UIWindow *window = touch.window;
+
+    [self.delegate touchBegan:nil];
     
 //    CGPoint loaction = [touch locationInView:window];
 //    float distance = window.bounds.size.height - loaction.y;

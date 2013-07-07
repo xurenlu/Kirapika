@@ -41,8 +41,8 @@
 
 @interface BubbleView()
 
-@property (strong, nonatomic) UIImage *incomingBackground;
-@property (strong, nonatomic) UIImage *outgoingBackground;
+@property (nonatomic, strong) UIImage *incomingBackground;
+@property (nonatomic, strong) UIImage *outgoingBackground;
 
 - (void)setup;
 

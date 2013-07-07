@@ -10,6 +10,6 @@
 
 @interface ViewController : UIViewController <PixelStyleHandwritingRecognitionViewDelegate, UIViewControllerTransitioningDelegate>
 
-@property (strong, nonatomic) IBOutlet PixelStyleHandwritingRecognitionView *view;
+@property (nonatomic, strong) PixelStyleHandwritingRecognitionView *view;
 
 @end

@@ -14,19 +14,9 @@
 
 @implementation RecallViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-
 - (void)documentIsReady
 {
     if (!self.messagesCount) [self messagesAddObject:[self createMessageFromText:@"haven't compeleted yet" andSender:self.currentSender]];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
 }
 
 @end

@@ -11,8 +11,7 @@
 
 @interface CoreDataMessagesViewController ()
 
-@property (nonatomic ,strong) UIManagedDocument *document;
-@property (nonatomic) BOOL finishedLoadingContext;
+@property (nonatomic, strong) UIManagedDocument *document;
 - (void)documentIsOpened;
 
 @end
@@ -30,7 +29,7 @@
     [self setEditingEnabled:NO];
     [self setIsReplying:YES];
 
-    NSString *path = [self.userDefaults objectForKey:CURRENT_DATABASE_NAME];
+    NSString *path = [[NSUserDefaults standardUserDefaults] objectForKey:CURRENT_DATABASE_NAME];
     if (path) {
         NSURL *url = [[NSURL fileURLWithPath:[[FilesManagement documentDirectory] path]] URLByAppendingPathComponent:path];
         self.document = [[UIManagedDocument alloc]initWithFileURL:url];
@@ -103,21 +102,4 @@
     return (BubbleMessageStyle)sender.isLeftUser.intValue;
 }
 
-- (UIBackgroundTaskIdentifier)startBackgroundTask
-{
-    return [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
-}
-
-- (void)endBackgroundTask:(UIBackgroundTaskIdentifier)bgTask
-{
-    if (bgTask != UIBackgroundTaskInvalid) [[UIApplication sharedApplication] endBackgroundTask:bgTask];
-}
-
-#pragma mark - Unload
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    [self setManagedObjectContext:nil];
-    [self setDocument:nil];
-}
 @end

@@ -218,15 +218,9 @@
 }
 
 #pragma mark - Data
-- (NSUserDefaults *)userDefaults
-{
-    if (!_userDefaults) _userDefaults = [NSUserDefaults standardUserDefaults];
-    return _userDefaults;
-}
-
 - (NSMutableArray *)messages
 {
-    if (!_messages) _messages = [[NSKeyedUnarchiver unarchiveObjectWithData:[self.userDefaults objectForKey:MESSAGES_ARRAY_KEY]] mutableCopy];
+    if (!_messages) _messages = [[NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:MESSAGES_ARRAY_KEY]] mutableCopy];
     if (!_messages.count) _messages = [NSMutableArray new];
     [self clearAllNotificaitons];
     return _messages;
@@ -240,30 +234,36 @@
 - (void)setMessages:(NSMutableArray *)messages
 {
     _messages = messages;
-    [self.userDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:_messages] forKey:MESSAGES_ARRAY_KEY];
+    if (_messages) [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_messages] forKey:MESSAGES_ARRAY_KEY];
     [self.tableView reloadDataWithAutoScrolling];
 }
 
 - (void)messagesAddObject:(id)object
 {
-    [_messages addObject:object];
-    [self.userDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:_messages] forKey:MESSAGES_ARRAY_KEY];
-    UITableViewRowAnimation ani = self.isReplying ? UITableViewRowAnimationNone : UITableViewRowAnimationFade;
-    [self.tableView insertRowAtIndexPath:[NSIndexPath indexPathForRow:self.messagesCount-1 inSection:0] withRowAnimation:ani];
+    if (object) {
+        [_messages addObject:object];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_messages] forKey:MESSAGES_ARRAY_KEY];
+        UITableViewRowAnimation ani = self.isReplying ? UITableViewRowAnimationNone : UITableViewRowAnimationFade;
+        [self.tableView insertRowAtIndexPath:[NSIndexPath indexPathForRow:self.messagesCount-1 inSection:0] withRowAnimation:ani];
+    }
 }
 
 - (void)messagesAddObjectFromArray:(NSArray *)array
 {
-    [_messages addObjectsFromArray:array];
-    [self.userDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:_messages] forKey:MESSAGES_ARRAY_KEY];
-    [self.tableView reloadDataWithAutoScrolling];
+    if (array) {
+        [_messages addObjectsFromArray:array];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_messages] forKey:MESSAGES_ARRAY_KEY];
+        [self.tableView reloadDataWithAutoScrolling];
+    }
 }
 
 - (void)messagesRemoveAllObjects
 {
-    [_messages removeAllObjects];
-    [self.userDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:_messages] forKey:MESSAGES_ARRAY_KEY];
-    [self.tableView reloadDataWithAutoScrolling];
+    if (_messages) {
+        [_messages removeAllObjects];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_messages] forKey:MESSAGES_ARRAY_KEY];
+        [self.tableView reloadDataWithAutoScrolling];
+    }
 }
 
 - (BubbleMessageData *)createMessageFromText:(NSString *)text andSender:(BubbleMessageStyle)sender
@@ -277,12 +277,12 @@
 
 - (BubbleMessageStyle)currentSender
 {
-    return [self.userDefaults boolForKey:CURRENT_SENDER_KEY];
+    return [[NSUserDefaults standardUserDefaults] boolForKey:CURRENT_SENDER_KEY];
 }
 
 - (void)setCurrentSender:(BubbleMessageStyle)currentSender
 {
-    [self.userDefaults setBool:currentSender forKey:CURRENT_SENDER_KEY];
+    [[NSUserDefaults standardUserDefaults] setBool:currentSender forKey:CURRENT_SENDER_KEY];
 }
 
 - (void)setIsReplying:(BOOL)isReplying
@@ -300,17 +300,14 @@
 #pragma mark - Unload
 - (void)viewDidDisappear:(BOOL)animated
 {
+    [self.view removeKeyboardControl];
     [super viewDidDisappear:animated];
-    [self setUserDefaults:nil];
-    _messages = nil;
-    
 }
 
 - (void)didReceiveMemoryWarning
 {
+    [self setMessages:nil];
     [super didReceiveMemoryWarning];
-    [self setUserDefaults:nil];
-    _messages = nil;
 }
 
 @end

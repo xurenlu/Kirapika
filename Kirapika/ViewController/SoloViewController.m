@@ -38,7 +38,7 @@
     [self clearAllMessages];
     self.currentSender = BubbleMessageStyleRightSender;
     
-    NSString *path = [self.userDefaults objectForKey:CURRENT_PLIST_NAME];
+    NSString *path = [[NSUserDefaults standardUserDefaults] objectForKey:CURRENT_PLIST_NAME];
     if (path) {
         NSURL *url = [[[FilesManagement documentDirectory] URLByAppendingPathComponent:path] filePathURL];
         self.sections = [[NSArray alloc]initWithContentsOfURL:url];
@@ -106,13 +106,6 @@
 - (NSDictionary *)currentSection
 {
     return (self.sections)[self.currentSectionIndex];
-}
-
-#pragma mark - Unload
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    [self setSections:nil];
 }
 
 @end

@@ -35,8 +35,8 @@
 
 @interface BubbleView : UIView
 
-@property (assign, nonatomic) BubbleMessageStyle style;
-@property (copy, nonatomic) NSString *text;
+@property (nonatomic) BubbleMessageStyle style;
+@property (nonatomic, copy) NSString *text;
 
 #pragma mark - Bubble View
 + (UIFont *)font;

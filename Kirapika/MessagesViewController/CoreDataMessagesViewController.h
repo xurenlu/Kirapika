@@ -23,7 +23,4 @@
 - (BubbleMessageData *)createMessageFromMessage:(Message *)message;
 - (BubbleMessageStyle)bubbleCurrentSender:(Sender *)sender;
 
-- (UIBackgroundTaskIdentifier)startBackgroundTask;
-- (void)endBackgroundTask:(UIBackgroundTaskIdentifier)bgTask;
-
 @end
