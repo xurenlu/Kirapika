@@ -12,6 +12,7 @@
 @interface CoreDataMessagesViewController ()
 
 @property (nonatomic, strong) UIManagedDocument *document;
+- (void)loadDocument;
 - (void)documentIsOpened;
 
 @end
