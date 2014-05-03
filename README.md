@@ -1,9 +1,9 @@
-Kirapika
-===========================
+# Kirapika
+
 Kirapika is a mobile 'chatting robot' based on your chat records.
 Video Demo: http://v.youku.com/v_show/id_XNTUzOTM1NDQw.html
 
-##Features
+## Features
 
 **You can use it without internect connection.**
 
@@ -20,6 +20,7 @@ Build and run this app.
 Use Kirapika Builder to generate your database, then send this to your iPhone, iPod touch or iPad.
 
 ## Licensing 
+
 Copyright (C) 2013 by Bowei Jia (Justin).
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
