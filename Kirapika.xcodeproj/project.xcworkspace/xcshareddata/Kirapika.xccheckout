@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>A3F80867-A850-4F04-AA73-27D13E8A84E5</string>
+	<string>49882B90-6E6E-40D4-BA18-FF6B9EEDBEA0</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Kirapika</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>BC6464EC-C131-457A-AABB-49D4BB6E972C</key>
-		<string>ssh://github.com/everte-J/Kirapika.git</string>
+		<key>B478E360E3F83F44D74E95012B0460F390A5C7D9</key>
+		<string>https://github.com/JustinJiaDev/Kirapika.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Kirapika.xcodeproj/project.xcworkspace</string>
+	<string>Kirapika.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>BC6464EC-C131-457A-AABB-49D4BB6E972C</key>
+		<key>B478E360E3F83F44D74E95012B0460F390A5C7D9</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/everte-J/Kirapika.git</string>
+	<string>https://github.com/JustinJiaDev/Kirapika.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>BC6464EC-C131-457A-AABB-49D4BB6E972C</string>
+	<string>B478E360E3F83F44D74E95012B0460F390A5C7D9</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>BC6464EC-C131-457A-AABB-49D4BB6E972C</string>
+			<string>B478E360E3F83F44D74E95012B0460F390A5C7D9</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Kirapika</string>
 		</dict>
